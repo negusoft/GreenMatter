@@ -18,8 +18,8 @@
 
     <style name="Theme.GreenMatter" parent="Base.Theme.GreenMatter">
 
-        <item name="android:listChoiceIndicatorMultiple">@drawable/gm__btn_radio</item>
-        <!--<item name="android:listChoiceIndicatorSingle">@android:drawable/btn_star</item>-->
+        <item name="android:listChoiceIndicatorMultiple">@drawable/gm__btn_check</item>
+        <item name="android:listChoiceIndicatorSingle">@drawable/gm__btn_radio</item>
 
     </style>
 
@@ -46,8 +46,6 @@
 
         <!--<item name="actionBarTheme">@style/Theme.GreenMatter</item>-->
         <item name="actionBarStyle">@style/Widget.GreenMatter.ActionBar.Solid</item>
-
-        <!--<item name="android:selectableItemBackgroundBorderless">@drawable/aa_ripple_inner</item>-->
 
     </style>
 

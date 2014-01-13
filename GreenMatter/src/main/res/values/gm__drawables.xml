@@ -20,8 +20,9 @@
     <item name="gm__solid_primary_reference" type="drawable">#0000</item>
     <item name="gm__solid_primary_dark_reference" type="drawable">#0000</item>
     <item name="gm__solid_accent_reference" type="drawable">#0000</item>
+    <item name="gm__btn_check_reference" type="drawable">#0000</item>
     <item name="gm__btn_radio_reference" type="drawable">#0000</item>
-    <item name="ha__circle_focused_reference" type="drawable">#0000</item>
-    <item name="ha__circle_pressed_reference" type="drawable">#0000</item>
+    <item name="gm__circle_focused_reference" type="drawable">#0000</item>
+    <item name="gm__circle_pressed_reference" type="drawable">#0000</item>
     
 </resources>

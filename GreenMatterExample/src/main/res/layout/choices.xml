@@ -33,7 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:colorAccent="#0000ff"
-            android:checked="true"
+            android:checked="false"
             android:text="@string/checkbox_enabled" />
 
         <CheckBox

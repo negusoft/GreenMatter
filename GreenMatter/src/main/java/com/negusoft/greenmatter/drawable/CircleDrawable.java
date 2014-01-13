@@ -94,8 +94,21 @@ public class CircleDrawable extends Drawable {
 
 	@Override
 	public void setAlpha(int alpha) {
-		// empty
+        if (mBorderPaint != null) {
+            int borderAlpha = calculateAlpha(alpha, mState.mBorderColor);
+            mBorderPaint.setAlpha(borderAlpha);
+        }
+        if (mFillPaint != null) {
+            int fillAlpha = calculateAlpha(alpha, mState.mColor);
+            mFillPaint.setAlpha(fillAlpha);
+        }
 	}
+
+    // Calculate the resulting alpha from the original color and the relative alpha.
+    private int calculateAlpha(int alpha, int originalColor) {
+        int originalAlpha = Color.alpha(originalColor);
+        return originalAlpha * alpha / 255;
+    }
 
 	@Override
 	public void setColorFilter(ColorFilter cf) {

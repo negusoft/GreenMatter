@@ -28,13 +28,13 @@ public class CircleInterceptor implements MatResources.Interceptor {
 	
 	@Override
 	public Drawable getDrawable(Resources res, MatPalette palette, int resId) {
-		if (resId == R.drawable.ha__circle_pressed_reference) {
-			int backColor = palette.getColorAccent(0x88);
+		if (resId == R.drawable.gm__circle_pressed_reference) {
+			int backColor = palette.getColorControlHighlight(0x88);
 			return new CircleDrawable(res, 16f, backColor, 0f, Color.TRANSPARENT);
 		}
-		if (resId == R.drawable.ha__circle_focused_reference) {
-            int backColor = palette.getColorAccent(0x55);
-            return new CircleDrawable(res, 16f, backColor, 0f, Color.TRANSPARENT);
+		if (resId == R.drawable.gm__circle_focused_reference) {
+            int borderColor = palette.getColorControlHighlight(0x88);
+            return new CircleDrawable(res, 15f, Color.TRANSPARENT, 2f, borderColor);
 		}
 		return null;
 	}

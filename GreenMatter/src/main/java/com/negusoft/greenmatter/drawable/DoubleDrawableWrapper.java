@@ -23,126 +23,137 @@ import android.graphics.Rect;
 import android.graphics.Region;
 import android.graphics.drawable.Drawable;
 import android.support.v4.graphics.drawable.DrawableCompat;
-import android.view.View;
 
 /**
- * Base wrapper that delegates all calls to a primary {@link Drawable}, and displays a secondary
- * {@link Drawable} at the same time. The wrapped {@link Drawable} pair <em>must</em> be fully
- * released from any {@link View} before wrapping, otherwise internal {@link Drawable.Callback}
- * may be dropped.
+ * Base wrapper that delegates all calls to another {@link android.graphics.drawable.Drawable}. The wrapped {@link android.graphics.drawable.Drawable}
+ * <em>must</em> be fully released from any {@link android.view.View} before wrapping, otherwise internal {@link
+ * android.graphics.drawable.Drawable.Callback} may be dropped.
  */
-public class DrawableWrapper extends Drawable implements Drawable.Callback {
+public class DoubleDrawableWrapper extends Drawable implements Drawable.Callback {
 
-    private final Drawable mDrawable;
+    private final Drawable mDrawablePrimary;
+    private final Drawable mDrawableSecondary;
 
-    public DrawableWrapper(Drawable drawable) {
-        mDrawable = drawable;
-        mDrawable.setCallback(this);
+    public DoubleDrawableWrapper(Drawable primary, Drawable secondary) {
+        mDrawablePrimary = primary;
+        mDrawableSecondary = secondary;
+        mDrawablePrimary.setCallback(this);
+        mDrawableSecondary.setCallback(this);
     }
 
     @Override
     public void draw(Canvas canvas) {
-        mDrawable.draw(canvas);
+        mDrawableSecondary.draw(canvas);
+        mDrawablePrimary.draw(canvas);
     }
 
     @Override
     public void setBounds(int left, int top, int right, int bottom) {
         super.setBounds(left, top, right, bottom);
-        mDrawable.setBounds(left, top, right, bottom);
+        mDrawableSecondary.setBounds(left, top, right, bottom);
+        mDrawablePrimary.setBounds(left, top, right, bottom);
     }
 
     @Override
     public void setChangingConfigurations(int configs) {
-        mDrawable.setChangingConfigurations(configs);
+        mDrawableSecondary.setChangingConfigurations(configs);
+        mDrawablePrimary.setChangingConfigurations(configs);
     }
 
     @Override
     public int getChangingConfigurations() {
-        return mDrawable.getChangingConfigurations();
+        return mDrawablePrimary.getChangingConfigurations();
     }
 
     @Override
     public void setDither(boolean dither) {
-        mDrawable.setDither(dither);
+        mDrawableSecondary.setDither(dither);
+        mDrawablePrimary.setDither(dither);
     }
 
     @Override
     public void setFilterBitmap(boolean filter) {
-        mDrawable.setFilterBitmap(filter);
+        mDrawableSecondary.setFilterBitmap(filter);
+        mDrawablePrimary.setFilterBitmap(filter);
     }
 
     @Override
     public void setAlpha(int alpha) {
-        mDrawable.setAlpha(alpha);
+        mDrawableSecondary.setAlpha(alpha);
+        mDrawablePrimary.setAlpha(alpha);
     }
 
     @Override
     public void setColorFilter(ColorFilter cf) {
-        mDrawable.setColorFilter(cf);
+        mDrawableSecondary.setColorFilter(cf);
+        mDrawablePrimary.setColorFilter(cf);
     }
 
     @Override
     public boolean isStateful() {
-        return mDrawable.isStateful();
+        return mDrawablePrimary.isStateful();
     }
 
     @Override
     public boolean setState(final int[] stateSet) {
-        return mDrawable.setState(stateSet);
+        mDrawableSecondary.setState(stateSet);
+        return mDrawablePrimary.setState(stateSet);
     }
 
     @Override
     public int[] getState() {
-        return mDrawable.getState();
+        return mDrawablePrimary.getState();
     }
 
     public void jumpToCurrentState() {
-        DrawableCompat.jumpToCurrentState(mDrawable);
+        DrawableCompat.jumpToCurrentState(mDrawableSecondary);
+        DrawableCompat.jumpToCurrentState(mDrawablePrimary);
     }
 
     @Override
     public Drawable getCurrent() {
-        return mDrawable.getCurrent();
+        return mDrawablePrimary.getCurrent();
     }
 
     @Override
     public boolean setVisible(boolean visible, boolean restart) {
-        return super.setVisible(visible, restart) || mDrawable.setVisible(visible, restart);
+        mDrawableSecondary.setVisible(visible, restart);
+        return super.setVisible(visible, restart) || mDrawablePrimary.setVisible(visible, restart);
     }
 
     @Override
     public int getOpacity() {
-        return mDrawable.getOpacity();
+        return mDrawablePrimary.getOpacity();
     }
 
     @Override
     public Region getTransparentRegion() {
-        return mDrawable.getTransparentRegion();
+        return mDrawablePrimary.getTransparentRegion();
     }
 
     @Override
     public int getIntrinsicWidth() {
-        return mDrawable.getIntrinsicWidth();
+        return mDrawablePrimary.getIntrinsicWidth();
     }
 
     @Override
     public int getIntrinsicHeight() {
-        return mDrawable.getIntrinsicHeight();
+        return mDrawablePrimary.getIntrinsicHeight();
     }
 
     @Override
     public int getMinimumWidth() {
-        return mDrawable.getMinimumWidth();
+        return mDrawablePrimary.getMinimumWidth();
     }
 
     @Override
     public int getMinimumHeight() {
-        return mDrawable.getMinimumHeight();
+        return mDrawablePrimary.getMinimumHeight();
     }
 
     @Override
     public boolean getPadding(Rect padding) {
-        return mDrawable.getPadding(padding);
+        return mDrawablePrimary.getPadding(padding);
     }
 
     /**
@@ -168,41 +179,47 @@ public class DrawableWrapper extends Drawable implements Drawable.Callback {
 
     @Override
     protected boolean onLevelChange(int level) {
-        return mDrawable.setLevel(level);
+        return mDrawablePrimary.setLevel(level);
     }
 
     @Override
     public void setAutoMirrored(boolean mirrored) {
-        DrawableCompat.setAutoMirrored(mDrawable, mirrored);
+        DrawableCompat.setAutoMirrored(mDrawableSecondary, mirrored);
+        DrawableCompat.setAutoMirrored(mDrawablePrimary, mirrored);
     }
 
     @Override
     public boolean isAutoMirrored() {
-        return DrawableCompat.isAutoMirrored(mDrawable);
+        return DrawableCompat.isAutoMirrored(mDrawablePrimary);
     }
 
     @Override
     public void setTint(int tint) {
-        DrawableCompat.setTint(mDrawable, tint);
+        DrawableCompat.setTint(mDrawableSecondary, tint);
+        DrawableCompat.setTint(mDrawablePrimary, tint);
     }
 
     @Override
     public void setTintList(ColorStateList tint) {
-        DrawableCompat.setTintList(mDrawable, tint);
+        DrawableCompat.setTintList(mDrawableSecondary, tint);
+        DrawableCompat.setTintList(mDrawablePrimary, tint);
     }
 
     @Override
     public void setTintMode(PorterDuff.Mode tintMode) {
-        DrawableCompat.setTintMode(mDrawable, tintMode);
+        DrawableCompat.setTintMode(mDrawableSecondary, tintMode);
+        DrawableCompat.setTintMode(mDrawablePrimary, tintMode);
     }
 
     @Override
     public void setHotspot(float x, float y) {
-        DrawableCompat.setHotspot(mDrawable, x, y);
+        DrawableCompat.setHotspot(mDrawableSecondary, x, y);
+        DrawableCompat.setHotspot(mDrawablePrimary, x, y);
     }
 
     @Override
     public void setHotspotBounds(int left, int top, int right, int bottom) {
-        DrawableCompat.setHotspotBounds(mDrawable, left, top, right, bottom);
+        DrawableCompat.setHotspotBounds(mDrawableSecondary, left, top, right, bottom);
+        DrawableCompat.setHotspotBounds(mDrawablePrimary, left, top, right, bottom);
     }
 }
