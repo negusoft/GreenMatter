@@ -31,7 +31,7 @@ import android.view.View;
  * released from any {@link View} before wrapping, otherwise internal {@link Drawable.Callback}
  * may be dropped.
  */
-public class DrawableWrapper extends Drawable implements Drawable.Callback {
+class DrawableWrapper extends Drawable implements Drawable.Callback {
 
     private final Drawable mDrawable;
 

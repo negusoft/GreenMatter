@@ -18,11 +18,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/checkbox_title" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="text"/>
         
         <View 
             android:layout_width="match_parent"
@@ -33,7 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:colorAccent="#0000ff"
-            android:checked="false"
+            android:checked="true"
             android:text="@string/checkbox_enabled" />
 
         <CheckBox
