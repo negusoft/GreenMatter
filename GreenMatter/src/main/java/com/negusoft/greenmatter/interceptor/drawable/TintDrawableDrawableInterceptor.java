@@ -10,6 +10,7 @@ import com.negusoft.greenmatter.MatResources;
 import com.negusoft.greenmatter.R;
 import com.negusoft.greenmatter.drawable.CompoundDrawableWrapper;
 import com.negusoft.greenmatter.drawable.TintDrawableWrapper;
+import com.negusoft.greenmatter.util.ColorUtils;
 
 /** Intercepts drawables that need to be wrapped in TintDrawableWrapper. */
 public class TintDrawableDrawableInterceptor implements MatResources.DrawableInterceptor {
@@ -56,11 +57,11 @@ public class TintDrawableDrawableInterceptor implements MatResources.DrawableInt
 
         // Disabled states
         states[i] = new int[] { -android.R.attr.state_enabled, android.R.attr.state_checked };
-        colors[i] = applyColorAlpha(colorActivated, disabledAlpha);
+        colors[i] = ColorUtils.applyColorAlpha(colorActivated, disabledAlpha);
         i++;
 
         states[i] = new int[] { -android.R.attr.state_enabled };
-        colors[i] = applyColorAlpha(colorNormal, disabledAlpha);
+        colors[i] = ColorUtils.applyColorAlpha(colorNormal, disabledAlpha);
         i++;
 
         // Enabled states
@@ -102,19 +103,12 @@ public class TintDrawableDrawableInterceptor implements MatResources.DrawableInt
 
         // Disabled
         states[0] = new int[] { -android.R.attr.state_enabled };
-        colors[0] = applyColorAlpha(color, disabledAlpha);
+        colors[0] = ColorUtils.applyColorAlpha(color, disabledAlpha);
         // Default (enabled)
         states[1] = new int[0];
         colors[1] = color;
 
         return new ColorStateList(states, colors);
-    }
-
-    /** Modify the colors translucency by alpha [0..1] with respect to the original color alpha. */
-    private int applyColorAlpha(int color, float alpha) {
-        final int originalAlpha = Color.alpha(color);
-        // Return the color, multiplying the original alpha by the disabled value
-        return (color & 0x00ffffff) | (Math.round(originalAlpha * alpha) << 24);
     }
 
 }

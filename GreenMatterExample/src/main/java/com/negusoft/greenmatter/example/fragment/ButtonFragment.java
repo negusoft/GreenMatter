@@ -1,5 +1,6 @@
 package com.negusoft.greenmatter.example.fragment;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.ContextMenu;
@@ -13,6 +14,7 @@ import android.widget.ListPopupWindow;
 import android.widget.QuickContactBadge;
 
 import com.negusoft.greenmatter.example.R;
+import com.negusoft.greenmatter.view.MatButton;
 
 public class ButtonFragment extends Fragment {
 	
@@ -28,6 +30,11 @@ public class ButtonFragment extends Fragment {
 		
 //		mListPopupButton = result.findViewById(R.id.listPopupButton);
 //		mListPopupButton.setOnLongClickListener(mPopupListener);
+
+        // Test MatButton.setColor()
+//        if (coloredButton instanceof MatButton) {
+//            ((MatButton)coloredButton).setColor(Color.BLUE);
+//        }
 
         QuickContactBadge badge = (QuickContactBadge)result.findViewById(R.id.badge);
         badge.assignContactFromEmail("info@negusoft.com", false);

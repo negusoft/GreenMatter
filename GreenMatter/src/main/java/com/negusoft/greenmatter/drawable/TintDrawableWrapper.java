@@ -28,7 +28,7 @@ public class TintDrawableWrapper extends DrawableWrapper {
 
     private static final PorterDuff.Mode DEFAULT_TINT_MODE = PorterDuff.Mode.SRC_IN;
 
-    private final ColorStateList mTintStateList;
+    private ColorStateList mTintStateList;
     private final PorterDuff.Mode mTintMode;
 
     private int mCurrentColor;
@@ -54,6 +54,15 @@ public class TintDrawableWrapper extends DrawableWrapper {
         boolean handled = super.setState(stateSet);
         handled = updateTint(stateSet) || handled;
         return handled;
+    }
+
+    public ColorStateList getTintStateList() {
+        return mTintStateList;
+    }
+
+    public void setTintStateList(ColorStateList tintStateList) {
+        mTintStateList = tintStateList;
+        updateTint(getState());
     }
 
     private boolean updateTint(int[] state) {

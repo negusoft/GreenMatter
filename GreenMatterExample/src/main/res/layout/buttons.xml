@@ -67,11 +67,13 @@
                 android:id="@+id/coloredButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:color="?colorPrimary"
                 android:text="@string/button_default" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:color="?colorPrimary"
                 android:enabled="false"
                 android:text="@string/button_disabled" />
 
@@ -79,6 +81,7 @@
                 style="?android:attr/buttonStyleSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:color="?colorPrimary"
                 android:text="@string/button_small" />
         </LinearLayout>
 
@@ -89,11 +92,13 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:color="?colorPrimaryDark"
                 android:text="@string/button_default" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:color="?colorPrimaryDark"
                 android:enabled="false"
                 android:text="@string/button_disabled" />
 
@@ -101,40 +106,7 @@
                 style="?android:attr/buttonStyleSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/button_small" />
-        </LinearLayout>
-
-        <!-- Colored button (bright) -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:text="@string/button_category_colored_bright" />
-        
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/horizontal_divider_thickness"
-            />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal" >
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/button_default" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:enabled="false"
-                android:text="@string/button_disabled" />
-
-            <Button
-                style="?android:attr/buttonStyleSmall"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:color="?colorPrimaryDark"
                 android:text="@string/button_small" />
         </LinearLayout>
 
@@ -145,6 +117,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:color="@color/button_color"
                 android:text="@string/button_default" />
 
             <Button
@@ -157,6 +130,7 @@
                 style="?android:attr/buttonStyleSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:color="@color/button_color"
                 android:text="@string/button_small" />
         </LinearLayout>
 

@@ -24,7 +24,6 @@
     
     <string name="button_category_default">Buttons (Default)</string>
     <string name="button_category_colored">Colored Buttons</string>
-    <string name="button_category_colored_bright">Colored Buttons (Bright)</string>
     <string name="button_category_other_buttons">Other Button Styles</string>
     <string name="button_category_imagebutton">ImageButtons</string>
     <string name="button_category_toggle">ToggleButton</string>
