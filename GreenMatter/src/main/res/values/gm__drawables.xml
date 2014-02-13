@@ -45,6 +45,9 @@
     <item name="gm__circle_pressed_reference" type="drawable">#0000</item>
     <item name="gm__tab_indicator_reference" type="drawable">#0000</item>
     <item name="gm__cab_background_top_reference" type="drawable">#0000</item>
+    <item name="gm__progress_horizontal_background_reference" type="drawable">#0000</item>
+    <item name="gm__progress_horizontal_secondary_reference" type="drawable">#0000</item>
+    <item name="gm__progress_horizontal_progress_reference" type="drawable">#0000</item>
     <item name="gm__progress_indeterminate_horizontal_item_reference" type="drawable">#0000</item>
     
 </resources>

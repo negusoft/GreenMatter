@@ -73,8 +73,7 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="@dimen/horizontal_divider_thickness"
-             />
+            android:layout_height="@dimen/horizontal_divider_thickness" />
 
         <ProgressBar
             style="?android:progressBarStyleHorizontal"
@@ -103,26 +102,28 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="@dimen/horizontal_divider_thickness"
-             />
+            android:layout_height="@dimen/horizontal_divider_thickness" />
 
         <ProgressBar
             style="?android:progressBarStyleHorizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:progress="10" />
+            android:progress="10"
+            android:secondaryProgress="40"/>
 
         <ProgressBar
             style="?android:progressBarStyleHorizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:progress="50" />
+            android:progress="50"
+            android:secondaryProgress="70" />
 
         <ProgressBar
             style="?android:progressBarStyleHorizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:progress="80" />
+            android:progress="80"
+            android:secondaryProgress="90"/>
 
         <!-- SeekBars -->
         <TextView
@@ -133,8 +134,7 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="@dimen/horizontal_divider_thickness"
-             />
+            android:layout_height="@dimen/horizontal_divider_thickness" />
 
         <SeekBar
             android:layout_width="match_parent"
@@ -156,8 +156,7 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="@dimen/horizontal_divider_thickness"
-            />
+            android:layout_height="@dimen/horizontal_divider_thickness" />
 
         <RatingBar
             android:layout_width="wrap_content"
