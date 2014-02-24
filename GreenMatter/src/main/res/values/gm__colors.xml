@@ -16,9 +16,9 @@
 -->
 <resources>
 
-    <color name="gm__default_primary">#AA4444</color>
-    <color name="gm__default_primary_dark">#772222</color>
-    <color name="gm__default_accent">#ff1111</color>
+    <color name="gm__default_primary">#ff212121</color>
+    <color name="gm__default_primary_dark">#ff000000</color>
+    <color name="gm__default_accent">#ff80cbc4</color>
 
     <color name="gm__primary_reference">#A4C739</color>
     <color name="gm__primary_dark_reference">#718213</color>

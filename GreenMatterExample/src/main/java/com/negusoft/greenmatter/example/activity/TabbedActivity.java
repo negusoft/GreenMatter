@@ -45,12 +45,8 @@ public class TabbedActivity extends MatActivity implements ActionBar.TabListener
 		super.onCreate(savedInstanceState);
 		setContentView(getLayoutId());
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
 		final ActionBar actionBar = getSupportActionBar();
 		if (actionBar != null) {
-			actionBar.setHomeButtonEnabled(true);
-
 			FragmentManager fragmentManager = getSupportFragmentManager();
 			mSectionsPagerAdapter = new SectionsPagerAdapter(fragmentManager);
 			mViewPager = (ViewPager) findViewById(R.id.pager);
