@@ -18,9 +18,18 @@ package com.negusoft.greenmatter;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.support.annotation.NonNull;
+import android.util.AttributeSet;
+import android.view.View;
 import android.view.Window;
 
 import com.negusoft.greenmatter.dialog.DividerPainter;
+import com.negusoft.greenmatter.interceptor.view.ViewInterceptor;
+import com.negusoft.greenmatter.interceptor.view.ViewInterceptorHelper;
+
+import java.util.Dictionary;
+import java.util.Hashtable;
+import java.util.Map;
 
 /**
  * Helper class to lazily initialize MatResources from your activities.
@@ -83,7 +92,7 @@ public class MatHelper {
     }
 	
 	/** @return The MatResources instance, properly initialized. */
-	public Resources getResources(Context c, Resources resources) {
+	public MatResources getResources(Context c, Resources resources) {
 		if (mMatResources == null) {
             mMatResources = createInstance(c, resources);
             if (mInitListener != null)

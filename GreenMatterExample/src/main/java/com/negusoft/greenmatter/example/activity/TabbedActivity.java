@@ -30,6 +30,7 @@ import com.negusoft.greenmatter.example.fragment.PickersFragment;
 import com.negusoft.greenmatter.example.fragment.ProgressFragment;
 import com.negusoft.greenmatter.example.fragment.TextviewFragment;
 import com.negusoft.greenmatter.example.interceptor.ColorInterceptor;
+import com.negusoft.greenmatter.example.interceptor.RatingBarViewInterceptor;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -60,6 +61,7 @@ public class TabbedActivity extends MatActivity implements ActionBar.TabListener
     public void onInitMatResources(MatResources resources) {
         super.onInitMatResources(resources);
         resources.addColorInterceptor(new ColorInterceptor());
+        resources.addViewInterceptor(new RatingBarViewInterceptor());
     }
 
 //    @Override

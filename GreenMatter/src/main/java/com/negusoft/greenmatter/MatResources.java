@@ -25,7 +25,10 @@ import android.graphics.PorterDuff;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.support.annotation.NonNull;
+import android.util.AttributeSet;
 import android.util.TypedValue;
+import android.view.View;
 
 import com.negusoft.greenmatter.interceptor.drawable.CircleDrawableInterceptor;
 import com.negusoft.greenmatter.interceptor.color.MatColorInterceptor;
@@ -36,6 +39,8 @@ import com.negusoft.greenmatter.interceptor.drawable.RoundRectDrawableIntercepto
 import com.negusoft.greenmatter.interceptor.drawable.SolidDrawableInterceptor;
 import com.negusoft.greenmatter.interceptor.drawable.TintDrawableDrawableInterceptor;
 import com.negusoft.greenmatter.interceptor.drawable.UnderlineDrawableInterceptor;
+import com.negusoft.greenmatter.interceptor.view.ViewInterceptor;
+import com.negusoft.greenmatter.interceptor.view.ViewInterceptorHelper;
 import com.negusoft.greenmatter.util.BitmapUtils;
 import com.negusoft.greenmatter.util.NativeResources;
 
@@ -90,6 +95,8 @@ public class MatResources extends Resources {
 	private boolean mInitialized = false;
     private boolean mInitializingFlag = false;
 	private MatPalette mPalette;
+
+    private final ViewInterceptorHelper mViewInterceptorHelper = new ViewInterceptorHelper();
 
 	public MatResources(Context c, Resources resources) {
 		super(resources.getAssets(), resources.getDisplayMetrics(), resources.getConfiguration());
@@ -256,7 +263,7 @@ public class MatResources extends Resources {
      * Add a drawable interceptor. They are evaluated in the order they are added, and before the
      * default interceptors.
      */
-    public void addInterceptor(DrawableInterceptor interceptor) {
+    public void addDrawableInterceptor(DrawableInterceptor interceptor) {
         mDrawableInterceptors.add(0, interceptor);
     }
 
@@ -268,11 +275,34 @@ public class MatResources extends Resources {
         mColorInterceptors.add(0, interceptor);
     }
 
+    /** Add the given ViewInterceptor. */
+    public void addViewInterceptor(ViewInterceptor interceptor) {
+        mViewInterceptorHelper.addInterceptor(interceptor);
+    }
+
+    /** Remove the given ViewInterceptor. */
+    public void removeViewInterceptor(ViewInterceptor interceptor) {
+        mViewInterceptorHelper.removeInterceptor(interceptor);
+    }
+
+    /** Remove the ViewInterceptor for the given name. */
+    public void removeViewInterceptor(String name) {
+        mViewInterceptorHelper.removeInterceptor(name);
+    }
+
     /** Add a drawable resource to which to apply the "tint" technique. */
     public void addTintResourceId(int resId) {
         if (mCustomTintDrawableIds == null)
             mCustomTintDrawableIds = new ArrayList<Integer>();
         mCustomTintDrawableIds.add(resId);
+    }
+
+    /**
+     * If there is an interceptor for the given view name, it returns the result of the interceptor's
+     * createView() method. It returns null otherwise.
+     */
+    public View createView(String name, @NonNull Context context, @NonNull AttributeSet attrs) {
+        return mViewInterceptorHelper.createView(name, context, attrs);
     }
 	
 	/**

@@ -6,24 +6,18 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.ActionBarActivity;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.Button;
 
 import com.negusoft.greenmatter.MatHelper;
 import com.negusoft.greenmatter.MatPalette;
 import com.negusoft.greenmatter.MatResources;
-import com.negusoft.greenmatter.interceptor.view.MatViewInterceptor;
+import com.negusoft.greenmatter.interceptor.view.ViewInterceptorHelper;
 
 /**
  * Extends the ActionBarActivity class and adds the GreenMatter configuration.
  */
 public abstract class MatActivity extends ActionBarActivity {
 
-    public interface ViewInterceptor {
-        public View createView(String name, @NonNull Context context, @NonNull AttributeSet attrs);
-    }
-
     private final MatHelper mMatHelper = new MatHelper(new MyPaletteOverrider(), new MyInitListener());
-    private final ViewInterceptor mViewInterceptor = new MatViewInterceptor();
 
     @Override
     public Resources getResources() {
@@ -68,7 +62,8 @@ public abstract class MatActivity extends ActionBarActivity {
 
     @Override
     public View onCreateView(String name, @NonNull Context context, @NonNull AttributeSet attrs) {
-        View intercepted = mViewInterceptor.createView(name, context, attrs);
+        MatResources resources = mMatHelper.getResources(context, super.getResources());
+        View intercepted = resources.createView(name, context, attrs);
         return (intercepted != null) ? intercepted : super.onCreateView(name, context, attrs);
     }
 }
