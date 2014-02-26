@@ -61,6 +61,12 @@ public class TintDrawableDrawableInterceptor implements MatResources.DrawableInt
         if (resId == R.drawable.gm__edit_text_disabled_reference)
             return getTintedNormalDisabledDrawable(res, palette, R.drawable.abc_textfield_default_mtrl_alpha);
 
+        // SearchView
+        if (resId == R.drawable.gm__textfield_search_activated_reference)
+            return getTintedActivatedDrawable(res, palette, R.drawable.abc_textfield_search_activated_mtrl_alpha);
+        if (resId == R.drawable.gm__textfield_search_default_reference)
+            return getTintedNormalDrawable(res, palette, R.drawable.abc_textfield_search_default_mtrl_alpha);
+
         // Text cursor
         if (resId == R.drawable.gm__text_cursor_reference)
             return getTintedActivatedDrawable(res, palette, R.drawable.gm__text_cursor_mtrl_alpha);

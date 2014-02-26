@@ -53,9 +53,6 @@
     <style name="Widget.GreenMatter.CompoundButton.Switch" parent="Widget.AppCompat.CompoundButton.Switch">
         <item name="track">@drawable/gm__switch_track</item>
         <item name="android:thumb">@drawable/gm__switch_thumb</item>
-        <!--<item name="switchTextAppearance">@style/TextAppearance.AppCompat.Widget.Switch</item>-->
-        <!--<item name="android:background">?attr/selectableItemBackgroundBorderless</item>-->
-        <!--<item name="showText">false</item>-->
     </style>
 
     <!-- Circle (default) progress bar styles -->
@@ -91,6 +88,13 @@
         <item name="android:listSelector">?android:attr/listChoiceBackgroundIndicator</item>
     </style>
 
+    <!-- SearchView style -->
+    <style name="Widget.GreenMatter.SearchView" parent="Widget.AppCompat.SearchView">
+        <item name="queryBackground">@drawable/gm__textfield_search</item>
+        <item name="submitBackground">@drawable/gm__textfield_search</item>
+    </style>
+
+    <!-- Actionbar Tab style -->
     <style name="Widget.GreenMatter.ActionBar.TabView" parent="Widget.AppCompat.ActionBar.TabView">
         <item name="android:background">@drawable/gm__tab_indicator</item>
     </style>

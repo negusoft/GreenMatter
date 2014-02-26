@@ -28,6 +28,7 @@
         <item name="android:textAppearanceButton">@style/TextAppearance.GreenMatter.Button</item>
 
         <item name="android:editTextBackground">@drawable/gm__edit_text</item>
+        <item name="searchViewStyle">@style/Widget.GreenMatter.SearchView</item>
 
         <!-- Text selection handle attributes -->
         <item name="android:textSelectHandleLeft">@drawable/gm__text_select_handle_left</item>
@@ -46,7 +47,6 @@
 
         <item name="actionBarTabStyle">@style/Widget.GreenMatter.ActionBar.TabView</item>
 
-        <!--<item name="android:autoCompleteTextViewStyle">@style/HoloAccent.AutoCompleteTextView</item>-->
         <item name="android:progressBarStyle">@style/Widget.GreenMatter.ProgressBar</item>
         <item name="android:progressBarStyleSmall">@style/Widget.GreenMatter.ProgressBar.Small</item>
         <item name="android:progressBarStyleLarge">@style/Widget.GreenMatter.ProgressBar.Large</item>
