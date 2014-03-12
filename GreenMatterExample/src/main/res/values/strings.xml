@@ -61,6 +61,7 @@
     <string name="edittext_disabled">disabled</string>
     <string name="edittext_input_text">input: text</string>
     <string name="edittext_input_password">input: password</string>
+    <string name="edittext_autocomplete_title">Autocomplete</string>
     <string name="edittext_autocomplete">autocomplete</string>
     <string name="edittext_multi_autocomplete">multi autocomplete</string>
 

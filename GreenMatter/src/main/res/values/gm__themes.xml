@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  Copyright 2014 NEGU Soft
+  Copyright 2015 NEGU Soft
   
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -34,13 +34,10 @@
         <item name="android:textSelectHandleLeft">@drawable/gm__text_select_handle_left</item>
         <item name="android:textSelectHandleRight">@drawable/gm__text_select_handle_right</item>
         <item name="android:textSelectHandle">@drawable/gm__text_select_handle_middle</item>
-        <!--<item name="android:textSelectHandleWindowStyle">@style/Widget.Material.TextSelectHandle</item>-->
-        <!--<item name="android:textSuggestionsWindowStyle">@style/Widget.Material.TextSuggestionsPopupWindow</item>-->
         <item name="android:textCursorDrawable">@drawable/gm__text_cursor</item>
 
         <item name="android:buttonStyle">@style/Widget.GreenMatter.Button</item>
         <item name="android:buttonStyleSmall">@style/Widget.GreenMatter.Button.Small</item>
-        <!--<item name="android:buttonStyleInset">@style/HoloAccent.Button</item>-->
         <item name="android:buttonStyleToggle">@style/Widget.GreenMatter.Button.Toggle</item>
         <!--<item name="android:mediaRouteButtonStyle">@android:style/Widget.Holo.MediaRouteButton</item> -->
         <item name="android:imageButtonStyle">@style/Widget.GreenMatter.ImageButton</item>
@@ -56,7 +53,7 @@
         <item name="android:progressBarStyleHorizontal">@style/Widget.GreenMatter.ProgressBar.Horizontal</item>
         <item name="android:seekBarStyle">@style/Widget.GreenMatter.SeekBar</item>
 
-        <!--<item name="android:dropDownSpinnerStyle">@style/HoloAccent.Spinner</item>-->
+        <!--<item name="android:dropDownSpinnerStyle">@style/Widget.Holo.Spinner</item>-->
         <item name="android:listPopupWindowStyle">@style/Widget.GreenMatter.ListPopupWindow</item>
         <item name="android:popupMenuStyle">@style/Widget.GreenMatter.ListPopupWindow</item>
 
@@ -123,7 +120,6 @@
         <item name="matColorSwitchThumbNormal">@color/switch_thumb_normal_material_dark</item>
         <item name="matColorEdgeEffect">@color/gm__default_accent</item>
 
-        <!--<item name="actionBarTheme">@style/Theme.GreenMatter</item>-->
         <item name="actionBarStyle">@style/Widget.GreenMatter.ActionBar.Solid</item>
         <item name="switchStyle">@style/Widget.GreenMatter.CompoundButton.Switch</item>
 
