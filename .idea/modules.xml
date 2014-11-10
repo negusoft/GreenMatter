@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/GreenMatter.iml" filepath="$PROJECT_DIR$/GreenMatter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GreenMatter/GreenMatter-GreenMatter.iml" filepath="$PROJECT_DIR$/GreenMatter/GreenMatter-GreenMatter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GreenMatterExample/GreenMatterExample.iml" filepath="$PROJECT_DIR$/GreenMatterExample/GreenMatterExample.iml" />
+    </modules>
+  </component>
+</project>
+
