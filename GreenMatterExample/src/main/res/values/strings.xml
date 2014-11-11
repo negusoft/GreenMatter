@@ -1,3 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="app_name">GreenMatter</string>
+
+    <string name="main_start_activity">Start Activity</string>
+    <string name="main_category_activity_type">Activity type</string>
+    <string name="main_category_style">Theme &amp; color</string>
+    
+    <string name="tab_buttons">Buttons</string>
+    <string name="tab_choices">Choices</string>
+    <string name="tab_progress">Progress</string>
+    <string name="tab_list">List</string>
+    <string name="tab_text_fields">Text Fields</string>
+    <string name="tab_pickers">Pickers</string>
+    
+    <string name="action_dummie">Dummie item</string>
+    <string name="action_alert_dialog">Alert Dialog</string>
+    <string name="action_dialog_fragment">Dialog Fragment</string>
+    <string name="action_date_picker_dialog">Date Picker</string>
+    <string name="action_time_picker_dialog">Time Picker</string>
+    <string name="action_search">Search</string>
+    <string name="action_github">Open on GitHub</string>
+    
+    <string name="button_category_default">Buttons (Default)</string>
+    <string name="button_category_colored">Colored Buttons</string>
+    <string name="button_category_colored_bright">Colored Buttons (Bright)</string>
+    <string name="button_category_other_buttons">Other Button Styles</string>
+    <string name="button_category_imagebutton">ImageButtons</string>
+    <string name="button_category_toggle">ToggleButton</string>
+    <string name="button_category_switch">Switch</string>
+    <string name="button_category_quick_contact_badge">QuickContactBadge</string>
+    <string name="button_default">Default</string>
+    <string name="button_disabled">Disabled</string>
+    <string name="button_small">Small Style</string>
+    <string name="button_borderless">Borderless Style</string>
+    <string name="button_inset">Inset Style</string>
+    <string name="button_image_default">Default</string>
+    <string name="button_image_colored">Colored (Default)</string>
+    <string name="button_image_colored_bright">Colored Bright</string>
+    
+    <string name="checkbox_title">Check Boxes</string>
+    <string name="checkbox_enabled">Enabled</string>
+    <string name="checkbox_disabled">Disabled</string>
+    
+    <string name="radio_title">Radio Buttons</string>
+    <string name="radio_enabled_1">Option 1</string>
+    <string name="radio_enabled_2">Option 2</string>
+    <string name="radio_disabled_1">Disabled 1</string>
+    <string name="radio_disabled_2">Disabled 2</string>
+    
+    <string name="progress_indeterminate">Indeterminate</string>
+    <string name="progress_default">Default</string>
+    <string name="progress_seekbars">SeekBars</string>
+    <string name="progress_ratingbars">Rating Bars</string>
+    
+    <string name="edittext_title">Normal</string>
+    <string name="edittext_default">default</string>
+    <string name="edittext_disabled">disabled</string>
+    <string name="edittext_input_text">input: text</string>
+    <string name="edittext_input_password">input: password</string>
+    <string name="edittext_autocomplete">autocomplete</string>
+    <string name="edittext_multi_autocomplete">multi autocomplete</string>
+
+    <string name="number_picker_title">Number Picker</string>
+    <string name="date_picker_title">Date Picker</string>
+    <string name="time_picker_title">Date Picker</string>
+
+    <string name="dialog_alert_title">Alert Dialog</string>
+    <string name="dialog_fragment_title">Dialog Fragment</string>
+    <string name="dialog_message">Dummie dialog</string>
+    <string name="dialog_button_positive">Positive</string>
+    <string name="dialog_button_negative">Negative</string>
+
+    <string-array name="list_items">
+        <item>one</item>
+        <item>two</item>
+        <item>three</item>
+        <item>four</item>
+        <item>five</item>
+        <item>six</item>
+        <item>seven</item>
+        <item>eight</item>
+        <item>nine</item>
+        <item>ten</item>
+        <item>eleven</item>
+        <item>twelve</item>
+        <item>thirteen</item>
+    </string-array>
+    
+    <string-array name="empty_array"/>
+
 </resources>

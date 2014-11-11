@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:enabled="false"
+        android:title="@string/action_dummie"/>
+    <item
+        android:id="@+id/action_if_room"
+        android:orderInCategory="100"
+        android:showAsAction="ifRoom"
+        android:title="@string/action_dummie"/>
+    <item
+        android:id="@+id/action_camera"
+        android:orderInCategory="100"
+        android:showAsAction="always"
+        android:enabled="false"
+        android:title="@string/action_dummie"
+        android:icon="@android:drawable/ic_menu_camera"/>
+    <item
+        android:id="@+id/action_with_text"
+        android:orderInCategory="100"
+        android:showAsAction="withText"
+        android:title="@string/action_dummie"/>
+
+</menu>

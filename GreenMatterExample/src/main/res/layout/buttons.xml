@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+	<LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="vertical"
+	    android:paddingLeft="@dimen/activity_horizontal_margin"
+	    android:paddingRight="@dimen/activity_horizontal_margin"
+	    android:paddingTop="@dimen/activity_vertical_margin"
+	    android:paddingBottom="@dimen/activity_vertical_margin" >
+	    
+        <!-- Button (Default) -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_category_default" />
+        <View 
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/horizontal_divider_thickness"
+            />
+
+		<LinearLayout
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:orientation="horizontal" >
+			<Button
+			    style="@null"
+			    android:id="@+id/listPopupButton"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:text="@string/button_default" />
+		
+			<Button
+			    style="@null"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:enabled="false"
+			    android:text="@string/button_disabled" />
+		
+			<Button
+			    style="?android:attr/buttonStyleSmall"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:text="@string/button_small" />
+		</LinearLayout>
+
+        <!-- Colored button -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:text="@string/button_category_colored" />
+        
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/horizontal_divider_thickness"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+            <Button
+                android:id="@+id/coloredButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/button_default" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:text="@string/button_disabled" />
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/button_small" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/button_default" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:text="@string/button_disabled" />
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/button_small" />
+        </LinearLayout>
+
+        <!-- Colored button (bright) -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:text="@string/button_category_colored_bright" />
+        
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/horizontal_divider_thickness"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/button_default" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:text="@string/button_disabled" />
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/button_small" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/button_default" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:text="@string/button_disabled" />
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/button_small" />
+        </LinearLayout>
+
+		<!-- Other button styles -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:text="@string/button_category_other_buttons" />
+        
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/horizontal_divider_thickness"
+            />
+        
+		<LinearLayout
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:orientation="horizontal" >
+			
+			<Button
+			    style="?android:attr/borderlessButtonStyle"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:text="@string/button_borderless" />
+	
+			<Button
+			    style="?android:attr/buttonStyleInset"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:text="@string/button_inset" />
+
+		</LinearLayout>
+	
+	
+		<!-- Image buttons -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:text="@string/button_category_imagebutton" />
+        
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/horizontal_divider_thickness"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <ImageButton
+                android:contentDescription="@string/button_image_default"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_launcher" />
+
+            <ImageButton
+                android:contentDescription="@string/button_image_colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_launcher" />
+
+            <ImageButton
+                android:contentDescription="@string/button_image_colored_bright"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_launcher" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <ImageButton
+                android:contentDescription="@string/button_image_default"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_launcher" />
+
+            <ImageButton
+                android:contentDescription="@string/button_image_colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_launcher" />
+
+            <ImageButton
+                android:contentDescription="@string/button_image_colored_bright"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_launcher" />
+
+        </LinearLayout>
+	
+		<!-- Toggle Button -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:text="@string/button_category_toggle" />
+        
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/horizontal_divider_thickness"
+            />
+        
+		<LinearLayout
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:orientation="horizontal" >
+			<ToggleButton
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content" />
+			<ToggleButton
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:enabled="false"
+			    android:checked="false" />
+			<ToggleButton
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:enabled="false"
+			    android:checked="true" />
+		</LinearLayout>
+		
+	
+		<!-- Switch -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:text="@string/button_category_switch" />
+        
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/horizontal_divider_thickness"
+            />
+        
+		<LinearLayout
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:orientation="horizontal" >
+			<android.support.v7.widget.SwitchCompat
+			    android:checked="true"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content" />
+			<android.support.v7.widget.SwitchCompat
+			    android:enabled="false"
+			    android:checked="true"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content" />
+			<android.support.v7.widget.SwitchCompat
+			    android:enabled="false"
+			    android:checked="false"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content" />
+		</LinearLayout>
+
+        <!-- QuickContactBadge -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:text="@string/button_category_quick_contact_badge" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/horizontal_divider_thickness"
+            />
+
+        <QuickContactBadge
+            android:id="@+id/badge"
+            android:focusable="true"
+            android:layout_margin="5dp"
+            style="?android:quickContactBadgeStyleWindowMedium"/>
+	
+	</LinearLayout>
+</ScrollView>

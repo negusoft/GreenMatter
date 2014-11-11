@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/alert_dialog"
+        android:orderInCategory="100"
+        app:showAsAction="never"
+        android:title="@string/action_alert_dialog"/>
+    <item
+        android:id="@+id/dialog_fragment"
+        android:orderInCategory="100"
+        app:showAsAction="never"
+        android:title="@string/action_dialog_fragment"/>
+    <item
+        android:id="@+id/date_picker_dialog"
+        android:orderInCategory="100"
+        app:showAsAction="never"
+        android:title="@string/action_date_picker_dialog"/>
+    <item
+        android:id="@+id/time_picker_dialog"
+        android:orderInCategory="100"
+        app:showAsAction="never"
+        android:title="@string/action_time_picker_dialog"/>
+
+</menu>
