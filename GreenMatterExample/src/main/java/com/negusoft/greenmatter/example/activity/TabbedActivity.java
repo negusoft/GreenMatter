@@ -18,6 +18,7 @@ import android.text.format.DateFormat;
 import android.view.Menu;
 import android.widget.DatePicker;
 
+import com.negusoft.greenmatter.activity.MatActivity;
 import com.negusoft.greenmatter.example.R;
 import com.negusoft.greenmatter.example.fragment.ButtonFragment;
 import com.negusoft.greenmatter.example.fragment.ChoicesFragment;
@@ -30,7 +31,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-public class TabbedActivity extends ActionBarActivity implements ActionBar.TabListener {
+public class TabbedActivity extends MatActivity implements ActionBar.TabListener {
 
 	SectionsPagerAdapter mSectionsPagerAdapter;
 	ViewPager mViewPager;
