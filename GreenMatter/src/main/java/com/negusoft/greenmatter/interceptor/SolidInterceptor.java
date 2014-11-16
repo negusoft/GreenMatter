@@ -34,6 +34,8 @@ public class SolidInterceptor implements MatResources.Interceptor {
             return new ColorDrawable(palette.colorPrimary);
         if (resId == R.drawable.gm__solid_primary_dark_reference || resId == R.color.gm__primary_dark)
             return new ColorDrawable(palette.colorPrimaryDark);
+        if (resId == R.drawable.gm__solid_accent_reference || resId == R.color.gm__accent)
+            return new ColorDrawable(palette.colorAccent);
 		return null;
 	}
 

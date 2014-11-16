@@ -15,6 +15,8 @@ public class MatColorInterceptor implements MatResources.ColorInterceptor {
             return palette.colorPrimary;
         if (resId == R.color.gm__primary_dark_reference)
             return palette.colorPrimaryDark;
+        if (resId == R.color.gm__accent_reference)
+            return palette.colorAccent;
         return 0;
     }
 

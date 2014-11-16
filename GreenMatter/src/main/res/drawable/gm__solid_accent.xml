@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  Copyright 2013 NEGU Soft
+  Copyright 2014 NEGU Soft
   
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -14,14 +14,6 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<resources>
-
-    <color name="gm__default_primary">#AA4444</color>
-    <color name="gm__default_primary_dark">#772222</color>
-    <color name="gm__default_accent">#ff1111</color>
-
-    <color name="gm__primary_reference">#A4C739</color>
-    <color name="gm__primary_dark_reference">#718213</color>
-    <color name="gm__accent_reference">#0000ff</color>
-
-</resources>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:drawable="@drawable/gm__solid_accent_reference"/>
+</selector>

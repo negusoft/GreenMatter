@@ -20,12 +20,18 @@
     <style name="Theme.GreenMatter" parent="Theme.AppCompat">
         <item name="colorPrimary">@color/gm__primary</item>
         <item name="colorPrimaryDark">@color/gm__primary_dark</item>
+        <item name="colorAccent">@color/gm__accent</item>
+        <!--<item name="colorControlActivated">@color/gm__accent</item>-->
 
         <item name="matColorPrimary">@color/gm__default_primary</item>
         <item name="matColorPrimaryDark">@color/gm__default_primary_dark</item>
+        <item name="matColorAccent">@color/gm__default_accent</item>
 
         <!--<item name="actionBarTheme">@style/Theme.GreenMatter</item>-->
         <item name="actionBarStyle">@style/Widget.GreenMatter.ActionBar.Solid</item>
+
+        <!--<item name="android:listChoiceIndicatorSingle">@android:drawable/btn_radio</item>-->
+        <!--<item name="android:listChoiceIndicatorMultiple">@android:drawable/btn_star</item>-->
 
     </style>
 

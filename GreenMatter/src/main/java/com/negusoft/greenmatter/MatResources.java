@@ -149,15 +149,15 @@ public class MatResources extends Resources {
         return result;
     }
 
-	private MatPalette initPalette(Context c, int explicitColor, int explicitColorDark, int explicitColorActionBar) {
+	private MatPalette initPalette(Context c, int explicitPrimary, int explicitPrimaryDark, int explicitAccent) {
 		TypedArray attrs = c.getTheme().obtainStyledAttributes(
-                new int[] { R.attr.matColorPrimary, R.attr.matColorPrimaryDark, R.attr.colorAccent }
+                new int[] { R.attr.matColorPrimary, R.attr.matColorPrimaryDark, R.attr.matColorAccent }
         );
 
         int holoBlue = super.getColor(android.R.color.holo_blue_light);
-		int primary = explicitColor != 0 ? explicitColor : attrs.getColor(0, holoBlue);
-		int primaryDark = explicitColorDark != 0 ? explicitColorDark : attrs.getColor(1, 0);
-        int accent = explicitColorActionBar != 0 ? explicitColorActionBar : attrs.getColor(2, holoBlue);
+		int primary = explicitPrimary != 0 ? explicitPrimary : attrs.getColor(0, holoBlue);
+		int primaryDark = explicitPrimaryDark != 0 ? explicitPrimaryDark : attrs.getColor(1, 0);
+        int accent = explicitAccent != 0 ? explicitAccent : attrs.getColor(2, holoBlue);
 
         attrs.recycle();
 
