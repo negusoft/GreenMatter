@@ -28,6 +28,8 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.TypedValue;
 
+import com.negusoft.greenmatter.interceptor.MatColorInterceptor;
+import com.negusoft.greenmatter.interceptor.SolidInterceptor;
 import com.negusoft.greenmatter.util.BitmapUtils;
 import com.negusoft.greenmatter.util.NativeResources;
 
@@ -149,7 +151,7 @@ public class MatResources extends Resources {
 
 	private MatPalette initPalette(Context c, int explicitColor, int explicitColorDark, int explicitColorActionBar) {
 		TypedArray attrs = c.getTheme().obtainStyledAttributes(
-                new int[] { R.attr.colorPrimary, R.attr.colorPrimaryDark, R.attr.colorAccent }
+                new int[] { R.attr.matColorPrimary, R.attr.colorPrimaryDark, R.attr.colorAccent }
         );
 
         int holoBlue = super.getColor(android.R.color.holo_blue_light);
@@ -163,9 +165,10 @@ public class MatResources extends Resources {
 	}
 
 	private void addInterceptors(Context c) {
+        mInterceptors.add(new SolidInterceptor());
         mInterceptors.add(new OverScrollInterceptor());
 
-//        mColorInterceptors.add(new AccentColorInterceptor());
+        mColorInterceptors.add(new MatColorInterceptor());
 	}
 
     @Override

@@ -1,8 +1,8 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat">
-        <item name="colorPrimary">#448844</item>
+    <style name="AppTheme" parent="Theme.GreenMatter">
+        <!--<item name="colorPrimary">#448844</item>-->
         <item name="colorPrimaryDark">#223322</item>
         <item name="colorAccent">#00ff00</item>
     </style>

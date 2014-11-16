@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2013 NEGU Soft
+  
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+  
+    http://www.apache.org/licenses/LICENSE-2.0
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<resources>
+
+    <!-- Accent color definition -->
+    <declare-styleable name="GreenMatter">
+
+        <attr name="matColorPrimary" format="color|reference" />
+        <attr name="matColorPrimaryDark" format="color|reference" />
+        <attr name="matColorAccent" format="color|reference" />
+        <attr name="matColorControlNormal" format="color|reference" />
+        <attr name="matColorControlActivated" format="color|reference" />
+        <attr name="matColorControlHighlight" format="color|reference" />
+        <attr name="matColorButtonNormal" format="color|reference" />
+        <attr name="matColorSwitchThumbNormal" format="color|reference" />
+        <attr name="matColorEdgeEffect" format="color|reference" />
+
+        <!-- Used to support color overriding -->
+        <attr name="matColorPrimaryReference" format="color" />
+        <attr name="matColorPrimaryDarkReference" format="color" />
+        <attr name="matColorAccentReference" format="color" />
+        <attr name="matColorControlNormalReference" format="color" />
+        <attr name="matColorControlActivatedReference" format="color" />
+        <attr name="matColorControlHighlightReference" format="color" />
+        <attr name="matColorButtonNormalReference" format="color" />
+        <attr name="matColorSwitchThumbNormalReference" format="color" />
+        <attr name="matColorEdgeEffectReference" format="color" />
+
+        <!-- Used when a drawable is expected, typically for the 'background' -->
+        <attr name="matDrawablePrimary" format="reference" />
+        <attr name="matDrawablePrimaryDark" format="reference" />
+        <attr name="matDrawablePrimaryAccent" format="reference" />
+
+    </declare-styleable>
+
+</resources>
