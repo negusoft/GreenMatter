@@ -13,6 +13,8 @@ public class MatColorInterceptor implements MatResources.ColorInterceptor {
     public int getColor(Resources res, MatPalette palette, int resId) {
         if (resId == R.color.gm__primary_reference)
             return palette.colorPrimary;
+        if (resId == R.color.gm__primary_dark_reference)
+            return palette.colorPrimaryDark;
         return 0;
     }
 

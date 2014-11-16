@@ -14,10 +14,6 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<resources>
-    
-    <!-- Drawable references that will be overriden at runtime -->
-    <item name="gm__solid_primary_reference" type="drawable">#0000</item>
-    <item name="gm__solid_primary_dark_reference" type="drawable">#0000</item>
-    
-</resources>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="@color/gm__primary_dark_reference"/>
+</selector>

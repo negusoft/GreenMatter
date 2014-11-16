@@ -40,11 +40,6 @@
         <attr name="matColorSwitchThumbNormalReference" format="color" />
         <attr name="matColorEdgeEffectReference" format="color" />
 
-        <!-- Used when a drawable is expected, typically for the 'background' -->
-        <attr name="matDrawablePrimary" format="reference" />
-        <attr name="matDrawablePrimaryDark" format="reference" />
-        <attr name="matDrawablePrimaryAccent" format="reference" />
-
     </declare-styleable>
 
 </resources>

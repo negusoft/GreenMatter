@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright 2013 NEGU Soft
+ * Copyright 2014 NEGU Soft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -151,7 +151,7 @@ public class MatResources extends Resources {
 
 	private MatPalette initPalette(Context c, int explicitColor, int explicitColorDark, int explicitColorActionBar) {
 		TypedArray attrs = c.getTheme().obtainStyledAttributes(
-                new int[] { R.attr.matColorPrimary, R.attr.colorPrimaryDark, R.attr.colorAccent }
+                new int[] { R.attr.matColorPrimary, R.attr.matColorPrimaryDark, R.attr.colorAccent }
         );
 
         int holoBlue = super.getColor(android.R.color.holo_blue_light);
@@ -186,7 +186,6 @@ public class MatResources extends Resources {
 
         return super.getColor(resId);
     }
-
 
     @Override
     public Drawable getDrawable(int resId) throws NotFoundException {

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright 2013 NEGU Soft
+ * Copyright 2014 NEGU Soft
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,8 +30,10 @@ public class SolidInterceptor implements MatResources.Interceptor {
 
 	@Override
 	public Drawable getDrawable(Resources res, MatPalette palette, int resId) {
-		if (resId == R.drawable.gm__solid_primary_reference)
-			return new ColorDrawable(palette.colorPrimary);
+        if (resId == R.drawable.gm__solid_primary_reference || resId == R.color.gm__primary)
+            return new ColorDrawable(palette.colorPrimary);
+        if (resId == R.drawable.gm__solid_primary_dark_reference || resId == R.color.gm__primary_dark)
+            return new ColorDrawable(palette.colorPrimaryDark);
 		return null;
 	}
 
