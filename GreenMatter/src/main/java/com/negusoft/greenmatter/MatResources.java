@@ -17,19 +17,24 @@ package com.negusoft.greenmatter;
 
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.CompressFormat;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.TypedValue;
 
+import com.negusoft.greenmatter.drawable.TintDrawableWrapper;
+import com.negusoft.greenmatter.interceptor.CircleInterceptor;
 import com.negusoft.greenmatter.interceptor.MatColorInterceptor;
 import com.negusoft.greenmatter.interceptor.SolidInterceptor;
+import com.negusoft.greenmatter.interceptor.TintDrawableInterceptor;
 import com.negusoft.greenmatter.util.BitmapUtils;
 import com.negusoft.greenmatter.util.NativeResources;
 
@@ -166,6 +171,8 @@ public class MatResources extends Resources {
 
 	private void addInterceptors(Context c) {
         mInterceptors.add(new SolidInterceptor());
+        mInterceptors.add(new TintDrawableInterceptor());
+        mInterceptors.add(new CircleInterceptor());
         mInterceptors.add(new OverScrollInterceptor());
 
         mColorInterceptors.add(new MatColorInterceptor());
@@ -189,58 +196,42 @@ public class MatResources extends Resources {
 
     @Override
     public Drawable getDrawable(int resId) throws NotFoundException {
-        if (checkInitialized())
-            return super.getDrawable(resId);
-
-        // Give a chance to the interceptors to replace the drawable
-        Drawable result;
-        for(Interceptor interceptor : mInterceptors) {
-            result = interceptor.getDrawable(this, mPalette, resId);
-            if (result != null)
-                return result;
-        }
-
+        Drawable overrideDrawable = getOverrideDrawable(resId);
+        if (overrideDrawable != null)
+            return overrideDrawable;
         return super.getDrawable(resId);
     }
 
     @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH_MR1)
     @Override
     public Drawable getDrawableForDensity(int resId, int density) throws NotFoundException {
-        if (checkInitialized())
-            return super.getDrawableForDensity(resId, density);
-
-        // Give a chance to the interceptors to replace the drawable
-        Drawable result;
-        for(Interceptor interceptor : mInterceptors) {
-            result = interceptor.getDrawable(this, mPalette, resId);
-            if (result != null)
-                return result;
-        }
-
+        Drawable overrideDrawable = getOverrideDrawable(resId);
+        if (overrideDrawable != null)
+            return overrideDrawable;
         return super.getDrawableForDensity(resId, density);
     }
 
     @TargetApi(Build.VERSION_CODES.L)
     @Override
     public Drawable getDrawable(int resId, Theme theme) throws NotFoundException {
-        if (checkInitialized())
-            return super.getDrawable(resId, theme);
-
-        // Give a chance to the interceptors to replace the drawable
-        Drawable result;
-        for(Interceptor interceptor : mInterceptors) {
-            result = interceptor.getDrawable(this, mPalette, resId);
-            if (result != null)
-                return result;
-        }
+        Drawable overrideDrawable = getOverrideDrawable(resId);
+        if (overrideDrawable != null)
+            return overrideDrawable;
         return super.getDrawable(resId, theme);
     }
 
     @TargetApi(Build.VERSION_CODES.L)
     @Override
     public Drawable getDrawableForDensity(int resId, int density, Theme theme) {
+        Drawable overrideDrawable = getOverrideDrawable(resId);
+        if (overrideDrawable != null)
+            return overrideDrawable;
+        return super.getDrawableForDensity(resId, density, theme);
+    }
+
+    private Drawable getOverrideDrawable(int resId) {
         if (checkInitialized())
-            return super.getDrawableForDensity(resId, density, theme);
+            return null;
 
         // Give a chance to the interceptors to replace the drawable
         Drawable result;
@@ -249,7 +240,7 @@ public class MatResources extends Resources {
             if (result != null)
                 return result;
         }
-        return super.getDrawableForDensity(resId, density, theme);
+        return null;
     }
 	
 	@Override

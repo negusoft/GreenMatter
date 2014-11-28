@@ -15,6 +15,7 @@
  ******************************************************************************/
 package com.negusoft.greenmatter;
 
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 
 /**
@@ -24,6 +25,7 @@ import android.graphics.Color;
  */
 public class MatPalette {
 
+    private static final float DEFAULT_DISABLED_ALPHA = 0.5f;
 	private static final float DARK_COLOR_PERCENTAGE = 0.85f;
 
 	public final int colorPrimary;
@@ -40,6 +42,9 @@ public class MatPalette {
     public final int redAccent;
     public final int greenAccent;
     public final int blueAccent;
+
+    // TODO get disabled alpha from theme
+    public final float disabledAlpha = DEFAULT_DISABLED_ALPHA;
 
 	/**
 	 * Create an instance with the specified colors. The dark
@@ -127,6 +132,46 @@ public class MatPalette {
      */
     public int getColorAccent(int alpha) {
         return Color.argb(alpha, redAccent, greenAccent, blueAccent);
+    }
+
+    /** Get a color state list for widgets */
+    // TODO set colors based on widget colors
+    public ColorStateList getControlColorStateList() {
+        final int[][] states = new int[7][];
+        final int[] colors = new int[7];
+        int i = 0;
+
+        // Disabled state
+        states[i] = new int[] { -android.R.attr.state_enabled };
+        colors[i] = Color.argb((int)(disabledAlpha * 255), 0x88, 0x88, 0x88);
+        i++;
+
+        states[i] = new int[] { android.R.attr.state_focused };
+        colors[i] = colorAccent;
+        i++;
+
+        states[i] = new int[] { android.R.attr.state_activated };
+        colors[i] = colorAccent;
+        i++;
+
+        states[i] = new int[] { android.R.attr.state_pressed };
+        colors[i] = colorAccent;
+        i++;
+
+        states[i] = new int[] { android.R.attr.state_checked };
+        colors[i] = colorAccent;
+        i++;
+
+        states[i] = new int[] { android.R.attr.state_selected };
+        colors[i] = colorAccent;
+        i++;
+
+        // Default enabled state
+        states[i] = new int[0];
+        colors[i] = Color.GRAY;
+        i++;
+
+        return new ColorStateList(states, colors);
     }
 
 }
