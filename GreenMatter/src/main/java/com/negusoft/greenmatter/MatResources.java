@@ -251,7 +251,7 @@ public class MatResources extends Resources {
 		
 		for (int id : mTintDrawableIds) {
 			if (resId == id)
-				return getTintendResourceStream(resId, value, mPalette.colorAccent);
+				return getTintendResourceStream(resId, value, mPalette.getColorAccent());
 		}
 		return super.openRawResource(resId, value);
 	}
@@ -354,7 +354,7 @@ public class MatResources extends Resources {
 		private Drawable getEdgeDrawable() {
             if (mOverscrollEdgeDrawable == null) {
                 mOverscrollEdgeDrawable = MatResources.super.getDrawable(R.drawable.gm__overscroll_edge);
-                mOverscrollEdgeDrawable.setColorFilter(mPalette.colorAccent, PorterDuff.Mode.MULTIPLY);
+                mOverscrollEdgeDrawable.setColorFilter(mPalette.getColorAccent(), PorterDuff.Mode.MULTIPLY);
             }
 			return mOverscrollEdgeDrawable;
 		}
@@ -362,7 +362,7 @@ public class MatResources extends Resources {
 		private Drawable getGlowDrawable() {
             if (mOverscrollGlowDrawable == null) {
                 mOverscrollGlowDrawable = MatResources.super.getDrawable(R.drawable.gm__overscroll_glow);
-                mOverscrollGlowDrawable.setColorFilter(mPalette.colorAccent, PorterDuff.Mode.MULTIPLY);
+                mOverscrollGlowDrawable.setColorFilter(mPalette.getColorAccent(), PorterDuff.Mode.MULTIPLY);
             }
 			return mOverscrollGlowDrawable;
 		}

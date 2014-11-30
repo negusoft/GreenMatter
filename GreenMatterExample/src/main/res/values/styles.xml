@@ -2,6 +2,10 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.GreenMatter">
+        <!--<item name="matColorPrimary">#2200ff00</item>-->
+        <!--<item name="matColorPrimaryDark">#2200ff00</item>-->
+        <!--<item name="matColorAccent">#2200ff00</item>-->
+
         <!--<item name="colorPrimary">#448844</item>-->
         <!--<item name="colorPrimaryDark">#223322</item>-->
         <!--<item name="colorAccent">#00ff00</item>-->

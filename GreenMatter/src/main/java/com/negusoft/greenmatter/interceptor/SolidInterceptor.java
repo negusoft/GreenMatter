@@ -31,11 +31,11 @@ public class SolidInterceptor implements MatResources.Interceptor {
 	@Override
 	public Drawable getDrawable(Resources res, MatPalette palette, int resId) {
         if (resId == R.drawable.gm__solid_primary_reference || resId == R.color.gm__primary)
-            return new ColorDrawable(palette.colorPrimary);
+            return new ColorDrawable(palette.getColorPrimary());
         if (resId == R.drawable.gm__solid_primary_dark_reference || resId == R.color.gm__primary_dark)
-            return new ColorDrawable(palette.colorPrimaryDark);
+            return new ColorDrawable(palette.getColorPrimaryDark());
         if (resId == R.drawable.gm__solid_accent_reference || resId == R.color.gm__accent)
-            return new ColorDrawable(palette.colorAccent);
+            return new ColorDrawable(palette.getColorAccent());
 		return null;
 	}
 

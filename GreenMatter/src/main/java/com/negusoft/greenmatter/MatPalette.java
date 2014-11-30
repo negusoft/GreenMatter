@@ -25,113 +25,114 @@ import android.graphics.Color;
  */
 public class MatPalette {
 
-    private static final float DEFAULT_DISABLED_ALPHA = 0.5f;
+    /** Inner class to manage color components */
+    private class ColorWrapper {
+        final int color;
+        final int alpha, red, green, blue;
+        ColorWrapper(int color) {
+            this.color = color;
+            alpha = Color.alpha(color);
+            red = Color.red(color);
+            green = Color.green(color);
+            blue = Color.blue(color);
+        }
+        ColorWrapper(int color, float percentage) {
+            this.color = color;
+            alpha = Color.alpha(color);
+            red = (int)(Color.red(color) * percentage);
+            green = (int)(Color.green(color) * percentage);
+            blue = (int)(Color.blue(color) * percentage);
+        }
+        int getColor(int alpha) {
+            int resultAlpha = this.alpha == 255 ? alpha : this.alpha * alpha / 255;
+            return Color.argb(resultAlpha, red, green, blue);
+        }
+    }
+
 	private static final float DARK_COLOR_PERCENTAGE = 0.85f;
 
-	public final int colorPrimary;
-	public final int redPrimary;
-	public final int greenPrimary;
-	public final int bluePrimary;
+	private ColorWrapper mColorPrimary;
+    private ColorWrapper mColorPrimaryDark;
+    private ColorWrapper mColorAccent;
 
-    public final int colorPrimaryDark;
-    public final int redPrimaryDark;
-    public final int greenPrimaryDark;
-    public final int bluePrimaryDark;
-
-    public final int colorAccent;
-    public final int redAccent;
-    public final int greenAccent;
-    public final int blueAccent;
-
-    // TODO get disabled alpha from theme
-    public final float disabledAlpha = DEFAULT_DISABLED_ALPHA;
+    private float mDisabledAlpha = 0.5f;
 
 	/**
 	 * Create an instance with the specified colors. The dark
 	 * variant of the primary color will be derived from it.
 	 */
 	public MatPalette(int colorPrimary, int colorAccent) {
-		redPrimary = Color.red(colorPrimary);
-		greenPrimary = Color.green(colorPrimary);
-		bluePrimary = Color.blue(colorPrimary);
-        this.colorPrimary = Color.rgb(redPrimary, greenPrimary, bluePrimary);
-
-		redPrimaryDark = (int)(redPrimary * DARK_COLOR_PERCENTAGE);
-		greenPrimaryDark = (int)(greenPrimary * DARK_COLOR_PERCENTAGE);
-		bluePrimaryDark = (int)(bluePrimary * DARK_COLOR_PERCENTAGE);
-        this.colorPrimaryDark = Color.rgb(redPrimaryDark, greenPrimaryDark, bluePrimaryDark);
-
-        redAccent = Color.red(colorAccent);
-        greenAccent = Color.green(colorAccent);
-        blueAccent = Color.blue(colorAccent);
-        this.colorAccent = Color.rgb(redAccent, greenAccent, blueAccent);
+        mColorPrimary = new ColorWrapper(colorPrimary);
+        mColorPrimaryDark = new ColorWrapper(colorPrimary, DARK_COLOR_PERCENTAGE);
+        mColorAccent = new ColorWrapper(colorAccent);
 	}
 
 	/**
 	 * Create an instance with the colors explicitly specified.
 	 */
 	public MatPalette(int colorPrimary, int colorPrimaryDark, int colorAccent) {
-		redPrimary = Color.red(colorPrimary);
-		greenPrimary = Color.green(colorPrimary);
-		bluePrimary = Color.blue(colorPrimary);
-        this.colorPrimary = Color.rgb(redPrimary, greenPrimary, bluePrimary);
-
-		if (colorPrimaryDark == 0) {
-			redPrimaryDark = (int)(redPrimary * DARK_COLOR_PERCENTAGE);
-			greenPrimaryDark = (int)(greenPrimary * DARK_COLOR_PERCENTAGE);
-			bluePrimaryDark = (int)(bluePrimary * DARK_COLOR_PERCENTAGE);
-            this.colorPrimaryDark = Color.rgb(redPrimaryDark, greenPrimaryDark, bluePrimaryDark);
-		}
-		else {
-			redPrimaryDark = Color.red(colorPrimaryDark);
-			greenPrimaryDark = Color.green(colorPrimaryDark);
-			bluePrimaryDark = Color.blue(colorPrimaryDark);
-            this.colorPrimaryDark = Color.rgb(redPrimaryDark, greenPrimaryDark, bluePrimaryDark);
-		}
-
-        redAccent = Color.red(colorAccent);
-        greenAccent = Color.green(colorAccent);
-        blueAccent = Color.blue(colorAccent);
-        this.colorAccent = Color.rgb(redAccent, greenAccent, blueAccent);
+        mColorPrimary = new ColorWrapper(colorPrimary);
+        mColorPrimaryDark = colorPrimaryDark == 0 ?
+                new ColorWrapper(colorPrimary, DARK_COLOR_PERCENTAGE) :
+                new ColorWrapper(colorPrimaryDark);
+        mColorAccent = new ColorWrapper(colorAccent);
 	}
+
+    /** @return The transparency for the disabled state (between 0..1). */
+    public float getDisabledAlpha() {
+        return mDisabledAlpha;
+    }
+    /** Set the transparency for the disabled state (between 0..1). */
+    public void setDisabledAlpha(float alpha) {
+        mDisabledAlpha = alpha;
+    }
 	
-	/** @return The primary color. Same as 'colorPrimary'. */
+	/** @return The primary color. */
 	public int getColorPrimary() {
-		return colorPrimary;
+		return mColorPrimary.color;
 	}
-
-	/** 
-	 * Get a translucent version of the primary color.
-	 * @param alpha The opacity of the color [0..255]
-	 */
-	public int getColorPrimary(int alpha) {
-		return Color.argb(alpha, redPrimary, greenPrimary, bluePrimary);
-	}
-
-    /** @return The dark primary color. Same as 'colorPrimaryDark'. */
-    public int getColorPrimaryDark() {
-        return colorPrimaryDark;
+    /**
+     * Get a translucent version of the primary color.
+     * @param alpha The opacity of the color [0..255]
+     */
+    public int getColorPrimary(int alpha) {
+        return mColorPrimary.getColor(alpha);
+    }
+    /** Set the primary color. */
+    public void setColorPrimary(int color) {
+        mColorPrimary = new ColorWrapper(color);
     }
 
+    /** @return The dark primary color. */
+    public int getColorPrimaryDark() {
+        return mColorPrimaryDark.color;
+    }
     /**
      * Get a translucent version of the dark variant of the primary color.
      * @param alpha The opacity of the color [0..255]
      */
-    public int getPrimaryColorDark(int alpha) {
-        return Color.argb(alpha, redPrimaryDark, greenPrimaryDark, bluePrimaryDark);
+    public int getColorPrimaryDark(int alpha) {
+        return mColorPrimaryDark.getColor(alpha);
+    }
+    /** Set the dark variant of the primary color. */
+    public void setColorPrimaryDark(int color) {
+        mColorPrimaryDark = new ColorWrapper(color);
     }
 
-    /** @return The accent color. Same as 'colorAccent'. */
+    /** @return The accent color. */
     public int getColorAccent() {
-        return colorAccent;
+        return mColorAccent.color;
     }
-
     /**
      * Get a translucent version of the accent color.
      * @param alpha The opacity of the color [0..255]
      */
     public int getColorAccent(int alpha) {
-        return Color.argb(alpha, redAccent, greenAccent, blueAccent);
+        return mColorAccent.getColor(alpha);
+    }
+    /** Set the accent color. */
+    public void setColorAccent(int color) {
+        mColorAccent = new ColorWrapper(color);
     }
 
     /** Get a color state list for widgets */
@@ -143,27 +144,27 @@ public class MatPalette {
 
         // Disabled state
         states[i] = new int[] { -android.R.attr.state_enabled };
-        colors[i] = Color.argb((int)(disabledAlpha * 255), 0x88, 0x88, 0x88);
+        colors[i] = Color.argb((int)(mDisabledAlpha * 255), 0x88, 0x88, 0x88);
         i++;
 
         states[i] = new int[] { android.R.attr.state_focused };
-        colors[i] = colorAccent;
+        colors[i] = mColorAccent.color;
         i++;
 
         states[i] = new int[] { android.R.attr.state_activated };
-        colors[i] = colorAccent;
+        colors[i] = mColorAccent.color;
         i++;
 
         states[i] = new int[] { android.R.attr.state_pressed };
-        colors[i] = colorAccent;
+        colors[i] = mColorAccent.color;
         i++;
 
         states[i] = new int[] { android.R.attr.state_checked };
-        colors[i] = colorAccent;
+        colors[i] = mColorAccent.color;
         i++;
 
         states[i] = new int[] { android.R.attr.state_selected };
-        colors[i] = colorAccent;
+        colors[i] = mColorAccent.color;
         i++;
 
         // Default enabled state
