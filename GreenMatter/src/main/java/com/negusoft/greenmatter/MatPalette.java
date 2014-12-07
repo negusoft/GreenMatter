@@ -15,7 +15,9 @@
  ******************************************************************************/
 package com.negusoft.greenmatter;
 
+import android.content.Context;
 import android.content.res.ColorStateList;
+import android.content.res.TypedArray;
 import android.graphics.Color;
 
 /**
@@ -50,6 +52,29 @@ public class MatPalette {
     }
 
 	private static final float DARK_COLOR_PERCENTAGE = 0.85f;
+    private static final int DEFAULT_COLOR = 0xff33b5e5;
+    private static final float DEFAULT_DISABLED_ALPHA = 0.5f;
+
+    /** Create an instance from the context theme. */
+    public static MatPalette createFromTheme(Context context) {
+        TypedArray attrs = context.getTheme().obtainStyledAttributes(R.styleable.GreenMatter);
+
+        int primary = attrs.getColor(R.styleable.GreenMatter_matColorPrimary, DEFAULT_COLOR);
+        int primaryDark = attrs.getColor(R.styleable.GreenMatter_matColorPrimaryDark, 0);
+        int accent = attrs.getColor(R.styleable.GreenMatter_matColorAccent, DEFAULT_COLOR);
+        int controlNormal = attrs.getColor(R.styleable.GreenMatter_matColorControlNormal, DEFAULT_COLOR);
+        int controlActivated = attrs.getColor(R.styleable.GreenMatter_matColorControlActivated, DEFAULT_COLOR);
+        int controlHighlighted = attrs.getColor(R.styleable.GreenMatter_matColorControlHighlight, DEFAULT_COLOR);
+        int buttonNormal = attrs.getColor(R.styleable.GreenMatter_matColorButtonNormal, DEFAULT_COLOR);
+        int switchThumbNormal = attrs.getColor(R.styleable.GreenMatter_matColorSwitchThumbNormal, DEFAULT_COLOR);
+        int edgeEffect = attrs.getColor(R.styleable.GreenMatter_matColorEdgeEffect, DEFAULT_COLOR);
+        float disabledAlpha = attrs.getFloat(R.styleable.GreenMatter_android_disabledAlpha, DEFAULT_DISABLED_ALPHA);
+
+        attrs.recycle();
+
+        return new MatPalette(primary, primaryDark, accent, controlNormal, controlActivated,
+                controlHighlighted, buttonNormal, switchThumbNormal, edgeEffect, disabledAlpha);
+    }
 
     private float mDisabledAlpha = 0.5f;
 
@@ -61,25 +86,30 @@ public class MatPalette {
     private ColorWrapper mColorControlActivated;
     private ColorWrapper mColorControlHighlight;
 
-	/**
-	 * Create an instance with the specified colors. The dark
-	 * variant of the primary color will be derived from it.
-	 */
-	public MatPalette(int colorPrimary, int colorAccent) {
-        mColorPrimary = new ColorWrapper(colorPrimary);
-        mColorPrimaryDark = new ColorWrapper(colorPrimary, DARK_COLOR_PERCENTAGE);
-        mColorAccent = new ColorWrapper(colorAccent);
-	}
+    private ColorWrapper mColorButtonNormal;
+    private ColorWrapper mColorSwitchThumbNormal;
+    private ColorWrapper mColorEdgeEffect;
 
-	/**
-	 * Create an instance with the colors explicitly specified.
-	 */
-	public MatPalette(int colorPrimary, int colorPrimaryDark, int colorAccent) {
+	/** Create an instance with the colors explicitly specified. */
+	public MatPalette(int colorPrimary, int colorPrimaryDark, int colorAccent,
+                      int colorControlNormal, int colorControlActivated, int colorControlHighlighted,
+                      int colorButtonNormal, int colorSwitchThumbNormal, int colorEdgeEffect,
+                      float disabledAlpha) {
         mColorPrimary = new ColorWrapper(colorPrimary);
         mColorPrimaryDark = colorPrimaryDark == 0 ?
                 new ColorWrapper(colorPrimary, DARK_COLOR_PERCENTAGE) :
                 new ColorWrapper(colorPrimaryDark);
         mColorAccent = new ColorWrapper(colorAccent);
+
+        mColorControlNormal = new ColorWrapper(colorControlNormal);
+        mColorControlActivated = new ColorWrapper(colorControlActivated);
+        mColorControlHighlight = new ColorWrapper(colorControlHighlighted);
+
+        mColorButtonNormal = new ColorWrapper(colorButtonNormal);
+        mColorSwitchThumbNormal = new ColorWrapper(colorSwitchThumbNormal);
+        mColorEdgeEffect = new ColorWrapper(colorEdgeEffect);
+
+        mDisabledAlpha = disabledAlpha;
 	}
 
     /** @return The transparency for the disabled state (between 0..1). */
@@ -185,6 +215,54 @@ public class MatPalette {
     /** Set the highlight control color. */
     public void setColorControlHighlight(int color) {
         mColorControlHighlight = new ColorWrapper(color);
+    }
+
+    /** @return The button color in normal state. */
+    public int getColorButtonNormal() {
+        return mColorButtonNormal.color;
+    }
+    /**
+     * Get a translucent version of the button color in normal state.
+     * @param alpha The opacity of the color [0..255]
+     */
+    public int getColorButtonNormal(int alpha) {
+        return mColorButtonNormal.getColor(alpha);
+    }
+    /** Set the button color in normal state. */
+    public void setColorButtonNormal(int color) {
+        mColorButtonNormal = new ColorWrapper(color);
+    }
+
+    /** @return The switch thumb color in normal state. */
+    public int getColorSwitchThumbNormal() {
+        return mColorSwitchThumbNormal.color;
+    }
+    /**
+     * Get a translucent version of the switch thumb color in normal state.
+     * @param alpha The opacity of the color [0..255]
+     */
+    public int getColorSwitchThumbNormal(int alpha) {
+        return mColorSwitchThumbNormal.getColor(alpha);
+    }
+    /** Set the switch thumb color in normal state. */
+    public void setColorSwitchThumbNormal(int color) {
+        mColorSwitchThumbNormal = new ColorWrapper(color);
+    }
+
+    /** @return The edge effect color. */
+    public int getColorEdgeEffect() {
+        return mColorEdgeEffect.color;
+    }
+    /**
+     * Get a translucent version of the edge effect color.
+     * @param alpha The opacity of the color [0..255]
+     */
+    public int getColorEdgeEffect(int alpha) {
+        return mColorEdgeEffect.getColor(alpha);
+    }
+    /** Set the edge effect color. */
+    public void setColorEdgeEffect(int color) {
+        mColorEdgeEffect = new ColorWrapper(color);
     }
 
     /** Get a color state list for widgets */

@@ -29,7 +29,13 @@
         <attr name="matColorSwitchThumbNormal" format="color|reference" />
         <attr name="matColorEdgeEffect" format="color|reference" />
 
-        <!-- Used to support color overriding -->
+        <attr name="android:disabledAlpha" />
+
+    </declare-styleable>
+
+    <!-- Used to support color overriding -->
+    <declare-styleable name="GreenMatterReference">
+
         <attr name="matColorPrimaryReference" format="color" />
         <attr name="matColorPrimaryDarkReference" format="color" />
         <attr name="matColorAccentReference" format="color" />

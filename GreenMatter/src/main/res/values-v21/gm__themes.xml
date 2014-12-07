@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.GreenMatter" parent="Base.Theme.GreenMatter">
+
+        <!-- DatePicker style -->
+        <item name="android:datePickerStyle">@style/Widget.GreenMatter.DatePicker</item>
+
+    </style>
+
+    <style name="Widget.GreenMatter.DatePicker" parent="android:Widget.Material.DatePicker">
+        <item name="android:headerBackground">@drawable/gm__solid_accent</item>
+        <!--<item name="android:actionBarStyle">@style/Widget.GreenMatter.ActionBar.Solid</item>-->
+    </style>
+
+    <!--<style name="Widget.GreenMatter.ActionBar.Solid" parent="android:Widget.Material.DatePicker">-->
+        <!--<item name="android:background">#f00</item>-->
+        <!--<item name="android:backgroundStacked">#0f0</item>-->
+        <!--<item name="android:backgroundSplit">#00f</item>-->
+    <!--</style>-->
+
+</resources>

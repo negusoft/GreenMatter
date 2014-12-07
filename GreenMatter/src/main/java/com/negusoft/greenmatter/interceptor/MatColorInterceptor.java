@@ -17,6 +17,14 @@ public class MatColorInterceptor implements MatResources.ColorInterceptor {
             return palette.getColorPrimaryDark();
         if (resId == R.color.gm__accent_reference)
             return palette.getColorAccent();
+        if (resId == R.color.gm__control_normal_reference)
+            return palette.getColorControlNormal();
+        if (resId == R.color.gm__control_activated_reference)
+            return palette.getColorControlActivated();
+        if (resId == R.color.gm__control_highlighted_reference)
+            return palette.getColorControlHighlight();
+        if (resId == R.color.gm__switch_thumb_normal_reference)
+            return palette.getColorSwitchThumbNormal();
         return 0;
     }
 

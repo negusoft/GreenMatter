@@ -45,8 +45,6 @@ public class TabbedActivity extends MatActivity implements ActionBar.TabListener
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        Drawable d = getResources().getDrawable(R.drawable.abc_btn_check_to_on_mtrl_015);
-
 		final ActionBar actionBar = getSupportActionBar();
 		if (actionBar != null) {
 			actionBar.setHomeButtonEnabled(true);
@@ -62,8 +60,13 @@ public class TabbedActivity extends MatActivity implements ActionBar.TabListener
 
 //    @Override
 //    public MatPalette overridePalette(MatPalette palette) {
+//        palette.setColorAccent(Color.YELLOW);
+//        palette.setColorPrimary(Color.GRAY);
+//        palette.setColorPrimaryDark(Color.DKGRAY);
 //        palette.setColorControlHighlight(Color.GREEN);
-//        palette.setColorAccent(Color.GREEN);
+//        palette.setColorControlNormal(Color.BLUE);
+//        palette.setColorControlActivated(Color.CYAN);
+//        palette.setColorSwitchThumbNormal(Color.WHITE);
 //        return super.overridePalette(palette);
 //    }
 	

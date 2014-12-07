@@ -15,23 +15,39 @@
   limitations under the License.
 -->
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
-	
+
+    <style name="Theme.GreenMatter" parent="Base.Theme.GreenMatter">
+
+        <item name="android:listChoiceIndicatorMultiple">@drawable/gm__btn_radio</item>
+        <!--<item name="android:listChoiceIndicatorSingle">@android:drawable/btn_star</item>-->
+
+    </style>
+
     <!-- Default themes -->
-    <style name="Theme.GreenMatter" parent="Theme.AppCompat">
+    <style name="Base.Theme.GreenMatter" parent="Theme.AppCompat">
         <item name="colorPrimary">@color/gm__primary</item>
         <item name="colorPrimaryDark">@color/gm__primary_dark</item>
         <item name="colorAccent">@color/gm__accent</item>
-        <!--<item name="colorControlActivated">@color/gm__accent</item>-->
+        <item name="colorControlNormal">@color/gm__control_normal</item>
+        <item name="colorControlActivated">@color/gm__control_activated</item>
+        <item name="colorControlHighlight">@color/gm__control_highlighted</item>
+        <item name="colorSwitchThumbNormal">@color/gm__switch_thumb_normal</item>
 
         <item name="matColorPrimary">@color/gm__default_primary</item>
         <item name="matColorPrimaryDark">@color/gm__default_primary_dark</item>
         <item name="matColorAccent">@color/gm__default_accent</item>
 
+        <item name="matColorControlNormal">?android:attr/textColorSecondary</item>
+        <item name="matColorControlActivated">?attr/matColorAccent</item>
+        <item name="matColorControlHighlight">@color/ripple_material_dark</item>
+        <item name="matColorButtonNormal">#f00</item>
+        <item name="matColorSwitchThumbNormal">@color/switch_thumb_normal_material_dark</item>
+        <item name="matColorEdgeEffect">@color/gm__default_accent</item>
+
         <!--<item name="actionBarTheme">@style/Theme.GreenMatter</item>-->
         <item name="actionBarStyle">@style/Widget.GreenMatter.ActionBar.Solid</item>
 
-        <item name="android:listChoiceIndicatorMultiple">@drawable/gm__btn_radio</item>
-        <!--<item name="android:listChoiceIndicatorSingle">@android:drawable/btn_star</item>-->
+        <!--<item name="android:selectableItemBackgroundBorderless">@drawable/aa_ripple_inner</item>-->
 
     </style>
 

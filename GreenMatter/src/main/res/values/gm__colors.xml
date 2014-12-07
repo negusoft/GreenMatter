@@ -23,5 +23,9 @@
     <color name="gm__primary_reference">#A4C739</color>
     <color name="gm__primary_dark_reference">#718213</color>
     <color name="gm__accent_reference">#0000ff</color>
+    <color name="gm__control_normal_reference">#b3ffffff</color>
+    <color name="gm__control_activated_reference">#0000ff</color>
+    <color name="gm__control_highlighted_reference">#40ffffff</color>
+    <color name="gm__switch_thumb_normal_reference">#ffbdbdbd</color>
 
 </resources>

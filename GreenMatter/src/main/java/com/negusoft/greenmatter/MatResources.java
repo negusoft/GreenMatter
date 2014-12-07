@@ -146,18 +146,7 @@ public class MatResources extends Resources {
     }
 
 	private MatPalette initPalette(Context c, PaletteOverrider overrider) {
-		TypedArray attrs = c.getTheme().obtainStyledAttributes(
-                new int[] { R.attr.matColorPrimary, R.attr.matColorPrimaryDark, R.attr.matColorAccent }
-        );
-
-        int holoBlue = super.getColor(android.R.color.holo_blue_light);
-		int primary = attrs.getColor(0, holoBlue);
-		int primaryDark = attrs.getColor(1, 0);
-        int accent = attrs.getColor(2, holoBlue);
-
-        attrs.recycle();
-
-		MatPalette result = new MatPalette(primary, primaryDark, accent);
+		MatPalette result = MatPalette.createFromTheme(c);
         return (overrider != null) ? overrider.getPalette(result) : result;
 	}
 
