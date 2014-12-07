@@ -4,6 +4,7 @@ import android.content.res.Resources;
 import android.support.v7.app.ActionBarActivity;
 
 import com.negusoft.greenmatter.MatHelper;
+import com.negusoft.greenmatter.MatPalette;
 import com.negusoft.greenmatter.MatResources;
 
 /**
@@ -11,8 +12,7 @@ import com.negusoft.greenmatter.MatResources;
  */
 public abstract class MatActivity extends ActionBarActivity {
 
-    private final MatHelper mMatHelper = new MatHelper(getOverridePrimaryColor(),
-            getOverridePrimaryColorDark(), getOverrideAccentColor(), new MyInitListener());
+    private final MatHelper mMatHelper = new MatHelper(new MyPaletteOverrider(), new MyInitListener());
 
     @Override
     public Resources getResources() {
@@ -20,31 +20,12 @@ public abstract class MatActivity extends ActionBarActivity {
     }
 
     /**
-     * Override this method to set the primary color programmatically.
-     * @return The color to override. If the color is equals to 0, the
-     * primary color will be taken from the theme.
+     * Override this method to set the palette colors programmatically.
+     * @param palette The palette inflated from the theme.
+     * @return A MatPalette instance with the desired colors
      */
-    public int getOverridePrimaryColor() {
-        return 0;
-    }
-
-    /**
-     * Override this method to set the dark variant of the primary color programmatically.
-     * @return The color to override. If the color is equals to 0, the dark version will be
-     * taken from the theme. If it is specified in the theme either, it will be calculated
-     * based on the primary color.
-     */
-    public int getOverridePrimaryColorDark() {
-        return 0;
-    }
-
-    /**
-     * Override this method to set the  accent color programmatically.
-     * @return The color to override. If the color is equals to 0, the
-     * accent color will be taken from the theme.
-     */
-    public int getOverrideAccentColor() {
-        return 0;
+    public MatPalette overridePalette(MatPalette palette) {
+        return palette;
     }
 
     /** Getter for the MatHelper instance. */
@@ -58,6 +39,13 @@ public abstract class MatActivity extends ActionBarActivity {
      */
     public void onInitMatResources(MatResources resources) {
         // To be overriden in child classes.
+    }
+
+    private class MyPaletteOverrider implements MatResources.PaletteOverrider {
+        @Override
+        public MatPalette getPalette(MatPalette palette) {
+            return overridePalette(palette);
+        }
     }
 
     private class MyInitListener implements MatHelper.OnInitListener {

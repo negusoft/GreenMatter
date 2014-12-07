@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -18,6 +19,7 @@ import android.text.format.DateFormat;
 import android.view.Menu;
 import android.widget.DatePicker;
 
+import com.negusoft.greenmatter.MatPalette;
 import com.negusoft.greenmatter.activity.MatActivity;
 import com.negusoft.greenmatter.example.R;
 import com.negusoft.greenmatter.example.fragment.ButtonFragment;
@@ -59,8 +61,10 @@ public class TabbedActivity extends MatActivity implements ActionBar.TabListener
 	}
 
 //    @Override
-//    public int getOverrideAccentColor() {
-//        return ColorOverrideConfig.getColor();
+//    public MatPalette overridePalette(MatPalette palette) {
+//        palette.setColorControlHighlight(Color.GREEN);
+//        palette.setColorAccent(Color.GREEN);
+//        return super.overridePalette(palette);
 //    }
 	
 	protected int getLayoutId() {

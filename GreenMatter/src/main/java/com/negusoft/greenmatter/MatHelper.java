@@ -64,52 +64,21 @@ public class MatHelper {
 	private MatResources mMatResources;
 	private DividerPainter mDividerPainter;
 
-	private final boolean mOverrideThemeColor;
-    private final int mOverridePrimaryColor;
-    private final int mOverridePrimaryColorDark;
-    private final int mOverrideAccentColor;
+    private final MatResources.PaletteOverrider mPaletteOverrider;
 
     private OnInitListener mInitListener;
 
 	public MatHelper() {
-		mOverrideThemeColor = false;
-		mOverridePrimaryColor = 0;
-        mOverridePrimaryColorDark = 0;
-        mOverrideAccentColor = 0;
+        mPaletteOverrider = null;
 	}
 
     /**
-     * Initialize by specifying a explicit color.
-     * @param color The color to override. If it is 0, it will not override the color so it
-     *              will be taken from the theme.
-     * @param colorDark The dark version to override. If it is 0, it be taken from the theme.
-     *                  Or it will be calculated from the main color if it not specified in
-     *                  the theme either.
-     * @param colorActionBar The action bar version to override. If it is 0, it will be taken
-     *                       from the theme. Or same as the main color if it not specified in
-     *                       the theme either.
-     */
-    public MatHelper(int color, int colorDark, int colorActionBar) {
-        this(color, colorDark, colorActionBar, null);
-    }
-
-    /**
-     * Initialize by specifying a explicit color.
-     * @param color The color to override. If it is 0, it will not override the color so it
-     *              will be taken from the theme.
-     * @param colorDark The dark version to override. If it is 0, it be taken from the theme.
-     *                  Or it will be calculated from the main color if it not specified in
-     *                  the theme either.
-     * @param colorActionBar The action bar version to override. If it is 0, it will be taken
-     *                       from the theme. Or same as the main color if it not specified in
-     *                       the theme either.
+     * Initialize by specifying a palette overrider.
+     * @param paletteOverrider The delegate that will override the palette programmatically.
      * @param listener Listener to receive the init event.
      */
-    public MatHelper(int color, int colorDark, int colorActionBar, OnInitListener listener) {
-        mOverrideThemeColor =  color != COLOR_NO_OVERRIDE;
-        mOverridePrimaryColor = color;
-        mOverridePrimaryColorDark = colorDark;
-        mOverrideAccentColor = colorActionBar;
+    public MatHelper(MatResources.PaletteOverrider paletteOverrider, OnInitListener listener) {
+        mPaletteOverrider = paletteOverrider;
         mInitListener = listener;
     }
 	
@@ -126,7 +95,7 @@ public class MatHelper {
 	/** Paint the dialog's divider if required to correctly customize it. */
 	public void prepareDialog(Context c, Window window) {
 		if (mDividerPainter == null)
-			mDividerPainter = initPainter(c, mOverridePrimaryColor);
+			mDividerPainter = initPainter(c);
 		mDividerPainter.paint(window);
 	}
 
@@ -138,12 +107,12 @@ public class MatHelper {
         mInitListener = listener;
     }
 
-    private DividerPainter initPainter(Context c, int color) {
-        return color == 0 ? new DividerPainter(c) : new DividerPainter(color);
+    private DividerPainter initPainter(Context c) {
+        return new DividerPainter(mMatResources.getPalette().getColorPrimary());
     }
 	
 	private MatResources createInstance(Context c, Resources resources) {
-        return new MatResources(c, resources, mOverridePrimaryColor, mOverridePrimaryColorDark, mOverrideAccentColor);
+        return new MatResources(c, resources, mPaletteOverrider);
 	}
 
 }

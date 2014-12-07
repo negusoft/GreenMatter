@@ -51,11 +51,15 @@ public class MatPalette {
 
 	private static final float DARK_COLOR_PERCENTAGE = 0.85f;
 
-	private ColorWrapper mColorPrimary;
+    private float mDisabledAlpha = 0.5f;
+
+    private ColorWrapper mColorPrimary;
     private ColorWrapper mColorPrimaryDark;
     private ColorWrapper mColorAccent;
 
-    private float mDisabledAlpha = 0.5f;
+    private ColorWrapper mColorControlNormal;
+    private ColorWrapper mColorControlActivated;
+    private ColorWrapper mColorControlHighlight;
 
 	/**
 	 * Create an instance with the specified colors. The dark
@@ -133,6 +137,54 @@ public class MatPalette {
     /** Set the accent color. */
     public void setColorAccent(int color) {
         mColorAccent = new ColorWrapper(color);
+    }
+
+    /** @return The normal control color. */
+    public int getColorControlNormal() {
+        return mColorControlNormal.color;
+    }
+    /**
+     * Get a translucent version of the normal control color.
+     * @param alpha The opacity of the color [0..255]
+     */
+    public int getColorControlNormal(int alpha) {
+        return mColorControlNormal.getColor(alpha);
+    }
+    /** Set the normal control color. */
+    public void setColorControlNormal(int color) {
+        mColorControlNormal = new ColorWrapper(color);
+    }
+
+    /** @return The activated control color. */
+    public int getColorControlActivated() {
+        return mColorControlActivated.color;
+    }
+    /**
+     * Get a translucent version of the activated control color.
+     * @param alpha The opacity of the color [0..255]
+     */
+    public int getColorControlActivated(int alpha) {
+        return mColorControlActivated.getColor(alpha);
+    }
+    /** Set the activated control color. */
+    public void setColorControlActivated(int color) {
+        mColorControlActivated = new ColorWrapper(color);
+    }
+
+    /** @return The highlight control color. */
+    public int getColorControlHighlight() {
+        return mColorControlHighlight.color;
+    }
+    /**
+     * Get a translucent version of the highlight control color.
+     * @param alpha The opacity of the color [0..255]
+     */
+    public int getColorControlHighlight(int alpha) {
+        return mColorControlHighlight.getColor(alpha);
+    }
+    /** Set the highlight control color. */
+    public void setColorControlHighlight(int color) {
+        mColorControlHighlight = new ColorWrapper(color);
     }
 
     /** Get a color state list for widgets */

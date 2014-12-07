@@ -69,13 +69,16 @@ public class MatResources extends Resources {
         public int getColor(Resources res, MatPalette palette, int resId);
     }
 
+    public interface PaletteOverrider {
+        /** @return The color to be replaced or 0 to continue the normal flow. */
+        public MatPalette getPalette(MatPalette palette);
+    }
+
 	private static final int[] TINT_DRAWABLE_IDS = new int[] {
 	};
 
 	private final Context mContext;
-	private final int mExplicitColorPrimary;
-    private final int mExplicitColorPrimaryDark;
-    private final int mExplicitColorAccent;
+    private PaletteOverrider mOverrider;
 
     private final List<Interceptor> mInterceptors = new ArrayList<Interceptor>();
     private final List<ColorInterceptor> mColorInterceptors = new ArrayList<ColorInterceptor>();
@@ -90,25 +93,13 @@ public class MatResources extends Resources {
 	public MatResources(Context c, Resources resources) {
 		super(resources.getAssets(), resources.getDisplayMetrics(), resources.getConfiguration());
 		mContext = c;
-		mExplicitColorPrimary = 0;
-		mExplicitColorPrimaryDark = 0;
-        mExplicitColorAccent = 0;
+        mOverrider = null;
 	}
 
-	public MatResources(Context c, Resources resources, int colorPrimary, int colorAccent) {
+	public MatResources(Context c, Resources resources, PaletteOverrider palletteOverrider) {
 		super(resources.getAssets(), resources.getDisplayMetrics(), resources.getConfiguration());
 		mContext = c;
-		mExplicitColorPrimary = colorPrimary;
-		mExplicitColorPrimaryDark = 0;
-        mExplicitColorAccent = colorAccent;
-	}
-
-	public MatResources(Context c, Resources resources, int colorPrimary, int colorPrimaryDark, int colorAccent) {
-		super(resources.getAssets(), resources.getDisplayMetrics(), resources.getConfiguration());
-		mContext = c;
-		mExplicitColorPrimary = colorPrimary;
-		mExplicitColorPrimaryDark = colorPrimaryDark;
-        mExplicitColorAccent = colorAccent;
+        mOverrider = palletteOverrider;
 	}
 
 	/**
@@ -121,17 +112,17 @@ public class MatResources extends Resources {
 	private boolean checkInitialized() {
 		if (mInitialized)
 			return false;
-		return initialize(mContext, mExplicitColorPrimary, mExplicitColorPrimaryDark, mExplicitColorAccent);
+		return initialize(mContext, mOverrider);
 	}
 
-	private synchronized boolean initialize(Context c, int colorPrimary, int colorPrimaryDark, int colorAccent) {
+	private synchronized boolean initialize(Context c, PaletteOverrider overrider) {
 		if (mInitialized)
 			return false;
         if (mInitializingFlag)
             return true;
 
         mInitializingFlag = true;
-		mPalette = initPalette(c, colorPrimary, colorPrimaryDark, colorAccent);
+		mPalette = initPalette(c, overrider);
         mTintDrawableIds = appendDrawableIds(TINT_DRAWABLE_IDS, mCustomTintDrawableIds);
 		addInterceptors(c);
         mInitializingFlag = false;
@@ -154,19 +145,20 @@ public class MatResources extends Resources {
         return result;
     }
 
-	private MatPalette initPalette(Context c, int explicitPrimary, int explicitPrimaryDark, int explicitAccent) {
+	private MatPalette initPalette(Context c, PaletteOverrider overrider) {
 		TypedArray attrs = c.getTheme().obtainStyledAttributes(
                 new int[] { R.attr.matColorPrimary, R.attr.matColorPrimaryDark, R.attr.matColorAccent }
         );
 
         int holoBlue = super.getColor(android.R.color.holo_blue_light);
-		int primary = explicitPrimary != 0 ? explicitPrimary : attrs.getColor(0, holoBlue);
-		int primaryDark = explicitPrimaryDark != 0 ? explicitPrimaryDark : attrs.getColor(1, 0);
-        int accent = explicitAccent != 0 ? explicitAccent : attrs.getColor(2, holoBlue);
+		int primary = attrs.getColor(0, holoBlue);
+		int primaryDark = attrs.getColor(1, 0);
+        int accent = attrs.getColor(2, holoBlue);
 
         attrs.recycle();
 
-		return new MatPalette(primary, primaryDark, accent);
+		MatPalette result = new MatPalette(primary, primaryDark, accent);
+        return (overrider != null) ? overrider.getPalette(result) : result;
 	}
 
 	private void addInterceptors(Context c) {
