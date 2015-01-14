@@ -58,17 +58,17 @@ public class TabbedActivity extends MatActivity implements ActionBar.TabListener
 		}
 	}
 
-//    @Override
-//    public MatPalette overridePalette(MatPalette palette) {
-//        palette.setColorAccent(Color.YELLOW);
-//        palette.setColorPrimary(Color.GRAY);
-//        palette.setColorPrimaryDark(Color.DKGRAY);
-//        palette.setColorControlHighlight(Color.GREEN);
-//        palette.setColorControlNormal(Color.BLUE);
-//        palette.setColorControlActivated(Color.CYAN);
-//        palette.setColorSwitchThumbNormal(Color.WHITE);
-//        return super.overridePalette(palette);
-//    }
+    @Override
+    public MatPalette overridePalette(MatPalette palette) {
+        palette.setColorAccent(Color.YELLOW);
+        palette.setColorPrimary(Color.GRAY);
+        palette.setColorPrimaryDark(Color.DKGRAY);
+        palette.setColorControlHighlight(Color.GREEN);
+        palette.setColorControlNormal(Color.BLUE);
+        palette.setColorControlActivated(Color.CYAN);
+        palette.setColorSwitchThumbNormal(Color.WHITE);
+        return super.overridePalette(palette);
+    }
 	
 	protected int getLayoutId() {
 		return R.layout.activity_tabbed;

@@ -19,6 +19,6 @@
     <!-- Time parameters, in milliseconds. -->
     <item name="gm__time_control_transition" type="integer">200</item>
     <item name="gm__time_circle_indicator_enter_transition" type="integer">200</item>
-    <item name="gm__time_circle_indicator_exit_transition" type="integer">500</item>
+    <item name="gm__time_circle_indicator_exit_transition" type="integer">400</item>
 
 </resources>

@@ -265,44 +265,4 @@ public class MatPalette {
         mColorEdgeEffect = new ColorWrapper(color);
     }
 
-    /** Get a color state list for widgets */
-    // TODO set colors based on widget colors
-    public ColorStateList getControlColorStateList() {
-        final int[][] states = new int[7][];
-        final int[] colors = new int[7];
-        int i = 0;
-
-        // Disabled state
-        states[i] = new int[] { -android.R.attr.state_enabled };
-        colors[i] = Color.argb((int)(mDisabledAlpha * 255), 0x88, 0x88, 0x88);
-        i++;
-
-        states[i] = new int[] { android.R.attr.state_focused };
-        colors[i] = mColorAccent.color;
-        i++;
-
-        states[i] = new int[] { android.R.attr.state_activated };
-        colors[i] = mColorAccent.color;
-        i++;
-
-        states[i] = new int[] { android.R.attr.state_pressed };
-        colors[i] = mColorAccent.color;
-        i++;
-
-        states[i] = new int[] { android.R.attr.state_checked };
-        colors[i] = mColorAccent.color;
-        i++;
-
-        states[i] = new int[] { android.R.attr.state_selected };
-        colors[i] = mColorAccent.color;
-        i++;
-
-        // Default enabled state
-        states[i] = new int[0];
-        colors[i] = Color.GRAY;
-        i++;
-
-        return new ColorStateList(states, colors);
-    }
-
 }
