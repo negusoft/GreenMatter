@@ -23,18 +23,22 @@ import com.negusoft.greenmatter.MatPalette;
 import com.negusoft.greenmatter.MatResources;
 import com.negusoft.greenmatter.R;
 import com.negusoft.greenmatter.drawable.CircleDrawable;
+import com.negusoft.greenmatter.drawable.CircleFillDrawable;
 
 public class CircleInterceptor implements MatResources.Interceptor {
+
+    private static final int PRESSED_ALPHA = 0x88;
+    private static final int FOCUSED_ALPHA = 0x55;
 	
 	@Override
 	public Drawable getDrawable(Resources res, MatPalette palette, int resId) {
 		if (resId == R.drawable.gm__circle_pressed_reference) {
-			int backColor = palette.getColorControlHighlight(0x88);
-			return new CircleDrawable(res, 16f, backColor, 0f, Color.TRANSPARENT);
+			int backColor = palette.getColorControlHighlight(PRESSED_ALPHA);
+			return new CircleFillDrawable(res, backColor, 0f, Color.TRANSPARENT);
 		}
 		if (resId == R.drawable.gm__circle_focused_reference) {
-            int borderColor = palette.getColorControlHighlight(0x88);
-            return new CircleDrawable(res, 15f, Color.TRANSPARENT, 2f, borderColor);
+            int backColor = palette.getColorControlHighlight(FOCUSED_ALPHA);
+            return new CircleFillDrawable(res, backColor, 0f, Color.TRANSPARENT);
 		}
 		return null;
 	}

@@ -22,4 +22,13 @@
         <item name="backgroundSplit">@drawable/gm__solid_primary</item>
     </style>
 
+    <!-- ListPopupWindow styles -->
+    <style name="Widget.GreenMatter.ListPopupWindow" parent="android:Widget.Holo.ListPopupWindow">
+        <item name="android:dropDownSelector">?android:attr/listChoiceBackgroundIndicator</item>
+    </style>
+
+    <style name="DropDownListView.Example" parent="Widget.AppCompat.ListView.DropDown">
+        <item name="android:listSelector">?android:attr/listChoiceBackgroundIndicator</item>
+    </style>
+
 </resources>

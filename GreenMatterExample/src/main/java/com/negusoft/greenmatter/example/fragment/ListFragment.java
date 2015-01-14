@@ -29,13 +29,14 @@ public class ListFragment extends Fragment implements OnItemClickListener {
 		View result = inflater.inflate(R.layout.list, null);
 		
 		mListView = (ListView)result.findViewById(R.id.listView);
-		mAdapter = new ArrayAdapter<String>(getActivity(), 
-				R.layout.list_item_multiple_choice,
+		mAdapter = new ArrayAdapter<String>(getActivity(),
+                android.R.layout.simple_list_item_1,
+//				R.layout.list_item_multiple_choice,
 				android.R.id.text1,
 				getResources().getStringArray(R.array.list_items));
 		mListView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
 		mListView.setAdapter(mAdapter);
-		mListView.setOnItemClickListener(this);
+//		mListView.setOnItemClickListener(this);
 		mListView.setMultiChoiceModeListener(mMultiChoiceModeListener);
 		mListView.setFastScrollEnabled(true);
 		mListView.setFastScrollAlwaysVisible(true);

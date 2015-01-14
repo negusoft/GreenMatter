@@ -20,6 +20,26 @@
 
         <item name="android:listChoiceIndicatorMultiple">@drawable/gm__btn_check</item>
         <item name="android:listChoiceIndicatorSingle">@drawable/gm__btn_radio</item>
+        <item name="android:listChoiceBackgroundIndicator">@drawable/gm__list_selector</item>
+
+        <item name="android:selectableItemBackground">@drawable/gm__selectable_item_background</item>
+        <item name="android:actionBarItemBackground">@drawable/gm__selectable_item_background</item>
+
+        <!--<item name="android:autoCompleteTextViewStyle">@style/HoloAccent.AutoCompleteTextView</item>-->
+        <!--<item name="android:imageButtonStyle">@style/HoloAccent.ImageButton</item>-->
+        <!--<item name="android:progressBarStyleHorizontal">@style/HoloAccent.ProgressBar.Horizontal</item>-->
+        <!--<item name="android:seekBarStyle">@style/HoloAccent.SeekBar</item>-->
+        <!--<item name="android:dropDownSpinnerStyle">@style/HoloAccent.Spinner</item>-->
+        <item name="android:listPopupWindowStyle">@style/Widget.GreenMatter.ListPopupWindow</item>
+        <item name="android:popupMenuStyle">@style/Widget.GreenMatter.ListPopupWindow</item>
+
+        <item name="android:actionBarWidgetTheme">@style/Theme.GreenMatter</item>
+
+        <!-- Duplicate attributes for ActionBarCompat -->
+        <item name="actionBarItemBackground">@drawable/gm__circle_indicator</item>
+
+        <item name="android:dropDownListViewStyle">@style/DropDownListView.Example</item>
+        <item name="dropDownListViewStyle">@style/DropDownListView.Example</item>
 
     </style>
 
