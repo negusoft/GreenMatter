@@ -42,15 +42,20 @@ public class TintDrawableInterceptor implements MatResources.Interceptor {
         int colorActivated = palette.getColorControlActivated();
         float disabledAlpha = palette.getDisabledAlpha();
 
-        final int[][] states = new int[7][];
-        final int[] colors = new int[7];
+        final int[][] states = new int[8][];
+        final int[] colors = new int[8];
         int i = 0;
 
-        // Disabled state
+        // Disabled states
+        states[i] = new int[] { -android.R.attr.state_enabled, android.R.attr.state_checked };
+        colors[i] = applyColorAlpha(colorActivated, disabledAlpha);
+        i++;
+
         states[i] = new int[] { -android.R.attr.state_enabled };
         colors[i] = applyColorAlpha(colorNormal, disabledAlpha);
         i++;
 
+        // Enabled states
         states[i] = new int[] { android.R.attr.state_focused };
         colors[i] = colorActivated;
         i++;
