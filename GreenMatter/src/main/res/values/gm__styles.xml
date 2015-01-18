@@ -27,7 +27,19 @@
         <item name="android:dropDownSelector">?android:attr/listChoiceBackgroundIndicator</item>
     </style>
 
-    <style name="DropDownListView.Example" parent="Widget.AppCompat.ListView.DropDown">
+    <!-- Button styles -->
+    <style name="Widget.GreenMatter.Button" parent="android:Widget.Holo.Button">
+        <item name="android:background">@drawable/gm__btn_default</item>
+        <item name="android:textAppearance">?android:textAppearanceButton</item>
+        <item name="android:textColor">?android:textColorPrimary</item>
+    </style>
+
+    <style name="TextAppearance.GreenMatter.Button" parent="TextAppearance.AppCompat.Button">
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <!-- DropDown ListView styles -->
+    <style name="Widget.GreenMatter.DropDownListView" parent="Widget.AppCompat.ListView.DropDown">
         <item name="android:listSelector">?android:attr/listChoiceBackgroundIndicator</item>
     </style>
 

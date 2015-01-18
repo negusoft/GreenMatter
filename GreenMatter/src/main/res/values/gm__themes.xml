@@ -25,6 +25,14 @@
         <item name="android:selectableItemBackground">@drawable/gm__selectable_item_background</item>
         <item name="android:actionBarItemBackground">@drawable/gm__selectable_item_background</item>
 
+        <item name="android:textAppearanceButton">@style/TextAppearance.GreenMatter.Button</item>
+
+        <item name="android:buttonStyle">@style/Widget.GreenMatter.Button</item>
+        <!--<item name="android:buttonStyleSmall">@style/HoloAccent.Button.Small</item>-->
+        <!--<item name="android:buttonStyleInset">@style/HoloAccent.Button</item>-->
+        <!--<item name="android:buttonStyleToggle">@style/Widget.HoloAccent.Button.Toggle</item>-->
+        <!--<item name="android:mediaRouteButtonStyle">@android:style/Widget.Holo.MediaRouteButton</item> -->
+
         <!--<item name="android:autoCompleteTextViewStyle">@style/HoloAccent.AutoCompleteTextView</item>-->
         <!--<item name="android:imageButtonStyle">@style/HoloAccent.ImageButton</item>-->
         <!--<item name="android:progressBarStyleHorizontal">@style/HoloAccent.ProgressBar.Horizontal</item>-->
@@ -38,8 +46,8 @@
         <!-- Duplicate attributes for ActionBarCompat -->
         <item name="actionBarItemBackground">@drawable/gm__circle_indicator</item>
 
-        <item name="android:dropDownListViewStyle">@style/DropDownListView.Example</item>
-        <item name="dropDownListViewStyle">@style/DropDownListView.Example</item>
+        <item name="android:dropDownListViewStyle">@style/Widget.GreenMatter.DropDownListView</item>
+        <item name="dropDownListViewStyle">@style/Widget.GreenMatter.DropDownListView</item>
 
     </style>
 
@@ -53,6 +61,8 @@
         <item name="colorControlHighlight">@color/gm__control_highlighted</item>
         <item name="colorSwitchThumbNormal">@color/gm__switch_thumb_normal</item>
 
+        <item name="android:disabledAlpha">0.30</item>
+
         <item name="matColorPrimary">@color/gm__default_primary</item>
         <item name="matColorPrimaryDark">@color/gm__default_primary_dark</item>
         <item name="matColorAccent">@color/gm__default_accent</item>
@@ -60,7 +70,7 @@
         <item name="matColorControlNormal">?android:attr/textColorSecondary</item>
         <item name="matColorControlActivated">?attr/matColorAccent</item>
         <item name="matColorControlHighlight">@color/ripple_material_dark</item>
-        <item name="matColorButtonNormal">#f00</item>
+        <item name="matColorButtonNormal">@color/button_material_dark</item>
         <item name="matColorSwitchThumbNormal">@color/switch_thumb_normal_material_dark</item>
         <item name="matColorEdgeEffect">@color/gm__default_accent</item>
 

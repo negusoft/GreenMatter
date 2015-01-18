@@ -22,6 +22,11 @@
     <item name="gm__solid_accent_reference" type="drawable">#0000</item>
     <item name="gm__solid_pressed_reference" type="drawable">#0000</item>
     <item name="gm__solid_focused_reference" type="drawable">#0000</item>
+    <item name="gm__btn_default_reference" type="drawable">#0000</item>
+    <item name="gm__btn_default_background_enabled_reference" type="drawable">#0000</item>
+    <item name="gm__btn_default_background_disabled_reference" type="drawable">#0000</item>
+    <item name="gm__btn_default_foreground_pressed_reference" type="drawable">#0000</item>
+    <item name="gm__btn_default_foreground_focused_reference" type="drawable">#0000</item>
     <item name="gm__btn_check_reference" type="drawable">#0000</item>
     <item name="gm__btn_radio_reference" type="drawable">#0000</item>
     <item name="gm__circle_focused_reference" type="drawable">#0000</item>

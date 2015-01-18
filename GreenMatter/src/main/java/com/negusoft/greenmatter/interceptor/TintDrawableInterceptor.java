@@ -17,24 +17,32 @@ public class TintDrawableInterceptor implements MatResources.Interceptor {
     @Override
     public Drawable getDrawable(Resources res, MatPalette palette, int resId) {
         if (resId == R.drawable.gm__btn_check_reference) {
-            Drawable primary = getTintendDrawable(res, palette, R.drawable.gm__btn_check_main);
+            Drawable primary = getTintendControlDrawable(res, palette, R.drawable.gm__btn_check_main);
             Drawable secondary = res.getDrawable(R.drawable.gm__circle_indicator);
             return new CompoundDrawableWrapper(primary, secondary);
         }
         if (resId == R.drawable.gm__btn_radio_reference) {
-            Drawable primary = getTintendDrawable(res, palette, R.drawable.gm__btn_radio_main);
+            Drawable primary = getTintendControlDrawable(res, palette, R.drawable.gm__btn_radio_main);
             Drawable secondary = res.getDrawable(R.drawable.gm__circle_indicator);
             return new CompoundDrawableWrapper(primary, secondary);
+        }
+        if (resId == R.drawable.gm__btn_default_reference) {
+            Drawable frame = getTintendButtonDrawable(res, palette, R.drawable.gm__btn_default_frame);
+            Drawable foreground = res.getDrawable(R.drawable.gm__btn_default_foreground);
+            return new CompoundDrawableWrapper(frame, false, foreground);
         }
         return null;
     }
 
-    private Drawable getTintendDrawable(Resources res, MatPalette palette, int id) {
+    private Drawable getTintendControlDrawable(Resources res, MatPalette palette, int id) {
         Drawable baseDrawable = res.getDrawable(id);
         return new TintDrawableWrapper(baseDrawable, getControlColorStateList(palette));
     }
 
-
+    private Drawable getTintendButtonDrawable(Resources res, MatPalette palette, int id) {
+        Drawable baseDrawable = res.getDrawable(id);
+        return new TintDrawableWrapper(baseDrawable, getButtonColorStateList(palette));
+    }
 
     /** Get a color state list for widgets */
     private ColorStateList getControlColorStateList(MatPalette palette) {
@@ -80,6 +88,24 @@ public class TintDrawableInterceptor implements MatResources.Interceptor {
         states[i] = new int[0];
         colors[i] = colorNormal;
         i++;
+
+        return new ColorStateList(states, colors);
+    }
+
+    /** Get a color state list for the button shape */
+    private ColorStateList getButtonColorStateList(MatPalette palette) {
+        int color = palette.getColorButtonNormal();
+        float disabledAlpha = palette.getDisabledAlpha();
+
+        final int[][] states = new int[2][];
+        final int[] colors = new int[2];
+
+        // Disabled
+        states[0] = new int[] { -android.R.attr.state_enabled };
+        colors[0] = applyColorAlpha(color, disabledAlpha);
+        // Default (enabled)
+        states[1] = new int[0];
+        colors[1] = color;
 
         return new ColorStateList(states, colors);
     }

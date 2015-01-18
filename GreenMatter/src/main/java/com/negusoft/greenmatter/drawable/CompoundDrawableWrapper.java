@@ -30,10 +30,16 @@ import android.support.v4.graphics.drawable.DrawableCompat;
  */
 public class CompoundDrawableWrapper extends DrawableWrapper {
 
+    private final boolean mSecondaryInBackground;
     private final Drawable[] mDrawables;
 
     public CompoundDrawableWrapper(Drawable primary, Drawable... secondary) {
+        this(primary, true, secondary);
+    }
+
+    public CompoundDrawableWrapper(Drawable primary, boolean secondaryInBackgound, Drawable... secondary) {
         super(primary);
+        mSecondaryInBackground = secondaryInBackgound;
         mDrawables = secondary;
         for (Drawable d : mDrawables)
             d.setCallback(this);
@@ -41,9 +47,12 @@ public class CompoundDrawableWrapper extends DrawableWrapper {
 
     @Override
     public void draw(Canvas canvas) {
+        if (!mSecondaryInBackground)
+            super.draw(canvas);
         for (Drawable d : mDrawables)
             d.draw(canvas);
-        super.draw(canvas);
+        if (mSecondaryInBackground)
+            super.draw(canvas);
     }
 
     @Override

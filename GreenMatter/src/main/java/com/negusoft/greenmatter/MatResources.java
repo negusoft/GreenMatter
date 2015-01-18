@@ -33,6 +33,7 @@ import android.util.TypedValue;
 import com.negusoft.greenmatter.drawable.TintDrawableWrapper;
 import com.negusoft.greenmatter.interceptor.CircleInterceptor;
 import com.negusoft.greenmatter.interceptor.MatColorInterceptor;
+import com.negusoft.greenmatter.interceptor.RoundRectInterceptor;
 import com.negusoft.greenmatter.interceptor.SolidInterceptor;
 import com.negusoft.greenmatter.interceptor.TintDrawableInterceptor;
 import com.negusoft.greenmatter.util.BitmapUtils;
@@ -155,6 +156,7 @@ public class MatResources extends Resources {
         mInterceptors.add(new TintDrawableInterceptor());
         mInterceptors.add(new CircleInterceptor());
         mInterceptors.add(new OverScrollInterceptor());
+        mInterceptors.add(new RoundRectInterceptor());
 
         mColorInterceptors.add(new MatColorInterceptor());
 	}
