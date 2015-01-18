@@ -1,4 +1,4 @@
-package com.negusoft.greenmatter.interceptor;
+package com.negusoft.greenmatter.interceptor.drawable;
 
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
@@ -12,7 +12,7 @@ import com.negusoft.greenmatter.drawable.CompoundDrawableWrapper;
 import com.negusoft.greenmatter.drawable.TintDrawableWrapper;
 
 /** Intercepts drawables that need to be wrapped in TintDrawableWrapper. */
-public class TintDrawableInterceptor implements MatResources.Interceptor {
+public class TintDrawableDrawableInterceptor implements MatResources.DrawableInterceptor {
 
     @Override
     public Drawable getDrawable(Resources res, MatPalette palette, int resId) {

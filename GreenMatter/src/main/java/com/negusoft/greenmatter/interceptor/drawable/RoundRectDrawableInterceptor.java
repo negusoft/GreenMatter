@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  ******************************************************************************/
-package com.negusoft.greenmatter.interceptor;
+package com.negusoft.greenmatter.interceptor.drawable;
 
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
@@ -23,7 +23,7 @@ import com.negusoft.greenmatter.MatResources;
 import com.negusoft.greenmatter.R;
 import com.negusoft.greenmatter.drawable.RoundRectDrawable;
 
-public class RoundRectInterceptor implements MatResources.Interceptor {
+public class RoundRectDrawableInterceptor implements MatResources.DrawableInterceptor {
 
     private static final int PRESSED_ALPHA = 0x88;
     private static final int FOCUSED_ALPHA = 0x55;

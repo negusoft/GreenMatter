@@ -1,7 +1,12 @@
 package com.negusoft.greenmatter.activity;
 
+import android.content.Context;
 import android.content.res.Resources;
+import android.support.annotation.NonNull;
 import android.support.v7.app.ActionBarActivity;
+import android.util.AttributeSet;
+import android.view.View;
+import android.widget.Button;
 
 import com.negusoft.greenmatter.MatHelper;
 import com.negusoft.greenmatter.MatPalette;
@@ -54,5 +59,4 @@ public abstract class MatActivity extends ActionBarActivity {
             onInitMatResources(resources);
         }
     }
-
 }

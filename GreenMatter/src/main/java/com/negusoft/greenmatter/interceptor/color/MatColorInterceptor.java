@@ -1,4 +1,4 @@
-package com.negusoft.greenmatter.interceptor;
+package com.negusoft.greenmatter.interceptor.color;
 
 import android.content.res.Resources;
 

@@ -17,25 +17,21 @@ package com.negusoft.greenmatter;
 
 import android.annotation.TargetApi;
 import android.content.Context;
-import android.content.res.ColorStateList;
 import android.content.res.Resources;
-import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.CompressFormat;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.TypedValue;
 
-import com.negusoft.greenmatter.drawable.TintDrawableWrapper;
-import com.negusoft.greenmatter.interceptor.CircleInterceptor;
-import com.negusoft.greenmatter.interceptor.MatColorInterceptor;
-import com.negusoft.greenmatter.interceptor.RoundRectInterceptor;
-import com.negusoft.greenmatter.interceptor.SolidInterceptor;
-import com.negusoft.greenmatter.interceptor.TintDrawableInterceptor;
+import com.negusoft.greenmatter.interceptor.drawable.CircleDrawableInterceptor;
+import com.negusoft.greenmatter.interceptor.color.MatColorInterceptor;
+import com.negusoft.greenmatter.interceptor.drawable.RoundRectDrawableInterceptor;
+import com.negusoft.greenmatter.interceptor.drawable.SolidDrawableInterceptor;
+import com.negusoft.greenmatter.interceptor.drawable.TintDrawableDrawableInterceptor;
 import com.negusoft.greenmatter.util.BitmapUtils;
 import com.negusoft.greenmatter.util.NativeResources;
 
@@ -60,7 +56,7 @@ import java.util.List;
  */
 public class MatResources extends Resources {
 
-	public interface Interceptor {
+	public interface DrawableInterceptor {
 		/** @return The drawable to be replaced or null to continue the normal flow. */
 		public Drawable getDrawable(Resources res, MatPalette palette, int resId);
 	}
@@ -81,7 +77,7 @@ public class MatResources extends Resources {
 	private final Context mContext;
     private PaletteOverrider mOverrider;
 
-    private final List<Interceptor> mInterceptors = new ArrayList<Interceptor>();
+    private final List<DrawableInterceptor> mDrawableInterceptors = new ArrayList<DrawableInterceptor>();
     private final List<ColorInterceptor> mColorInterceptors = new ArrayList<ColorInterceptor>();
 
     private List<Integer> mCustomTintDrawableIds;
@@ -125,7 +121,7 @@ public class MatResources extends Resources {
         mInitializingFlag = true;
 		mPalette = initPalette(c, overrider);
         mTintDrawableIds = appendDrawableIds(TINT_DRAWABLE_IDS, mCustomTintDrawableIds);
-		addInterceptors(c);
+		addDrawableInterceptors(c);
         mInitializingFlag = false;
 		mInitialized = true;
 
@@ -151,12 +147,12 @@ public class MatResources extends Resources {
         return (overrider != null) ? overrider.getPalette(result) : result;
 	}
 
-	private void addInterceptors(Context c) {
-        mInterceptors.add(new SolidInterceptor());
-        mInterceptors.add(new TintDrawableInterceptor());
-        mInterceptors.add(new CircleInterceptor());
-        mInterceptors.add(new OverScrollInterceptor());
-        mInterceptors.add(new RoundRectInterceptor());
+	private void addDrawableInterceptors(Context c) {
+        mDrawableInterceptors.add(new SolidDrawableInterceptor());
+        mDrawableInterceptors.add(new TintDrawableDrawableInterceptor());
+        mDrawableInterceptors.add(new CircleDrawableInterceptor());
+        mDrawableInterceptors.add(new OverScrollDrawableInterceptor());
+        mDrawableInterceptors.add(new RoundRectDrawableInterceptor());
 
         mColorInterceptors.add(new MatColorInterceptor());
 	}
@@ -218,7 +214,7 @@ public class MatResources extends Resources {
 
         // Give a chance to the interceptors to replace the drawable
         Drawable result;
-        for(Interceptor interceptor : mInterceptors) {
+        for(DrawableInterceptor interceptor : mDrawableInterceptors) {
             result = interceptor.getDrawable(this, mPalette, resId);
             if (result != null)
                 return result;
@@ -252,8 +248,8 @@ public class MatResources extends Resources {
      * Add a drawable interceptor. They are evaluated in the order they are added, and before the
      * default interceptors.
      */
-    public void addInterceptor(Interceptor interceptor) {
-        mInterceptors.add(0, interceptor);
+    public void addInterceptor(DrawableInterceptor interceptor) {
+        mDrawableInterceptors.add(0, interceptor);
     }
 
     /**
@@ -309,7 +305,7 @@ public class MatResources extends Resources {
 	 * drawables. It is implemented a an inner class because it needs to access 
 	 * the parents implementation of getDrawable().
 	 */
-	private class OverScrollInterceptor implements Interceptor {
+	private class OverScrollDrawableInterceptor implements DrawableInterceptor {
 
 		private static final String RESOURCE_NAME_EDGE = "overscroll_edge";
 		private static final String RESOURCE_NAME_GLOW = "overscroll_glow";
@@ -320,7 +316,7 @@ public class MatResources extends Resources {
         private Drawable mOverscrollEdgeDrawable;
         private Drawable mOverscrollGlowDrawable;
 		
-		public OverScrollInterceptor() {
+		public OverScrollDrawableInterceptor() {
             mOverscrollEdgeId = NativeResources.getDrawableIdentifier(RESOURCE_NAME_EDGE);
             mOverscrollGlowId = NativeResources.getDrawableIdentifier(RESOURCE_NAME_GLOW);
 		}
