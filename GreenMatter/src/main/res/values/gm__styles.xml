@@ -33,6 +33,16 @@
         <item name="android:textAppearance">?android:textAppearanceButton</item>
         <item name="android:textColor">?android:textColorPrimary</item>
     </style>
+    <style name="Widget.GreenMatter.Button.Small" parent="android:Widget.Holo.Button.Small">
+        <item name="android:background">@drawable/gm__btn_default</item>
+        <item name="android:textAppearance">?android:textAppearanceButton</item>
+        <item name="android:textColor">?android:textColorPrimary</item>
+    </style>
+    <style name="Widget.GreenMatter.ImageButton" parent="android:Widget.Holo.ImageButton">
+        <item name="android:background">@drawable/gm__btn_default</item>
+        <item name="android:textAppearance">?android:textAppearanceButton</item>
+        <item name="android:textColor">?android:textColorPrimary</item>
+    </style>
 
     <style name="TextAppearance.GreenMatter.Button" parent="TextAppearance.AppCompat.Button">
         <item name="android:textAllCaps">true</item>

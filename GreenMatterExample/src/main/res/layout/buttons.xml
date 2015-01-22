@@ -134,12 +134,12 @@
                 android:text="@string/button_small" />
         </LinearLayout>
 
-		<!-- Other button styles -->
+		<!-- Borderless button -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:text="@string/button_category_other_buttons" />
+            android:text="@string/button_category_borderless" />
         
         <View
             android:layout_width="match_parent"
@@ -150,18 +150,26 @@
 		    android:layout_width="wrap_content"
 		    android:layout_height="wrap_content"
 		    android:orientation="horizontal" >
-			
-			<Button
-			    style="?android:attr/borderlessButtonStyle"
-			    android:layout_width="wrap_content"
-			    android:layout_height="wrap_content"
-			    android:text="@string/button_borderless" />
-	
-			<Button
-			    style="?android:attr/buttonStyleInset"
-			    android:layout_width="wrap_content"
-			    android:layout_height="wrap_content"
-			    android:text="@string/button_inset" />
+
+            <Button
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/button_borderless_default" />
+
+            <Button
+                style="?android:attr/borderlessButtonStyle"
+                android:enabled="false"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/button_borderless_disabled" />
+
+            <Button
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="?attr/colorAccent"
+                android:text="@string/button_borderless_colored" />
 
 		</LinearLayout>
 	
@@ -193,12 +201,14 @@
                 android:contentDescription="@string/button_image_colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:color="?colorPrimary"
                 android:src="@drawable/ic_launcher" />
 
             <ImageButton
                 android:contentDescription="@string/button_image_colored_bright"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:color="?colorPrimaryDark"
                 android:src="@drawable/ic_launcher" />
 
         </LinearLayout>
@@ -209,6 +219,7 @@
             android:orientation="horizontal" >
 
             <ImageButton
+                android:id="@+id/firstImageButton"
                 android:contentDescription="@string/button_image_default"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -218,12 +229,14 @@
                 android:contentDescription="@string/button_image_colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:color="?colorPrimary"
                 android:src="@drawable/ic_launcher" />
 
             <ImageButton
                 android:contentDescription="@string/button_image_colored_bright"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:color="?colorPrimaryDark"
                 android:src="@drawable/ic_launcher" />
 
         </LinearLayout>

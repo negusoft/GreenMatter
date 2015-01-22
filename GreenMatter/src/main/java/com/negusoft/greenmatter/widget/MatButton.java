@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  ******************************************************************************/
-package com.negusoft.greenmatter.view;
+package com.negusoft.greenmatter.widget;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -52,30 +52,47 @@ public class MatButton extends Button {
     public MatButton(Context context) {
         super(context);
         mContext = context;
-        init(context, null);
+        MatButton.initBackgroundColor(getBackground(), context, null);
     }
 
     public MatButton(Context context, AttributeSet attrs) {
         super(context, attrs);
         mContext = context;
-        init(context, attrs);
+        MatButton.initBackgroundColor(getBackground(), context, attrs);
     }
 
     public MatButton(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         mContext = context;
-        init(context, attrs);
+        MatButton.initBackgroundColor(getBackground(), context, attrs);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public MatButton(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         mContext = context;
-        init(context, attrs);
+        MatButton.initBackgroundColor(getBackground(), context, attrs);
     }
 
-    private void init(Context context, AttributeSet attrs) {
-        ColorDelegate colorSetter = getColorSetter();
+    /**
+     * Set the buttons background color. The disabled color is calculated using the 'disabledAlpha'
+     * attribute. The method may not work if you changed the button's background, either
+     * programmatically or by using a style.
+     */
+    public void setColor(int color) {
+        MatButton.setColor(mContext, getBackground(), color);
+    }
+
+    /**
+     * Set the buttons background color. The method may not work if you changed the button's
+     * background, either programmatically or by using a style.
+     */
+    public void setColor(ColorStateList colorStateList) {
+        MatButton.setColor(getBackground(), colorStateList);
+    }
+
+    static void initBackgroundColor(Drawable background, Context context, AttributeSet attrs) {
+        ColorDelegate colorSetter = MatButton.getColorSetter(background);
         if (colorSetter == null)
             return;
 
@@ -86,23 +103,18 @@ public class MatButton extends Button {
         a.recycle();
 
         if (colorStateList != null) {
-            colorStateList = completeColorStateList(colorStateList, disabledAlpha);
+            colorStateList = MatButton.completeColorStateList(colorStateList, disabledAlpha);
             colorSetter.setColorStateList(colorStateList);
         }
     }
 
-    /**
-     * Set the buttons background color. The disabled color is calculated using the 'disabledAlpha'
-     * attribute. The method may not work if you changed the button's background, either
-     * programmatically or by using a style.
-     */
-    public void setColor(int color) {
-        ColorDelegate colorSetter = getColorSetter();
+    static void setColor(Context context, Drawable background, int color) {
+        ColorDelegate colorSetter = MatButton.getColorSetter(background);
         if (colorSetter == null)
             return;
 
         int[] styleable = new int[] { android.R.attr.disabledAlpha };
-        TypedArray a = mContext.obtainStyledAttributes(styleable);
+        TypedArray a = context.obtainStyledAttributes(styleable);
         float disabledAlpha = a.getFloat(0, DEFAULT_DISABLED_ALPHA);
         a.recycle();
 
@@ -110,16 +122,12 @@ public class MatButton extends Button {
         final int[] colors = new int[] { color };
         ColorStateList colorStateList = new ColorStateList(states, colors);
 
-        colorStateList = completeColorStateList(colorStateList, disabledAlpha);
+        colorStateList = MatButton.completeColorStateList(colorStateList, disabledAlpha);
         colorSetter.setColorStateList(colorStateList);
     }
 
-    /**
-     * Set the buttons background color. The method may not work if you changed the button's
-     * background, either programmatically or by using a style.
-     */
-    public void setColor(ColorStateList colorStateList) {
-        ColorDelegate colorSetter = getColorSetter();
+    static void setColor(Drawable background, ColorStateList colorStateList) {
+        ColorDelegate colorSetter = MatButton.getColorSetter(background);
         if (colorSetter != null) {
             colorSetter.setColorStateList(colorStateList);
         }
@@ -131,9 +139,9 @@ public class MatButton extends Button {
      * Post-Lollipop: Modify the inner shape of the RippleDrawable
      * @return The ColorDelegate implementation or null if no coloring required.
      */
-    private ColorDelegate getColorSetter() {
+    private static ColorDelegate getColorSetter(Drawable background) {
         // Pre-Lollipop
-        final TintDrawableWrapper tintDrawableWrapper = getTinedDrawable();
+        final TintDrawableWrapper tintDrawableWrapper = MatButton.getTinedDrawable(background);
         if (tintDrawableWrapper != null) {
             return new ColorDelegate() {
                 @Override public void setColorStateList(ColorStateList colorStateList) {
@@ -145,7 +153,7 @@ public class MatButton extends Button {
         // Post-Lollipop
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP)
             return null;
-        final GradientDrawable rippleShapeDrawable = getRippleShapeDrawable();
+        final GradientDrawable rippleShapeDrawable = MatButton.getRippleShapeDrawable(background);
         if (rippleShapeDrawable != null) {
             return new ColorDelegate() {
                 @TargetApi(Build.VERSION_CODES.LOLLIPOP)
@@ -159,12 +167,11 @@ public class MatButton extends Button {
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    private GradientDrawable getRippleShapeDrawable() {
-        Drawable possibleRipple = getBackground();
-        if (!(possibleRipple instanceof RippleDrawable))
+    private static GradientDrawable getRippleShapeDrawable(Drawable background) {
+        if (!(background instanceof RippleDrawable))
             return null;
 
-        RippleDrawable ripple = (RippleDrawable)possibleRipple;
+        RippleDrawable ripple = (RippleDrawable)background;
         Drawable possibleInset = ripple.getDrawable(0);
         if (!(possibleInset instanceof InsetDrawable))
             return null;
@@ -180,8 +187,7 @@ public class MatButton extends Button {
     }
 
     /** Return the inner tinted drawable, null if it couln't be fetched (if a custom background was set) */
-    private TintDrawableWrapper getTinedDrawable() {
-        Drawable background = getBackground();
+    private static TintDrawableWrapper getTinedDrawable(Drawable background) {
         if (!(background instanceof StateListDrawable))
             return null;
 
@@ -197,7 +203,7 @@ public class MatButton extends Button {
     }
 
     /** If there is only one color in the color state list, add the disabled state */
-    private ColorStateList completeColorStateList(ColorStateList colorStateList, float alpha) {
+    private static ColorStateList completeColorStateList(ColorStateList colorStateList, float alpha) {
         if (colorStateList.isStateful())
             return colorStateList;
 

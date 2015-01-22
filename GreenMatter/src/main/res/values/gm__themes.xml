@@ -28,13 +28,13 @@
         <item name="android:textAppearanceButton">@style/TextAppearance.GreenMatter.Button</item>
 
         <item name="android:buttonStyle">@style/Widget.GreenMatter.Button</item>
-        <!--<item name="android:buttonStyleSmall">@style/HoloAccent.Button.Small</item>-->
+        <item name="android:buttonStyleSmall">@style/Widget.GreenMatter.Button.Small</item>
         <!--<item name="android:buttonStyleInset">@style/HoloAccent.Button</item>-->
         <!--<item name="android:buttonStyleToggle">@style/Widget.HoloAccent.Button.Toggle</item>-->
         <!--<item name="android:mediaRouteButtonStyle">@android:style/Widget.Holo.MediaRouteButton</item> -->
+        <item name="android:imageButtonStyle">@style/Widget.GreenMatter.ImageButton</item>
 
         <!--<item name="android:autoCompleteTextViewStyle">@style/HoloAccent.AutoCompleteTextView</item>-->
-        <!--<item name="android:imageButtonStyle">@style/HoloAccent.ImageButton</item>-->
         <!--<item name="android:progressBarStyleHorizontal">@style/HoloAccent.ProgressBar.Horizontal</item>-->
         <!--<item name="android:seekBarStyle">@style/HoloAccent.SeekBar</item>-->
         <!--<item name="android:dropDownSpinnerStyle">@style/HoloAccent.Spinner</item>-->

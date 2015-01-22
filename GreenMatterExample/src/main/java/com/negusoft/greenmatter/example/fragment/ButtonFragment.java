@@ -10,11 +10,12 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ListPopupWindow;
 import android.widget.QuickContactBadge;
 
 import com.negusoft.greenmatter.example.R;
-import com.negusoft.greenmatter.view.MatButton;
+import com.negusoft.greenmatter.widget.MatImageButton;
 
 public class ButtonFragment extends Fragment {
 	
