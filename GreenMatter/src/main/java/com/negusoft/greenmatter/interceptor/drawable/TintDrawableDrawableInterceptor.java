@@ -18,31 +18,53 @@ public class TintDrawableDrawableInterceptor implements MatResources.DrawableInt
     @Override
     public Drawable getDrawable(Resources res, MatPalette palette, int resId) {
         if (resId == R.drawable.gm__btn_check_reference) {
-            Drawable primary = getTintendControlDrawable(res, palette, R.drawable.gm__btn_check_main);
+            Drawable primary = getTintedControlDrawable(res, palette, R.drawable.gm__btn_check_main);
             Drawable secondary = res.getDrawable(R.drawable.gm__circle_indicator);
             return new CompoundDrawableWrapper(primary, secondary);
         }
         if (resId == R.drawable.gm__btn_radio_reference) {
-            Drawable primary = getTintendControlDrawable(res, palette, R.drawable.gm__btn_radio_main);
+            Drawable primary = getTintedControlDrawable(res, palette, R.drawable.gm__btn_radio_main);
             Drawable secondary = res.getDrawable(R.drawable.gm__circle_indicator);
             return new CompoundDrawableWrapper(primary, secondary);
         }
         if (resId == R.drawable.gm__btn_default_reference) {
-            Drawable frame = getTintendButtonDrawable(res, palette, R.drawable.gm__btn_default_frame);
+            Drawable frame = getTintedButtonDrawable(res, palette, R.drawable.gm__btn_default_frame);
             Drawable foreground = res.getDrawable(R.drawable.gm__btn_default_foreground);
             return new CompoundDrawableWrapper(frame, false, foreground);
+        }
+        if (resId == R.drawable.gm__btn_toggle_reference) {
+            Drawable frame = getTintedButtonDrawable(res, palette, R.drawable.gm__btn_default_frame);
+            Drawable indicator = res.getDrawable(R.drawable.gm__btn_toggle_indicator);
+            Drawable foreground = res.getDrawable(R.drawable.gm__btn_default_foreground);
+            return new CompoundDrawableWrapper(frame, false, indicator, foreground);
+        }
+        if (resId == R.drawable.gm__switch_track_reference) {
+            return getTintedSwitchTrackDrawable(res, palette);
+        }
+        if (resId == R.drawable.gm__switch_thumb_reference) {
+            return getTintedSwitchThumbDrawable(res, palette);
         }
         return null;
     }
 
-    private Drawable getTintendControlDrawable(Resources res, MatPalette palette, int id) {
+    private Drawable getTintedControlDrawable(Resources res, MatPalette palette, int id) {
         Drawable baseDrawable = res.getDrawable(id);
         return new TintDrawableWrapper(baseDrawable, getControlColorStateList(palette));
     }
 
-    private Drawable getTintendButtonDrawable(Resources res, MatPalette palette, int id) {
+    private Drawable getTintedButtonDrawable(Resources res, MatPalette palette, int id) {
         Drawable baseDrawable = res.getDrawable(id);
         return new TintDrawableWrapper(baseDrawable, getButtonColorStateList(palette));
+    }
+
+    private Drawable getTintedSwitchTrackDrawable(Resources res, MatPalette palette) {
+        Drawable baseDrawable = res.getDrawable(R.drawable.abc_switch_track_mtrl_alpha);
+        return new TintDrawableWrapper(baseDrawable, getSwitchTrackColorStateList(res, palette));
+    }
+
+    private Drawable getTintedSwitchThumbDrawable(Resources res, MatPalette palette) {
+        Drawable baseDrawable = res.getDrawable(R.drawable.gm__switch_thumb_stateful);
+        return new TintDrawableWrapper(baseDrawable, getSwitchThumbColorStateList(palette));
     }
 
     /** Get a color state list for widgets */
@@ -107,6 +129,61 @@ public class TintDrawableDrawableInterceptor implements MatResources.DrawableInt
         // Default (enabled)
         states[1] = new int[0];
         colors[1] = color;
+
+        return new ColorStateList(states, colors);
+    }
+
+    /**
+     *  Get a color state list for the Switch track
+     *  It is slightly different than the original. The colorControlNormal is used in stead of
+     *  colorForeground. Also, the opacity is relative, so the disabled opacity is a third of the
+     *  disabledAlpha, and not just an absolute value.
+     */
+    private ColorStateList getSwitchTrackColorStateList(Resources res, MatPalette palette) {
+        int colorControlNormal = palette.getColorControlNormal();
+        int colorControlActivated = palette.getColorControlActivated();
+        float disabledAlpha = palette.getDisabledAlpha();
+
+        // opacity to apply to each state color
+        float relativeOpacity = 1/3f;
+        disabledAlpha *= relativeOpacity;
+
+        final int[][] states = new int[4][];
+        final int[] colors = new int[4];
+
+        // Disabled states
+        states[0] = new int[] { -android.R.attr.state_enabled, android.R.attr.state_checked };
+        colors[0] = ColorUtils.applyColorAlpha(colorControlActivated, disabledAlpha);
+        states[1] = new int[] { -android.R.attr.state_enabled };
+        colors[1] = ColorUtils.applyColorAlpha(colorControlNormal, disabledAlpha);
+        // Enabled states
+        states[2] = new int[] { android.R.attr.state_checked };
+        colors[2] = ColorUtils.applyColorAlpha(colorControlActivated, relativeOpacity);
+        states[3] = new int[0];
+        colors[3] = ColorUtils.applyColorAlpha(colorControlNormal, relativeOpacity);
+
+        return new ColorStateList(states, colors);
+    }
+
+    /** Get a color state list for the Switch thumb */
+    private ColorStateList getSwitchThumbColorStateList(MatPalette palette) {
+        int colorSwitchThumbThumbNormal = palette.getColorSwitchThumbNormal();
+        int colorControlActivated = palette.getColorControlActivated();
+        float disabledAlpha = palette.getDisabledAlpha();
+
+        final int[][] states = new int[4][];
+        final int[] colors = new int[4];
+
+        // Disabled states
+        states[0] = new int[] { -android.R.attr.state_enabled, android.R.attr.state_checked };
+        colors[0] = ColorUtils.applyColorAlpha(colorControlActivated, disabledAlpha);
+        states[1] = new int[] { -android.R.attr.state_enabled };
+        colors[1] = ColorUtils.applyColorAlpha(colorSwitchThumbThumbNormal, disabledAlpha);
+        // Enabled states
+        states[2] = new int[] { android.R.attr.state_checked };
+        colors[2] = colorControlActivated;
+        states[3] = new int[0];
+        colors[3] = colorSwitchThumbThumbNormal;
 
         return new ColorStateList(states, colors);
     }

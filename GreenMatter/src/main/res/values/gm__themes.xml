@@ -30,7 +30,7 @@
         <item name="android:buttonStyle">@style/Widget.GreenMatter.Button</item>
         <item name="android:buttonStyleSmall">@style/Widget.GreenMatter.Button.Small</item>
         <!--<item name="android:buttonStyleInset">@style/HoloAccent.Button</item>-->
-        <!--<item name="android:buttonStyleToggle">@style/Widget.HoloAccent.Button.Toggle</item>-->
+        <item name="android:buttonStyleToggle">@style/Widget.GreenMatter.Button.Toggle</item>
         <!--<item name="android:mediaRouteButtonStyle">@android:style/Widget.Holo.MediaRouteButton</item> -->
         <item name="android:imageButtonStyle">@style/Widget.GreenMatter.ImageButton</item>
 
@@ -48,6 +48,9 @@
 
         <item name="android:dropDownListViewStyle">@style/Widget.GreenMatter.DropDownListView</item>
         <item name="dropDownListViewStyle">@style/Widget.GreenMatter.DropDownListView</item>
+
+        <item name="selectableItemBackgroundBorderless">?android:attr/selectableItemBackground</item>
+        <item name="selectableItemBackground">?android:attr/selectableItemBackground</item>
 
     </style>
 
@@ -76,6 +79,7 @@
 
         <!--<item name="actionBarTheme">@style/Theme.GreenMatter</item>-->
         <item name="actionBarStyle">@style/Widget.GreenMatter.ActionBar.Solid</item>
+        <item name="switchStyle">@style/Widget.GreenMatter.CompoundButton.Switch</item>
 
     </style>
 

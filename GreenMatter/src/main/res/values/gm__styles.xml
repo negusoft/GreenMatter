@@ -43,6 +43,20 @@
         <item name="android:textAppearance">?android:textAppearanceButton</item>
         <item name="android:textColor">?android:textColorPrimary</item>
     </style>
+    <style name="Widget.GreenMatter.Button.Toggle" parent="android:Widget.Holo.Button.Toggle">
+        <item name="android:background">@drawable/gm__btn_toggle</item>
+        <item name="android:textAppearance">?android:textAppearanceButton</item>
+        <item name="android:textColor">?android:textColorPrimary</item>
+    </style>
+
+    <!-- SwitchCompat style -->
+    <style name="Widget.GreenMatter.CompoundButton.Switch" parent="Widget.AppCompat.CompoundButton.Switch">
+        <item name="track">@drawable/gm__switch_track</item>
+        <item name="android:thumb">@drawable/gm__switch_thumb</item>
+        <!--<item name="switchTextAppearance">@style/TextAppearance.AppCompat.Widget.Switch</item>-->
+        <!--<item name="android:background">?attr/selectableItemBackgroundBorderless</item>-->
+        <!--<item name="showText">false</item>-->
+    </style>
 
     <style name="TextAppearance.GreenMatter.Button" parent="TextAppearance.AppCompat.Button">
         <item name="android:textAllCaps">true</item>

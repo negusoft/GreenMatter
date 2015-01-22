@@ -32,6 +32,7 @@ import com.negusoft.greenmatter.interceptor.color.MatColorInterceptor;
 import com.negusoft.greenmatter.interceptor.drawable.RoundRectDrawableInterceptor;
 import com.negusoft.greenmatter.interceptor.drawable.SolidDrawableInterceptor;
 import com.negusoft.greenmatter.interceptor.drawable.TintDrawableDrawableInterceptor;
+import com.negusoft.greenmatter.interceptor.drawable.UnderlineDrawableInterceptor;
 import com.negusoft.greenmatter.util.BitmapUtils;
 import com.negusoft.greenmatter.util.NativeResources;
 
@@ -153,6 +154,7 @@ public class MatResources extends Resources {
         mDrawableInterceptors.add(new CircleDrawableInterceptor());
         mDrawableInterceptors.add(new OverScrollDrawableInterceptor());
         mDrawableInterceptors.add(new RoundRectDrawableInterceptor());
+        mDrawableInterceptors.add(new UnderlineDrawableInterceptor());
 
         mColorInterceptors.add(new MatColorInterceptor());
 	}

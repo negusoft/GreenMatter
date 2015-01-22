@@ -6,6 +6,10 @@
         <!-- DatePicker style -->
         <item name="android:datePickerStyle">@style/Widget.GreenMatter.DatePicker</item>
 
+        <!-- Map the Compat attributes to the system counterparts -->
+        <item name="selectableItemBackground">?android:attr/selectableItemBackground</item>
+        <item name="selectableItemBackgroundBorderless">?android:attr/selectableItemBackgroundBorderless</item>
+
     </style>
 
     <style name="Widget.GreenMatter.DatePicker" parent="android:Widget.Material.DatePicker">
