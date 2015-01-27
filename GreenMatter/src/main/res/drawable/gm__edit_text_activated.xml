@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  Copyright 2013 NEGU Soft
+  Copyright 2014 NEGU Soft
   
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -14,13 +14,12 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<resources>
-
-    <!-- Time parameters, in milliseconds. -->
-    <item name="gm__time_control_transition" type="integer">200</item>
-    <item name="gm__time_circle_indicator_enter_transition" type="integer">200</item>
-    <item name="gm__time_circle_indicator_exit_transition" type="integer">400</item>
-    <item name="gm__time_edit_text_enter_transition" type="integer">200</item>
-    <item name="gm__time_edit_text_exit_transition" type="integer">400</item>
-
-</resources>
+<inset xmlns:android="http://schemas.android.com/apk/res/android"
+    android:insetTop="@dimen/abc_control_inset_material"
+    android:insetBottom="@dimen/abc_control_inset_material"
+    android:insetLeft="@dimen/abc_control_inset_material"
+    android:insetRight="@dimen/abc_control_inset_material">
+    <selector>
+        <item android:drawable="@drawable/gm__edit_text_activated_reference" />
+    </selector>
+</inset>

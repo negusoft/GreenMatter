@@ -27,6 +27,9 @@
 
         <item name="android:textAppearanceButton">@style/TextAppearance.GreenMatter.Button</item>
 
+        <item name="android:editTextBackground">@drawable/gm__edit_text</item>
+        <item name="editTextBackground">@drawable/gm__edit_text</item>
+
         <item name="android:buttonStyle">@style/Widget.GreenMatter.Button</item>
         <item name="android:buttonStyleSmall">@style/Widget.GreenMatter.Button.Small</item>
         <!--<item name="android:buttonStyleInset">@style/HoloAccent.Button</item>-->

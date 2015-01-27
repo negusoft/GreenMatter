@@ -17,32 +17,47 @@ public class TintDrawableDrawableInterceptor implements MatResources.DrawableInt
 
     @Override
     public Drawable getDrawable(Resources res, MatPalette palette, int resId) {
+        // Check Box
         if (resId == R.drawable.gm__btn_check_reference) {
             Drawable primary = getTintedControlDrawable(res, palette, R.drawable.gm__btn_check_main);
             Drawable secondary = res.getDrawable(R.drawable.gm__circle_indicator);
             return new CompoundDrawableWrapper(primary, secondary);
         }
+        // Radio Button
         if (resId == R.drawable.gm__btn_radio_reference) {
             Drawable primary = getTintedControlDrawable(res, palette, R.drawable.gm__btn_radio_main);
             Drawable secondary = res.getDrawable(R.drawable.gm__circle_indicator);
             return new CompoundDrawableWrapper(primary, secondary);
         }
+        // Button
         if (resId == R.drawable.gm__btn_default_reference) {
             Drawable frame = getTintedButtonDrawable(res, palette, R.drawable.gm__btn_default_frame);
             Drawable foreground = res.getDrawable(R.drawable.gm__btn_default_foreground);
             return new CompoundDrawableWrapper(frame, false, foreground);
         }
+        // Toggle Button
         if (resId == R.drawable.gm__btn_toggle_reference) {
             Drawable frame = getTintedButtonDrawable(res, palette, R.drawable.gm__btn_default_frame);
             Drawable indicator = res.getDrawable(R.drawable.gm__btn_toggle_indicator);
             Drawable foreground = res.getDrawable(R.drawable.gm__btn_default_foreground);
             return new CompoundDrawableWrapper(frame, false, indicator, foreground);
         }
+        // Switch
         if (resId == R.drawable.gm__switch_track_reference) {
             return getTintedSwitchTrackDrawable(res, palette);
         }
         if (resId == R.drawable.gm__switch_thumb_reference) {
             return getTintedSwitchThumbDrawable(res, palette);
+        }
+        // Edit Text
+        if (resId == R.drawable.gm__edit_text_activated_reference) {
+            return getTintedEditTextActivatedDrawable(res, palette, R.drawable.abc_textfield_activated_mtrl_alpha);
+        }
+        if (resId == R.drawable.gm__edit_text_default_reference) {
+            return getTintedEditTextDefaultDrawable(res, palette, R.drawable.abc_textfield_default_mtrl_alpha);
+        }
+        if (resId == R.drawable.gm__edit_text_disabled_reference) {
+            return getTintedEditTextDisabledDrawable(res, palette, R.drawable.abc_textfield_default_mtrl_alpha);
         }
         return null;
     }
@@ -65,6 +80,24 @@ public class TintDrawableDrawableInterceptor implements MatResources.DrawableInt
     private Drawable getTintedSwitchThumbDrawable(Resources res, MatPalette palette) {
         Drawable baseDrawable = res.getDrawable(R.drawable.gm__switch_thumb_stateful);
         return new TintDrawableWrapper(baseDrawable, getSwitchThumbColorStateList(palette));
+    }
+
+    private Drawable getTintedEditTextActivatedDrawable(Resources res, MatPalette palette, int id) {
+        Drawable baseDrawable = res.getDrawable(id);
+        int color = palette.getColorControlActivated();
+        return new TintDrawableWrapper(baseDrawable, ColorStateList.valueOf(color));
+    }
+    private Drawable getTintedEditTextDefaultDrawable(Resources res, MatPalette palette, int id) {
+        Drawable baseDrawable = res.getDrawable(id);
+        int color = palette.getColorControlNormal();
+        return new TintDrawableWrapper(baseDrawable, ColorStateList.valueOf(color));
+    }
+    private Drawable getTintedEditTextDisabledDrawable(Resources res, MatPalette palette, int id) {
+        Drawable baseDrawable = res.getDrawable(id);
+        int color = palette.getColorControlNormal();
+        float disabledAlpha = palette.getDisabledAlpha();
+        color = ColorUtils.applyColorAlpha(color, disabledAlpha);
+        return new TintDrawableWrapper(baseDrawable, ColorStateList.valueOf(color));
     }
 
     /** Get a color state list for widgets */
@@ -184,6 +217,24 @@ public class TintDrawableDrawableInterceptor implements MatResources.DrawableInt
         colors[2] = colorControlActivated;
         states[3] = new int[0];
         colors[3] = colorSwitchThumbThumbNormal;
+
+        return new ColorStateList(states, colors);
+    }
+
+    /** Get a color state list for the EditText when not active */
+    private ColorStateList getEditTextDefaultColorStateList(MatPalette palette) {
+        int color = palette.getColorButtonNormal();
+        float disabledAlpha = palette.getDisabledAlpha();
+
+        final int[][] states = new int[2][];
+        final int[] colors = new int[2];
+
+        // Disabled
+        states[0] = new int[] { -android.R.attr.state_enabled };
+        colors[0] = ColorUtils.applyColorAlpha(color, disabledAlpha);
+        // Default (enabled)
+        states[1] = new int[0];
+        colors[1] = color;
 
         return new ColorStateList(states, colors);
     }
