@@ -35,6 +35,7 @@
     <item name="gm__edit_text_activated_reference" type="drawable">#0000</item>
     <item name="gm__edit_text_default_reference" type="drawable">#0000</item>
     <item name="gm__edit_text_disabled_reference" type="drawable">#0000</item>
+    <item name="gm__text_cursor_reference" type="drawable">#0000</item>
     <item name="gm__switch_thumb_reference" type="drawable">#0000</item>
     <item name="gm__switch_track_reference" type="drawable">#0000</item>
     <item name="gm__circle_focused_reference" type="drawable">#0000</item>

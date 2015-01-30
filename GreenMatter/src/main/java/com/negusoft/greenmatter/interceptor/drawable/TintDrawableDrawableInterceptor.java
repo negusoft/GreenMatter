@@ -51,13 +51,17 @@ public class TintDrawableDrawableInterceptor implements MatResources.DrawableInt
         }
         // Edit Text
         if (resId == R.drawable.gm__edit_text_activated_reference) {
-            return getTintedEditTextActivatedDrawable(res, palette, R.drawable.abc_textfield_activated_mtrl_alpha);
+            return getTintedActivatedDrawable(res, palette, R.drawable.abc_textfield_activated_mtrl_alpha);
         }
         if (resId == R.drawable.gm__edit_text_default_reference) {
-            return getTintedEditTextDefaultDrawable(res, palette, R.drawable.abc_textfield_default_mtrl_alpha);
+            return getTintedNormalDrawable(res, palette, R.drawable.abc_textfield_default_mtrl_alpha);
         }
         if (resId == R.drawable.gm__edit_text_disabled_reference) {
-            return getTintedEditTextDisabledDrawable(res, palette, R.drawable.abc_textfield_default_mtrl_alpha);
+            return getTintedNormalDisabledDrawable(res, palette, R.drawable.abc_textfield_default_mtrl_alpha);
+        }
+        // Text cursor
+        if (resId == R.drawable.gm__text_cursor_reference) {
+            return getTintedActivatedDrawable(res, palette, R.drawable.gm__text_cursor_mtrl_alpha);
         }
         return null;
     }
@@ -82,17 +86,17 @@ public class TintDrawableDrawableInterceptor implements MatResources.DrawableInt
         return new TintDrawableWrapper(baseDrawable, getSwitchThumbColorStateList(palette));
     }
 
-    private Drawable getTintedEditTextActivatedDrawable(Resources res, MatPalette palette, int id) {
+    private Drawable getTintedActivatedDrawable(Resources res, MatPalette palette, int id) {
         Drawable baseDrawable = res.getDrawable(id);
         int color = palette.getColorControlActivated();
         return new TintDrawableWrapper(baseDrawable, ColorStateList.valueOf(color));
     }
-    private Drawable getTintedEditTextDefaultDrawable(Resources res, MatPalette palette, int id) {
+    private Drawable getTintedNormalDrawable(Resources res, MatPalette palette, int id) {
         Drawable baseDrawable = res.getDrawable(id);
         int color = palette.getColorControlNormal();
         return new TintDrawableWrapper(baseDrawable, ColorStateList.valueOf(color));
     }
-    private Drawable getTintedEditTextDisabledDrawable(Resources res, MatPalette palette, int id) {
+    private Drawable getTintedNormalDisabledDrawable(Resources res, MatPalette palette, int id) {
         Drawable baseDrawable = res.getDrawable(id);
         int color = palette.getColorControlNormal();
         float disabledAlpha = palette.getDisabledAlpha();

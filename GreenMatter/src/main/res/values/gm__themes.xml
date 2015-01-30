@@ -28,7 +28,7 @@
         <item name="android:textAppearanceButton">@style/TextAppearance.GreenMatter.Button</item>
 
         <item name="android:editTextBackground">@drawable/gm__edit_text</item>
-        <item name="editTextBackground">@drawable/gm__edit_text</item>
+        <item name="android:textCursorDrawable">@drawable/gm__text_cursor</item>
 
         <item name="android:buttonStyle">@style/Widget.GreenMatter.Button</item>
         <item name="android:buttonStyleSmall">@style/Widget.GreenMatter.Button.Small</item>
@@ -48,6 +48,7 @@
 
         <!-- Duplicate attributes for ActionBarCompat -->
         <item name="actionBarItemBackground">@drawable/gm__circle_indicator</item>
+        <item name="editTextBackground">@drawable/gm__edit_text</item>
 
         <item name="android:dropDownListViewStyle">@style/Widget.GreenMatter.DropDownListView</item>
         <item name="dropDownListViewStyle">@style/Widget.GreenMatter.DropDownListView</item>
