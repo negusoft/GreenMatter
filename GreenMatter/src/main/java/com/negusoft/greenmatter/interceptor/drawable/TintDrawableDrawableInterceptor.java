@@ -23,18 +23,21 @@ public class TintDrawableDrawableInterceptor implements MatResources.DrawableInt
             Drawable secondary = res.getDrawable(R.drawable.gm__circle_indicator);
             return new CompoundDrawableWrapper(primary, secondary);
         }
+
         // Radio Button
         if (resId == R.drawable.gm__btn_radio_reference) {
             Drawable primary = getTintedControlDrawable(res, palette, R.drawable.gm__btn_radio_main);
             Drawable secondary = res.getDrawable(R.drawable.gm__circle_indicator);
             return new CompoundDrawableWrapper(primary, secondary);
         }
+
         // Button
         if (resId == R.drawable.gm__btn_default_reference) {
             Drawable frame = getTintedButtonDrawable(res, palette, R.drawable.gm__btn_default_frame);
             Drawable foreground = res.getDrawable(R.drawable.gm__btn_default_foreground);
             return new CompoundDrawableWrapper(frame, false, foreground);
         }
+
         // Toggle Button
         if (resId == R.drawable.gm__btn_toggle_reference) {
             Drawable frame = getTintedButtonDrawable(res, palette, R.drawable.gm__btn_default_frame);
@@ -42,27 +45,33 @@ public class TintDrawableDrawableInterceptor implements MatResources.DrawableInt
             Drawable foreground = res.getDrawable(R.drawable.gm__btn_default_foreground);
             return new CompoundDrawableWrapper(frame, false, indicator, foreground);
         }
+
         // Switch
-        if (resId == R.drawable.gm__switch_track_reference) {
+        if (resId == R.drawable.gm__switch_track_reference)
             return getTintedSwitchTrackDrawable(res, palette);
-        }
-        if (resId == R.drawable.gm__switch_thumb_reference) {
+        if (resId == R.drawable.gm__switch_thumb_reference)
             return getTintedSwitchThumbDrawable(res, palette);
-        }
+
         // Edit Text
-        if (resId == R.drawable.gm__edit_text_activated_reference) {
+        if (resId == R.drawable.gm__edit_text_activated_reference)
             return getTintedActivatedDrawable(res, palette, R.drawable.abc_textfield_activated_mtrl_alpha);
-        }
-        if (resId == R.drawable.gm__edit_text_default_reference) {
+        if (resId == R.drawable.gm__edit_text_default_reference)
             return getTintedNormalDrawable(res, palette, R.drawable.abc_textfield_default_mtrl_alpha);
-        }
-        if (resId == R.drawable.gm__edit_text_disabled_reference) {
+        if (resId == R.drawable.gm__edit_text_disabled_reference)
             return getTintedNormalDisabledDrawable(res, palette, R.drawable.abc_textfield_default_mtrl_alpha);
-        }
+
         // Text cursor
-        if (resId == R.drawable.gm__text_cursor_reference) {
+        if (resId == R.drawable.gm__text_cursor_reference)
             return getTintedActivatedDrawable(res, palette, R.drawable.gm__text_cursor_mtrl_alpha);
-        }
+
+        // Text select handle
+        if (resId == R.drawable.gm__text_select_handle_left_reference)
+            return getTintedActivatedDrawable(res, palette, R.drawable.gm__text_select_handle_left_mtrl_alpha);
+        if (resId == R.drawable.gm__text_select_handle_right_reference)
+            return getTintedActivatedDrawable(res, palette, R.drawable.gm__text_select_handle_right_mtrl_alpha);
+        if (resId == R.drawable.gm__text_select_handle_middle_reference)
+            return getTintedActivatedDrawable(res, palette, R.drawable.gm__text_select_handle_middle_mtrl_alpha);
+
         return null;
     }
 

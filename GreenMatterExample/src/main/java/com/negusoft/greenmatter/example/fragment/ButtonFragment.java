@@ -36,9 +36,6 @@ public class ButtonFragment extends Fragment {
 //        if (coloredButton instanceof MatButton) {
 //            ((MatButton)coloredButton).setColor(Color.BLUE);
 //        }
-
-        QuickContactBadge badge = (QuickContactBadge)result.findViewById(R.id.badge);
-        badge.assignContactFromEmail("info@negusoft.com", false);
 		
 		return result;
 	}

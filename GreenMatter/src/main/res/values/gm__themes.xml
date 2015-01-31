@@ -28,6 +28,13 @@
         <item name="android:textAppearanceButton">@style/TextAppearance.GreenMatter.Button</item>
 
         <item name="android:editTextBackground">@drawable/gm__edit_text</item>
+
+        <!-- Text selection handle attributes -->
+        <item name="android:textSelectHandleLeft">@drawable/gm__text_select_handle_left</item>
+        <item name="android:textSelectHandleRight">@drawable/gm__text_select_handle_right</item>
+        <item name="android:textSelectHandle">@drawable/gm__text_select_handle_middle</item>
+        <!--<item name="android:textSelectHandleWindowStyle">@style/Widget.Material.TextSelectHandle</item>-->
+        <!--<item name="android:textSuggestionsWindowStyle">@style/Widget.Material.TextSuggestionsPopupWindow</item>-->
         <item name="android:textCursorDrawable">@drawable/gm__text_cursor</item>
 
         <item name="android:buttonStyle">@style/Widget.GreenMatter.Button</item>
