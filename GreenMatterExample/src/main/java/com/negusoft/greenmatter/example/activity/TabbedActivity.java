@@ -20,6 +20,7 @@ import android.view.Menu;
 import android.widget.DatePicker;
 
 import com.negusoft.greenmatter.MatPalette;
+import com.negusoft.greenmatter.MatResources;
 import com.negusoft.greenmatter.activity.MatActivity;
 import com.negusoft.greenmatter.example.R;
 import com.negusoft.greenmatter.example.fragment.ButtonFragment;
@@ -28,6 +29,7 @@ import com.negusoft.greenmatter.example.fragment.ListFragment;
 import com.negusoft.greenmatter.example.fragment.PickersFragment;
 import com.negusoft.greenmatter.example.fragment.ProgressFragment;
 import com.negusoft.greenmatter.example.fragment.TextviewFragment;
+import com.negusoft.greenmatter.example.interceptor.ColorInterceptor;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -58,6 +60,12 @@ public class TabbedActivity extends MatActivity implements ActionBar.TabListener
 		}
 	}
 
+    @Override
+    public void onInitMatResources(MatResources resources) {
+        super.onInitMatResources(resources);
+        resources.addColorInterceptor(new ColorInterceptor());
+    }
+
 //    @Override
 //    public MatPalette overridePalette(MatPalette palette) {
 //        palette.setColorAccent(Color.YELLOW);
@@ -65,7 +73,7 @@ public class TabbedActivity extends MatActivity implements ActionBar.TabListener
 //        palette.setColorPrimaryDark(0xff440000);
 //        palette.setColorControlHighlight(Color.GREEN);
 //        palette.setColorControlNormal(Color.MAGENTA);
-//        palette.setColorControlActivated(Color.CYAN);
+//        palette.setColorControlActivated(Color.RED);
 //        palette.setColorButtonNormal(0xff888800);
 //        palette.setColorSwitchThumbNormal(Color.WHITE);
 //        return super.overridePalette(palette);

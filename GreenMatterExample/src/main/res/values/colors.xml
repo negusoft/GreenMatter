@@ -1,0 +1,6 @@
+<resources>
+
+    <!-- Color references that will be replaced at runtime -->
+    <color name="checkable_listview_item_reference">#88888888</color>
+
+</resources>

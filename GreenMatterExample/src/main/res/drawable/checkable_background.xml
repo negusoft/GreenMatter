@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:enterFadeDuration="500"
+    android:exitFadeDuration="500">
+    <item android:state_checked="true">
+        <shape>
+            <solid android:color="@color/checkable_listview_item"/>
+        </shape>
+    </item>
+</selector>
