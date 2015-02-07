@@ -25,6 +25,8 @@ public class MatColorInterceptor implements MatResources.ColorInterceptor {
             return palette.getColorControlHighlight();
         if (resId == R.color.gm__switch_thumb_normal_reference)
             return palette.getColorSwitchThumbNormal();
+        if (resId == R.color.gm__fastscroll_track_reference)
+            return palette.getColorControlNormal(0x7F);
         return 0;
     }
 

@@ -1,5 +1,6 @@
 package com.negusoft.greenmatter.example.fragment;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.MenuItemCompat;
@@ -17,6 +18,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.SectionIndexer;
 
 import com.negusoft.greenmatter.example.R;
 
@@ -31,10 +33,7 @@ public class ListFragment extends Fragment implements OnItemClickListener {
 		View result = inflater.inflate(R.layout.list, null);
 		
 		mListView = (ListView)result.findViewById(R.id.listView);
-		mAdapter = new ArrayAdapter<String>(getActivity(),
-				R.layout.list_item_multiple_choice,
-				android.R.id.text1,
-				getResources().getStringArray(R.array.list_items));
+        mAdapter = new MyAdapter(getActivity());
 		mListView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
 		mListView.setAdapter(mAdapter);
 		mListView.setOnItemClickListener(this);
@@ -139,5 +138,34 @@ public class ListFragment extends Fragment implements OnItemClickListener {
                 mListView.setItemChecked(pos, false);
         }
     };
+
+    /**
+     * A simple ArrayAdapter implementation with a fixed list of elements.
+     * It implements SectionIndexer to display the big fast-scroll indicator.
+     */
+    private class MyAdapter extends ArrayAdapter<String> implements SectionIndexer {
+
+        public MyAdapter(Context context) {
+            super(context,
+                    R.layout.list_item_multiple_choice,
+                    android.R.id.text1,
+                    getResources().getStringArray(R.array.list_items));
+        }
+
+        @Override
+        public Object[] getSections() {
+            return new String[] { "A", "B", "C" };
+        }
+
+        @Override
+        public int getPositionForSection(int sectionIndex) {
+            return 0;
+        }
+
+        @Override
+        public int getSectionForPosition(int position) {
+            return 0;
+        }
+    }
 
 }
