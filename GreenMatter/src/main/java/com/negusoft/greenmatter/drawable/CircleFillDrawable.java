@@ -26,6 +26,7 @@ import android.graphics.drawable.Drawable;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 
+/** Draws a circle by filling the frame with a circle shape. */
 public class CircleFillDrawable extends Drawable {
 
 	private final CircleFillConstantState mState;
@@ -76,7 +77,7 @@ public class CircleFillDrawable extends Drawable {
 		Rect r = getBounds();
 		float centerX = (r.left + r.right) / 2f;
 		float centerY = (r.top + r.bottom) / 2f;
-		float radius = Math.min(r.width(), r.height()) / 2;
+		float radius = Math.max(r.width(), r.height()) / 2;
 		if (mBorderPaint != null) {
             radius -= mBorderPaint.getStrokeWidth() / 2;
 			canvas.drawCircle(centerX, centerY, radius, mBorderPaint);
