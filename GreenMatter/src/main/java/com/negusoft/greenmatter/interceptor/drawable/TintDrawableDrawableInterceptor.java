@@ -76,6 +76,10 @@ public class TintDrawableDrawableInterceptor implements MatResources.DrawableInt
         if (resId == R.drawable.gm__cab_background_top_reference)
             return getTintedActivatedDrawable(res, palette, R.drawable.abc_cab_background_top_mtrl_alpha);
 
+        // TabBar selected indicator
+        if (resId == R.drawable.gm__tab_indicator_reference)
+            return getTintedActivatedDrawable(res, palette, R.drawable.gm__tab_indicator_main);
+
         return null;
     }
 

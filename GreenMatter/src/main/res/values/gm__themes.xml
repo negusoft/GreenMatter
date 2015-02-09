@@ -44,6 +44,8 @@
         <!--<item name="android:mediaRouteButtonStyle">@android:style/Widget.Holo.MediaRouteButton</item> -->
         <item name="android:imageButtonStyle">@style/Widget.GreenMatter.ImageButton</item>
 
+        <item name="actionBarTabStyle">@style/Widget.GreenMatter.ActionBar.TabView</item>
+
         <!--<item name="android:autoCompleteTextViewStyle">@style/HoloAccent.AutoCompleteTextView</item>-->
         <!--<item name="android:progressBarStyleHorizontal">@style/HoloAccent.ProgressBar.Horizontal</item>-->
         <!--<item name="android:seekBarStyle">@style/HoloAccent.SeekBar</item>-->
