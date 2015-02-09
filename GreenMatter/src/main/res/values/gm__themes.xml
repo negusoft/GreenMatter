@@ -57,6 +57,11 @@
         <item name="android:fastScrollTrackDrawable">@drawable/gm__fastscroll_track</item>
 
         <!-- ActionBar specific theme -->
+        <item name="actionModeBackground">@drawable/gm__cab_background_top</item>
+        <item name="android:actionModeSplitBackground">@android:color/holo_red_dark</item>
+        <item name="actionModeSplitBackground">@android:color/holo_red_dark</item>
+
+        <!-- ActionBar specific theme -->
         <item name="actionBarTheme">@style/Theme.GreenMatter.ActionBar</item>
         <item name="android:actionBarWidgetTheme">@style/Theme.GreenMatter.ActionBar</item>
 

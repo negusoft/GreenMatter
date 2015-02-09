@@ -27,6 +27,8 @@
     <color name="gm__control_activated_reference">#0000ff</color>
     <color name="gm__control_highlighted_reference">#40ffffff</color>
     <color name="gm__switch_thumb_normal_reference">#ffbdbdbd</color>
+
+    <color name="gm__background_reference">#ffbdbdbd</color>
     <color name="gm__fastscroll_track_reference">#7fbdbdbd</color>
 
 </resources>

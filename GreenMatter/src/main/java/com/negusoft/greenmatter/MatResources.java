@@ -149,14 +149,14 @@ public class MatResources extends Resources {
 	}
 
 	private void addDrawableInterceptors(Context c) {
-        mDrawableInterceptors.add(new SolidDrawableInterceptor());
+        mDrawableInterceptors.add(new SolidDrawableInterceptor(c));
         mDrawableInterceptors.add(new TintDrawableDrawableInterceptor());
         mDrawableInterceptors.add(new CircleDrawableInterceptor());
         mDrawableInterceptors.add(new OverScrollDrawableInterceptor());
         mDrawableInterceptors.add(new RoundRectDrawableInterceptor());
         mDrawableInterceptors.add(new UnderlineDrawableInterceptor());
 
-        mColorInterceptors.add(new MatColorInterceptor());
+        mColorInterceptors.add(new MatColorInterceptor(c));
 	}
 
     @Override

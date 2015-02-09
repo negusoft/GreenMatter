@@ -15,7 +15,9 @@
  ******************************************************************************/
 package com.negusoft.greenmatter.interceptor.drawable;
 
+import android.content.Context;
 import android.content.res.Resources;
+import android.content.res.TypedArray;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 
@@ -27,6 +29,12 @@ public class SolidDrawableInterceptor implements MatResources.DrawableIntercepto
 
 	private static final int PRESSED_ALPHA = 0x88;
 	private static final int FOCUSED_ALPHA = 0x55;
+
+    private final Context mContext;
+
+    public SolidDrawableInterceptor(Context context) {
+        mContext = context;
+    }
 
 	@Override
 	public Drawable getDrawable(Resources res, MatPalette palette, int resId) {
@@ -43,6 +51,8 @@ public class SolidDrawableInterceptor implements MatResources.DrawableIntercepto
             return new ColorDrawable(palette.getColorControlActivated());
         if (resId == R.color.gm__control_highlighted)
             return new ColorDrawable(palette.getColorControlHighlight());
+        if (resId == R.color.gm__background)
+            return new ColorDrawable(getBackgroundColor());
         // Other solid drawables
         if (resId == R.drawable.gm__solid_pressed_reference)
             return new ColorDrawable(palette.getColorControlHighlight(PRESSED_ALPHA));
@@ -50,5 +60,14 @@ public class SolidDrawableInterceptor implements MatResources.DrawableIntercepto
             return new ColorDrawable(palette.getColorControlHighlight(FOCUSED_ALPHA));
 		return null;
 	}
+
+    private int getBackgroundColor() {
+        int[] styleable = new int[] { android.R.attr.colorBackground };
+        TypedArray a = mContext.obtainStyledAttributes(styleable);
+        int backgroundColor = a.getColor(0, 0);
+        a.recycle();
+
+        return backgroundColor;
+    }
 
 }

@@ -43,5 +43,6 @@
     <item name="gm__switch_track_reference" type="drawable">#0000</item>
     <item name="gm__circle_focused_reference" type="drawable">#0000</item>
     <item name="gm__circle_pressed_reference" type="drawable">#0000</item>
+    <item name="gm__cab_background_top_reference" type="drawable">#0000</item>
     
 </resources>
