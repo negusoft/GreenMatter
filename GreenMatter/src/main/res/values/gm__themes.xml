@@ -23,7 +23,7 @@
         <item name="android:listChoiceBackgroundIndicator">@drawable/gm__list_selector</item>
 
         <item name="android:selectableItemBackground">@drawable/gm__selectable_item_background</item>
-        <item name="android:actionBarItemBackground">@drawable/gm__selectable_item_background</item>
+        <item name="android:actionBarItemBackground">@drawable/gm__circle_indicator</item>
 
         <item name="android:textAppearanceButton">@style/TextAppearance.GreenMatter.Button</item>
 
@@ -56,11 +56,14 @@
         <item name="android:fastScrollPreviewBackgroundRight">@drawable/gm__fastscroll_label</item>
         <item name="android:fastScrollTrackDrawable">@drawable/gm__fastscroll_track</item>
 
-        <item name="android:actionBarWidgetTheme">@style/Theme.GreenMatter</item>
+        <!-- ActionBar specific theme -->
+        <item name="actionBarTheme">@style/Theme.GreenMatter.ActionBar</item>
+        <item name="android:actionBarWidgetTheme">@style/Theme.GreenMatter.ActionBar</item>
 
         <!-- Duplicate attributes for ActionBarCompat -->
         <item name="actionBarItemBackground">@drawable/gm__circle_indicator</item>
         <item name="editTextBackground">@drawable/gm__edit_text</item>
+        <item name="actionBarWidgetTheme">@style/Theme.GreenMatter</item>
 
         <item name="android:dropDownListViewStyle">@style/Widget.GreenMatter.DropDownListView</item>
         <item name="dropDownListViewStyle">@style/Widget.GreenMatter.DropDownListView</item>
@@ -68,6 +71,15 @@
         <item name="selectableItemBackgroundBorderless">?android:attr/selectableItemBackground</item>
         <item name="selectableItemBackground">?android:attr/selectableItemBackground</item>
 
+    </style>
+
+    <!-- Theme for the ActionBar (round indicator for up icon) -->
+    <style name="Theme.GreenMatter.ActionBar">
+        <item name="android:selectableItemBackground">@drawable/gm__circle_indicator</item>
+    </style>
+
+    <style name="Widget.GreenMatter.ActionButton.CloseMode" parent="@style/Widget.AppCompat.ActionButton.CloseMode">
+        <item name="android:background">@android:color/holo_blue_dark</item>
     </style>
 
     <!-- Default themes -->
