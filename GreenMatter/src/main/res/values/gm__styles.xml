@@ -58,6 +58,12 @@
         <!--<item name="showText">false</item>-->
     </style>
 
+    <!-- Horizontal progress bar (must be set on the layout XML directly) -->
+    <style name="Widget.GreenMatter.ProgressBar.Horizontal" parent="android:Widget.Holo.ProgressBar.Horizontal">
+        <!--<item name="android:progressDrawable">@drawable/ha__progress_horizontal</item>-->
+        <item name="android:indeterminateDrawable">@drawable/gm__progress_indeterminate_horizontal</item>
+    </style>
+
     <style name="TextAppearance.GreenMatter.Button" parent="TextAppearance.AppCompat.Button">
         <item name="android:textAllCaps">true</item>
     </style>

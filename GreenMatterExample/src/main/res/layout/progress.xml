@@ -121,6 +121,7 @@
             android:layout_height="wrap_content"
             style="?android:ratingBarStyleIndicator"
             android:isIndicator="false" />
+
     </LinearLayout>
 
 </ScrollView>
