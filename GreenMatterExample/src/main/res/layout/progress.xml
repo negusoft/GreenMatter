@@ -12,11 +12,64 @@
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin" >
 
-        <!-- Inteterminate -->
+        <!-- Circular -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/progress_indeterminate" />
+            android:text="@string/progress_circular" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/horizontal_divider_thickness"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="?android:progressBarStyleSmall" />
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ProgressBar
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                style="?android:progressBarStyleLarge" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="?android:progressBarStyleSmallInverse" />
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="?android:progressBarStyleInverse"/>
+
+            <ProgressBar
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                style="?android:progressBarStyleLargeInverse" />
+
+        </LinearLayout>
+
+        <!-- Horizontal (indeterminate) -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/progress_horizontal_indeterminate" />
 
         <View
             android:layout_width="match_parent"
@@ -41,12 +94,12 @@
             android:layout_height="wrap_content"
             android:indeterminate="true" />
 
-        <!-- Default -->
+        <!-- Horizontal (normal) -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:text="@string/progress_default" />
+            android:text="@string/progress_horizontal_normal" />
 
         <View
             android:layout_width="match_parent"
