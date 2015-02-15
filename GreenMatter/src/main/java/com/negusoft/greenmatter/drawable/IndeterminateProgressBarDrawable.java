@@ -38,7 +38,8 @@ import com.negusoft.greenmatter.util.ColorUtils;
  */
 public class IndeterminateProgressBarDrawable extends Drawable {
 
-    private static final float LINE_WIDTH_DP = 3.0f;
+    // Line width relative to the drawable height
+    private static final float LINE_WIDTH_RATIO = 0.2f;
 
     private static final long ANIMATION_DURATION_MILLIS = 2000;
 
@@ -52,20 +53,16 @@ public class IndeterminateProgressBarDrawable extends Drawable {
 	}
 
     private Paint initLinePaint(int color, DisplayMetrics metrics) {
-        float lineWidth = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, LINE_WIDTH_DP, metrics);
         Paint result = new Paint();
         result.setColor(color);
         result.setStyle(Paint.Style.STROKE);
-        result.setStrokeWidth(lineWidth);
         return result;
     }
 
     private Paint initBackgroundPaint(int color, DisplayMetrics metrics) {
-        float lineWidth = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, LINE_WIDTH_DP, metrics);
         Paint result = new Paint();
         result.setColor(ColorUtils.applyColorAlpha(color, 0.1f));
         result.setStyle(Paint.Style.STROKE);
-        result.setStrokeWidth(lineWidth);
         return result;
     }
 	
@@ -78,6 +75,10 @@ public class IndeterminateProgressBarDrawable extends Drawable {
         float offsetMillis = (float)(currentMillis % ANIMATION_DURATION_MILLIS);
         float progress = offsetMillis / ANIMATION_DURATION_MILLIS;
         float canvasWidth = canvas.getWidth();
+
+        float lineWidth = canvas.getHeight() * LINE_WIDTH_RATIO;
+        mBackgroundPaint.setStrokeWidth(lineWidth);
+        mLinePaint.setStrokeWidth(lineWidth);
 
         drawBackground(canvas, canvasWidth, centerY);
         drawFirstLine(canvas, canvasWidth, progress, centerY);
