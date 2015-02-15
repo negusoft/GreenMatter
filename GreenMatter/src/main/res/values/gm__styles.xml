@@ -58,6 +58,17 @@
         <!--<item name="showText">false</item>-->
     </style>
 
+    <!-- Circle (default) progress bar styles -->
+    <style name="Widget.GreenMatter.ProgressBar" parent="android:Widget.Holo.ProgressBar">
+        <item name="android:indeterminateDrawable">@drawable/gm__progress_circle</item>
+    </style>
+    <style name="Widget.GreenMatter.ProgressBar.Small" parent="android:Widget.Holo.ProgressBar.Small">
+        <item name="android:indeterminateDrawable">@drawable/gm__progress_circle</item>
+    </style>
+    <style name="Widget.GreenMatter.ProgressBar.Large" parent="android:Widget.Holo.ProgressBar.Large">
+        <item name="android:indeterminateDrawable">@drawable/gm__progress_circle</item>
+    </style>
+
     <!-- Horizontal progress bar (must be set on the layout XML directly) -->
     <style name="Widget.GreenMatter.ProgressBar.Horizontal" parent="android:Widget.Holo.ProgressBar.Horizontal">
         <item name="android:progressDrawable">@drawable/gm__progress_horizontal</item>

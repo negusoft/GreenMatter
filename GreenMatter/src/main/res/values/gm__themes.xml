@@ -47,7 +47,14 @@
         <item name="actionBarTabStyle">@style/Widget.GreenMatter.ActionBar.TabView</item>
 
         <!--<item name="android:autoCompleteTextViewStyle">@style/HoloAccent.AutoCompleteTextView</item>-->
+        <item name="android:progressBarStyle">@style/Widget.GreenMatter.ProgressBar</item>
+        <item name="android:progressBarStyleSmall">@style/Widget.GreenMatter.ProgressBar.Small</item>
+        <item name="android:progressBarStyleLarge">@style/Widget.GreenMatter.ProgressBar.Large</item>
+        <item name="android:progressBarStyleInverse">@style/Widget.GreenMatter.ProgressBar</item>
+        <item name="android:progressBarStyleSmallInverse">@style/Widget.GreenMatter.ProgressBar.Small</item>
+        <item name="android:progressBarStyleLargeInverse">@style/Widget.GreenMatter.ProgressBar.Large</item>
         <item name="android:progressBarStyleHorizontal">@style/Widget.GreenMatter.ProgressBar.Horizontal</item>
+
         <!--<item name="android:seekBarStyle">@style/HoloAccent.SeekBar</item>-->
         <!--<item name="android:dropDownSpinnerStyle">@style/HoloAccent.Spinner</item>-->
         <item name="android:listPopupWindowStyle">@style/Widget.GreenMatter.ListPopupWindow</item>

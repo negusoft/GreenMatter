@@ -37,8 +37,8 @@
                 android:layout_height="wrap_content" />
 
             <ProgressBar
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 style="?android:progressBarStyleLarge" />
 
         </LinearLayout>
@@ -51,7 +51,7 @@
             <ProgressBar
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="?android:progressBarStyleSmallInverse" />
+                style="?android:progressBarStyleSmallInverse"/>
 
             <ProgressBar
                 android:layout_width="wrap_content"
@@ -59,8 +59,8 @@
                 style="?android:progressBarStyleInverse"/>
 
             <ProgressBar
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 style="?android:progressBarStyleLargeInverse" />
 
         </LinearLayout>

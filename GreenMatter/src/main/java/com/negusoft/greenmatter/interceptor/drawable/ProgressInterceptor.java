@@ -15,20 +15,15 @@
  ******************************************************************************/
 package com.negusoft.greenmatter.interceptor.drawable;
 
-import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
-import android.content.res.TypedArray;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
-import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 
 import com.negusoft.greenmatter.MatPalette;
 import com.negusoft.greenmatter.MatResources;
 import com.negusoft.greenmatter.R;
 import com.negusoft.greenmatter.drawable.IndeterminateProgressBarDrawable;
+import com.negusoft.greenmatter.drawable.ProgressBarCircleDrawable;
 import com.negusoft.greenmatter.drawable.TintDrawableWrapper;
 import com.negusoft.greenmatter.util.ColorUtils;
 
@@ -52,6 +47,10 @@ public class ProgressInterceptor implements MatResources.DrawableInterceptor {
         // Horizontal (indeterminate)
         if (resId == R.drawable.gm__progress_indeterminate_horizontal_item_reference)
             return new IndeterminateProgressBarDrawable(res, palette);
+
+        // Circle
+        if (resId == R.drawable.gm__progress_circle_item_reference)
+            return new ProgressBarCircleDrawable(res, palette);
 
 		return null;
 	}

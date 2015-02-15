@@ -49,5 +49,6 @@
     <item name="gm__progress_horizontal_secondary_reference" type="drawable">#0000</item>
     <item name="gm__progress_horizontal_progress_reference" type="drawable">#0000</item>
     <item name="gm__progress_indeterminate_horizontal_item_reference" type="drawable">#0000</item>
+    <item name="gm__progress_circle_item_reference" type="drawable">#0000</item>
     
 </resources>
