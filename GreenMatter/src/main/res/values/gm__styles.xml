@@ -75,6 +75,13 @@
         <item name="android:indeterminateDrawable">@drawable/gm__progress_indeterminate_horizontal</item>
     </style>
 
+    <!-- SeekBar style -->
+    <style name="Widget.GreenMatter.SeekBar" parent="android:Widget.Holo.SeekBar">
+        <item name="android:progressDrawable">@drawable/gm__scrubber_progress_horizontal</item>
+        <item name="android:indeterminateDrawable">@drawable/gm__scrubber_progress_horizontal</item>
+        <item name="android:thumb">@drawable/gm__scrubber_thumb</item>
+    </style>
+
     <style name="TextAppearance.GreenMatter.Button" parent="TextAppearance.AppCompat.Button">
         <item name="android:textAllCaps">true</item>
     </style>

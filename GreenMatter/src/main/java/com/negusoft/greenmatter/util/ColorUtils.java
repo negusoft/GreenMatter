@@ -36,5 +36,11 @@ public class ColorUtils {
         return (color & 0x00ffffff) | (Math.round(originalAlpha * alpha) << 24);
     }
 
+    /** Calculate the resulting alpha from the original color and the relative alpha. */
+    public static int calculateAlpha(int alpha, int originalColor) {
+        int originalAlpha = Color.alpha(originalColor);
+        return originalAlpha * alpha / 255;
+    }
+
 
 }

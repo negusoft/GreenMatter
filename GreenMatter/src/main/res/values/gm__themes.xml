@@ -54,8 +54,8 @@
         <item name="android:progressBarStyleSmallInverse">@style/Widget.GreenMatter.ProgressBar.Small</item>
         <item name="android:progressBarStyleLargeInverse">@style/Widget.GreenMatter.ProgressBar.Large</item>
         <item name="android:progressBarStyleHorizontal">@style/Widget.GreenMatter.ProgressBar.Horizontal</item>
+        <item name="android:seekBarStyle">@style/Widget.GreenMatter.SeekBar</item>
 
-        <!--<item name="android:seekBarStyle">@style/HoloAccent.SeekBar</item>-->
         <!--<item name="android:dropDownSpinnerStyle">@style/HoloAccent.Spinner</item>-->
         <item name="android:listPopupWindowStyle">@style/Widget.GreenMatter.ListPopupWindow</item>
         <item name="android:popupMenuStyle">@style/Widget.GreenMatter.ListPopupWindow</item>
