@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  Copyright 2013 NEGU Soft
+  Copyright 2014 NEGU Soft
   
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -14,9 +14,9 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<resources>
 
-    <dimen name="gm__btn_default_margin">3dp</dimen>
-    <dimen name="gm__scrollbar_handle_margin">3dp</dimen>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
 
-</resources>
+    <item android:drawable="@drawable/gm__scrollbar_thumb_item_reference" />
+
+</layer-list>

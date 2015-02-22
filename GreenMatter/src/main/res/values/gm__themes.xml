@@ -60,6 +60,9 @@
         <item name="android:listPopupWindowStyle">@style/Widget.GreenMatter.ListPopupWindow</item>
         <item name="android:popupMenuStyle">@style/Widget.GreenMatter.ListPopupWindow</item>
 
+        <item name="android:scrollbarThumbHorizontal">@drawable/gm__scrollbar_thumb</item>
+        <item name="android:scrollbarThumbVertical">@drawable/gm__scrollbar_thumb</item>
+
         <item name="android:fastScrollThumbDrawable">@drawable/gm__fastscroll_thumb</item>
         <item name="android:fastScrollPreviewBackgroundLeft">@drawable/gm__fastscroll_label</item>
         <item name="android:fastScrollPreviewBackgroundRight">@drawable/gm__fastscroll_label</item>

@@ -58,5 +58,6 @@
     <item name="gm__scrubber_thumb_default_reference" type="drawable">#0000</item>
     <item name="gm__scrubber_thumb_pressed_reference" type="drawable">#0000</item>
     <item name="gm__scrubber_thumb_disabled_reference" type="drawable">#0000</item>
+    <item name="gm__scrollbar_thumb_item_reference" type="drawable">#0000</item>
     
 </resources>
