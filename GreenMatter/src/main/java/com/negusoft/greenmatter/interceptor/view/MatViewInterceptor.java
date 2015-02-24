@@ -16,6 +16,7 @@
 package com.negusoft.greenmatter.interceptor.view;
 
 import android.content.Context;
+import android.os.Build;
 import android.support.annotation.NonNull;
 import android.util.AttributeSet;
 import android.view.View;
@@ -23,14 +24,18 @@ import android.view.View;
 import com.negusoft.greenmatter.activity.MatActivity;
 import com.negusoft.greenmatter.widget.MatButton;
 import com.negusoft.greenmatter.widget.MatImageButton;
+import com.negusoft.greenmatter.widget.MatRatingBar;
 
 public class MatViewInterceptor implements MatActivity.ViewInterceptor {
 
     @Override
     public View createView(String name, @NonNull Context context, @NonNull AttributeSet attrs) {
+
         switch (name) {
-            case "Button": return new MatButton(context, attrs);
-            case "ImageButton": return new MatImageButton(context, attrs);
+            case "Button":
+                return new MatButton(context, attrs);
+            case "ImageButton":
+                return new MatImageButton(context, attrs);
             default: return null;
         }
     }

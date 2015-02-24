@@ -144,7 +144,6 @@
         <SeekBar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/Widget.GreenMatter.SeekBar"
             android:progress="38"/>
 
         <SeekBar
@@ -158,7 +157,6 @@
             android:id="@+id/myseekbar2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/Widget.GreenMatter.SeekBar"
             android:enabled="false"
             android:progress="38" />
 

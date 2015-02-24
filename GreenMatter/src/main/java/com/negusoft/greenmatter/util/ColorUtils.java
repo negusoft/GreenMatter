@@ -28,12 +28,16 @@ import java.io.IOException;
 
 public class ColorUtils {
 
-
     /** Modify the colors translucency by alpha [0..1] with respect to the original color alpha. */
     public static int applyColorAlpha(int color, float alpha) {
         final int originalAlpha = Color.alpha(color);
         // Return the color, multiplying the original alpha by the disabled value
         return (color & 0x00ffffff) | (Math.round(originalAlpha * alpha) << 24);
+    }
+
+    /** Override the colors alpha and set it to the given value [0..255]. */
+    public static int replaceColorAlpha(int color, int alpha) {
+        return (color & 0x00ffffff) | (alpha << 24);
     }
 
     /** Calculate the resulting alpha from the original color and the relative alpha. */
