@@ -16,7 +16,7 @@
 -->
 <resources>
 
-    <dimen name="gm__btn_default_margin">3dp</dimen>
+    <dimen name="gm__btn_default_margin">4dp</dimen>
     <dimen name="gm__scrollbar_handle_margin">3dp</dimen>
 
 </resources>

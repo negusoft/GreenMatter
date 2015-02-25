@@ -28,16 +28,10 @@ public class RoundRectDrawableInterceptor implements MatResources.DrawableInterc
     private static final int PRESSED_ALPHA = 0x88;
     private static final int FOCUSED_ALPHA = 0x55;
 
-    private static final float CORNER_RADIUS_DP = 2f;
+    private static final float CORNER_RADIUS_DP = 4f;
 
     @Override
     public Drawable getDrawable(Resources res, MatPalette palette, int resId) {
-        if (resId == R.drawable.gm__btn_default_background_enabled_reference)
-            return new RoundRectDrawable(res.getDisplayMetrics(), palette.getColorButtonNormal(), CORNER_RADIUS_DP);
-        if (resId == R.drawable.gm__btn_default_background_disabled_reference) {
-            int alpha = (int)(palette.getDisabledAlpha() * 255);
-            return new RoundRectDrawable(res.getDisplayMetrics(), palette.getColorButtonNormal(alpha), CORNER_RADIUS_DP);
-        }
         if (resId == R.drawable.gm__btn_default_foreground_pressed_reference)
             return new RoundRectDrawable(res.getDisplayMetrics(), palette.getColorControlHighlight(PRESSED_ALPHA), CORNER_RADIUS_DP);
         return null;
