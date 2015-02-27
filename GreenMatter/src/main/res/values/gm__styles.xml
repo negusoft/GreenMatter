@@ -99,4 +99,9 @@
         <item name="android:background">@drawable/gm__tab_indicator</item>
     </style>
 
+    <!-- Toolbar navigation button style -->
+    <style name="Widget.GreenMatter.Toolbar.Button.Navigation" parent="@style/Widget.AppCompat.Toolbar.Button.Navigation">
+        <item name="android:background">@drawable/gm__circle_indicator</item>
+    </style>
+
 </resources>

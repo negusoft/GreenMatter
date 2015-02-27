@@ -7,13 +7,17 @@
         android:icon="@drawable/ic_launcher"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".activity.TabbedActivity"
-            android:theme="@style/AppTheme">
+        <activity android:name=".activity.TabbedActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
+        <activity
+            android:theme="@style/AppTheme.SelectColor"
+            android:name=".activity.SelectColorActivity"
+            android:label="@string/select_colors_title"/>
 
     </application>
 

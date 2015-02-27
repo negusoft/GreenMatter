@@ -255,7 +255,7 @@ public class MatResources extends Resources {
      */
     public MatPalette getPalette() {
         if (checkInitialized())
-            throw new RuntimeException("HoloAccent: Unexpected exception in initialization.");
+            throw new RuntimeException("GreenMatter: Unexpected exception in initialization.");
         return mPalette;
     }
 

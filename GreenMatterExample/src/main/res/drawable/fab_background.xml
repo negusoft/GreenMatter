@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Background -->
+    <item>
+        <shape android:shape="oval"
+            android:dither="true">
+            <size android:width="56dp" android:height="56dp"/>
+            <solid android:color="@color/gm__control_activated"/>
+        </shape>
+    </item>
+
+    <!-- Foreground -->
+    <item>
+        <selector
+            android:enterFadeDuration="@integer/gm__time_circle_indicator_enter_transition"
+            android:exitFadeDuration="@integer/gm__time_circle_indicator_exit_transition">
+            <item android:state_pressed="true">
+                <shape android:shape="oval"
+                    android:dither="true">
+                    <size android:width="56dp" android:height="56dp"/>
+                    <solid android:color="@color/gm__control_highlighted"/>
+                </shape>
+            </item>
+        </selector>
+    </item>
+
+</layer-list>

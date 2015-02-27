@@ -7,4 +7,9 @@
         <item name="matColorAccent">#ff4ac358</item>
     </style>
 
+    <style name="AppTheme.SelectColor">
+        <item name="android:windowActionBar">false</item>
+        <item name="windowActionBar">false</item>
+    </style>
+
 </resources>

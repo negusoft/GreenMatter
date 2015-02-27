@@ -1,9 +1,11 @@
 package com.negusoft.greenmatter.example.activity;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -17,6 +19,7 @@ import android.support.v7.app.ActionBar.Tab;
 import android.support.v7.app.ActionBarActivity;
 import android.text.format.DateFormat;
 import android.view.Menu;
+import android.view.View;
 import android.widget.DatePicker;
 
 import com.negusoft.greenmatter.MatPalette;
@@ -31,6 +34,7 @@ import com.negusoft.greenmatter.example.fragment.ProgressFragment;
 import com.negusoft.greenmatter.example.fragment.TextviewFragment;
 import com.negusoft.greenmatter.example.interceptor.ColorInterceptor;
 import com.negusoft.greenmatter.example.interceptor.RatingBarViewInterceptor;
+import com.negusoft.greenmatter.example.util.ColorOverrider;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -55,7 +59,23 @@ public class TabbedActivity extends MatActivity implements ActionBar.TabListener
 			
 			configureTabs(actionBar, mViewPager);
 		}
+
+        findViewById(R.id.fab).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivityForResult(new Intent(TabbedActivity.this, SelectColorActivity.class), 5);
+//                startActivity();
+            }
+        });
 	}
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == Activity.RESULT_OK) {
+            recreate();
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
 
     @Override
     public void onInitMatResources(MatResources resources) {
@@ -64,8 +84,9 @@ public class TabbedActivity extends MatActivity implements ActionBar.TabListener
         resources.addViewInterceptor(new RatingBarViewInterceptor());
     }
 
-//    @Override
-//    public MatPalette overridePalette(MatPalette palette) {
+    @Override
+    public MatPalette overridePalette(MatPalette palette) {
+        return ColorOverrider.getInstance(palette).applyOverride(palette);
 //        palette.setColorAccent(Color.YELLOW);
 //        palette.setColorPrimary(0xff880000);
 //        palette.setColorPrimaryDark(0xff440000);
@@ -75,7 +96,7 @@ public class TabbedActivity extends MatActivity implements ActionBar.TabListener
 //        palette.setColorButtonNormal(0xff888800);
 //        palette.setColorSwitchThumbNormal(Color.WHITE);
 //        return super.overridePalette(palette);
-//    }
+    }
 	
 	protected int getLayoutId() {
 		return R.layout.activity_tabbed;
