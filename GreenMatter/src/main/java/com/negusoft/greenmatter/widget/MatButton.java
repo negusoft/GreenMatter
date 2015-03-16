@@ -159,6 +159,7 @@ public class MatButton extends Button {
                 @TargetApi(Build.VERSION_CODES.LOLLIPOP)
                 @Override public void setColorStateList(ColorStateList colorStateList) {
                     rippleShapeDrawable.setColor(colorStateList);
+                    rippleShapeDrawable.setTintList(colorStateList);
                 }
             };
         }
