@@ -28,8 +28,7 @@ public class TintDrawableWrapper extends DrawableWrapper {
 
     private static final PorterDuff.Mode DEFAULT_TINT_MODE = PorterDuff.Mode.SRC_IN;
 
-    private ColorStateList mTintStateList;
-    private final PorterDuff.Mode mTintMode;
+    private final TintDrawableWrapperConstantState mState;
 
     private int mCurrentColor;
 
@@ -40,13 +39,17 @@ public class TintDrawableWrapper extends DrawableWrapper {
     public TintDrawableWrapper(Drawable drawable, ColorStateList tintStateList,
                                PorterDuff.Mode tintMode) {
         super(drawable);
-        mTintStateList = tintStateList;
-        mTintMode = tintMode;
+        mState = new TintDrawableWrapperConstantState(drawable, tintStateList, tintMode);
+    }
+
+    TintDrawableWrapper(TintDrawableWrapperConstantState state) {
+        super(state.mInnerConstantState.newDrawable());
+        mState = state;
     }
 
     @Override
     public boolean isStateful() {
-        return (mTintStateList != null && mTintStateList.isStateful()) || super.isStateful();
+        return (mState.mTintStateList != null && mState.mTintStateList.isStateful()) || super.isStateful();
     }
 
     @Override
@@ -56,21 +59,27 @@ public class TintDrawableWrapper extends DrawableWrapper {
         return handled;
     }
 
+    @Override
+    public final ConstantState getConstantState() {
+        mState.changingConfigurationValue = super.getChangingConfigurations();
+        return mState;
+    }
+
     public ColorStateList getTintStateList() {
-        return mTintStateList;
+        return mState.mTintStateList;
     }
 
     public void setTintStateList(ColorStateList tintStateList) {
-        mTintStateList = tintStateList;
+        mState.mTintStateList = tintStateList;
         updateTint(getState());
     }
 
     private boolean updateTint(int[] state) {
-        if (mTintStateList != null) {
-            final int color = mTintStateList.getColorForState(state, mCurrentColor);
+        if (mState.mTintStateList != null) {
+            final int color = mState.mTintStateList.getColorForState(state, mCurrentColor);
             if (color != mCurrentColor) {
                 if (color != Color.TRANSPARENT) {
-                    setColorFilter(color, mTintMode);
+                    setColorFilter(color, mState.mTintMode);
                 } else {
                     clearColorFilter();
                 }
@@ -79,6 +88,31 @@ public class TintDrawableWrapper extends DrawableWrapper {
             }
         }
         return false;
+    }
+
+    private class TintDrawableWrapperConstantState extends ConstantState {
+
+        private ColorStateList mTintStateList;
+        private final PorterDuff.Mode mTintMode;
+        private final ConstantState mInnerConstantState;
+
+        int changingConfigurationValue;
+
+        TintDrawableWrapperConstantState(Drawable innerDrawable, ColorStateList tintStateList, PorterDuff.Mode tintMode) {
+            mTintStateList = tintStateList;
+            mTintMode = tintMode;
+            mInnerConstantState = innerDrawable.getConstantState();
+        }
+
+        @Override
+        public Drawable newDrawable() {
+            return new TintDrawableWrapper(this);
+        }
+
+        @Override
+        public int getChangingConfigurations() {
+            return changingConfigurationValue;
+        }
     }
 
 }
