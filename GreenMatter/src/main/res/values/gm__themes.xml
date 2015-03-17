@@ -66,8 +66,8 @@
         <item name="android:fastScrollTrackDrawable">@drawable/gm__fastscroll_track</item>
 
         <item name="actionModeBackground">@drawable/gm__cab_background_top</item>
-        <item name="android:actionModeSplitBackground">@android:color/holo_red_dark</item>
-        <item name="actionModeSplitBackground">@android:color/holo_red_dark</item>
+        <!--<item name="android:actionModeSplitBackground">@android:color/holo_red_dark</item>-->
+        <!--<item name="actionModeSplitBackground">@android:color/holo_red_dark</item>-->
 
         <item name="toolbarNavigationButtonStyle">@style/Widget.GreenMatter.Toolbar.Button.Navigation</item>
 
@@ -91,10 +91,6 @@
     <!-- Theme for the ActionBar (round indicator for up icon) -->
     <style name="Theme.GreenMatter.ActionBar">
         <item name="android:selectableItemBackground">@drawable/gm__circle_indicator</item>
-    </style>
-
-    <style name="Widget.GreenMatter.ActionButton.CloseMode" parent="@style/Widget.AppCompat.ActionButton.CloseMode">
-        <item name="android:background">@android:color/holo_blue_dark</item>
     </style>
 
     <!-- Default themes -->

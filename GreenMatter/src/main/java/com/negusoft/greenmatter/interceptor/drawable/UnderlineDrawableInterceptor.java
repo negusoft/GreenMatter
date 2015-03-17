@@ -28,10 +28,16 @@ public class UnderlineDrawableInterceptor implements MatResources.DrawableInterc
 
     @Override
     public Drawable getDrawable(Resources res, MatPalette palette, int resId) {
+        // Toggle indicator
         if (resId == R.drawable.gm__btn_toggle_indicator_default_reference)
             return new UnderlineDrawable(res, palette.getColorControlNormal(), 2f);
         if (resId == R.drawable.gm__btn_toggle_indicator_checked_reference)
             return new UnderlineDrawable(res, palette.getColorControlActivated(), 2f);
+
+        // ActionMode background
+        if (resId == R.drawable.gm__cab_background_top_reference)
+            return new UnderlineDrawable(res, palette.getColorControlActivated(), 2.5f);
+
         return null;
     }
 
