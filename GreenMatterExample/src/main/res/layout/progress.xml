@@ -43,28 +43,6 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <ProgressBar
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="?android:progressBarStyleSmallInverse"/>
-
-            <ProgressBar
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="?android:progressBarStyleInverse"/>
-
-            <ProgressBar
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="?android:progressBarStyleLargeInverse" />
-
-        </LinearLayout>
-
         <!-- Horizontal (indeterminate) -->
         <TextView
             android:layout_width="wrap_content"

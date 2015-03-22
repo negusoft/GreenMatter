@@ -3,4 +3,6 @@
     <!-- Color references that will be replaced at runtime -->
     <color name="checkable_listview_item_reference">#88888888</color>
 
+    <color name="gm__default_primary_dark">#ff3f4f2b</color>
+
 </resources>
