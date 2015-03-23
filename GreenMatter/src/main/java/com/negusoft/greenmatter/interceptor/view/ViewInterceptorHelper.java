@@ -26,6 +26,7 @@ import com.negusoft.greenmatter.activity.MatActivity;
 import com.negusoft.greenmatter.widget.MatButton;
 import com.negusoft.greenmatter.widget.MatImageButton;
 import com.negusoft.greenmatter.widget.MatRatingBar;
+import com.negusoft.greenmatter.widget.MatSeekBar;
 
 import java.util.Dictionary;
 import java.util.Hashtable;
@@ -42,6 +43,9 @@ public class ViewInterceptorHelper {
         mViewInterceptors = new Hashtable<>();
         addInterceptor(mButtonProvider);
         addInterceptor(mImageButtonProvider);
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+            addInterceptor(mSeekBarProvider);
+        }
     }
 
     public void addInterceptor(ViewInterceptor interceptor) {
@@ -90,6 +94,18 @@ public class ViewInterceptorHelper {
         @Override
         public View createView(String name, @NonNull Context context, @NonNull AttributeSet attrs) {
             return new MatImageButton(context, attrs);
+        }
+    };
+
+    /** A view interceptor to swap SeekBar by MatSeekBar. */
+    private final ViewInterceptor mSeekBarProvider = new ViewInterceptor() {
+        @Override
+        public String[] getViewNames() {
+            return new String[] { "SeekBar" };
+        }
+        @Override
+        public View createView(String name, @NonNull Context context, @NonNull AttributeSet attrs) {
+            return new MatSeekBar(context, attrs);
         }
     };
 
