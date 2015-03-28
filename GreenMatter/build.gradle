@@ -1,25 +1,116 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
+
+def projectName = 'GreenMatter'
+def projectDescription = 'Android library to backport Material design and allow changing colors at run-time.'
+
+def siteUrl = 'https://github.com/negusoft/GreenMatter'
+def gitUrl = 'https://github.com/negusoft/GreenMatter.git'
+def issuesUrl = 'https://github.com/negusoft/GreenMatter/issues'
+
+version = '0.5-alpha'
+group = 'com.negusoft.greenmatter'
 
 android {
     compileSdkVersion 22
     buildToolsVersion "21.1.2"
 
     defaultConfig {
-//        applicationId "com.negusoft.greenmatter"
         minSdkVersion 14
         targetSdkVersion 22
         versionCode 1
-        versionName "1.0"
+        versionName project.version
     }
     buildTypes {
         release {
-//            runProguard false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+    lintOptions {
+        abortOnError false
     }
 }
 
 dependencies {
     compile 'com.android.support:support-v4:22.0.+'
     compile 'com.android.support:appcompat-v7:22.0.+'
+}
+
+bintray {
+    user = BINTRAY_USERNAME
+    key = BINTRAY_API_KEY
+
+    configurations = ['archives'] //When uploading configuration files
+    pkg {
+        repo = 'maven'
+        userOrg = 'negusoft'
+        name = projectName
+        desc = projectDescription
+        websiteUrl = siteUrl
+        issueTrackerUrl = issuesUrl
+        vcsUrl = gitUrl
+        licenses = ['Apache-2.0']
+        labels = ['android', 'material', 'matter', 'green', 'design', 'holoaccent']
+        publicDownloadNumbers = true
+        version {
+            name = project.version
+            desc = 'v' + project.version
+        }
+    }
+}
+
+install {
+    repositories.mavenInstaller {
+        // This generates POM.xml with proper parameters
+        pom {
+            project {
+                packaging 'aar'
+
+                // Add your description here
+                name projectName
+                url siteUrl
+
+                // Set your license
+                licenses {
+                    license {
+                        name 'The Apache Software License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id 'blurkidi'
+                        name 'Borja Lopez Urkidi'
+                        email 'blurkidi@negusoft.com'
+                    }
+                }
+                scm {
+                    connection gitUrl
+                    developerConnection gitUrl
+                    url siteUrl
+                }
+            }
+        }
+    }
+}
+
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives javadocJar
+    archives sourcesJar
 }
