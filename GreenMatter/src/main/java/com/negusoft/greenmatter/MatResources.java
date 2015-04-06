@@ -32,6 +32,7 @@ import android.view.View;
 
 import com.negusoft.greenmatter.interceptor.drawable.CircleDrawableInterceptor;
 import com.negusoft.greenmatter.interceptor.color.MatColorInterceptor;
+import com.negusoft.greenmatter.interceptor.drawable.DialogBackgroundDrawableInterceptor;
 import com.negusoft.greenmatter.interceptor.drawable.ScrollbarInterceptor;
 import com.negusoft.greenmatter.interceptor.drawable.ScrubberHorizontalInterceptor;
 import com.negusoft.greenmatter.interceptor.drawable.ProgressInterceptor;
@@ -168,6 +169,7 @@ public class MatResources extends Resources {
         mDrawableInterceptors.add(new ProgressInterceptor());
         mDrawableInterceptors.add(new ScrubberHorizontalInterceptor());
         mDrawableInterceptors.add(new ScrollbarInterceptor());
+        mDrawableInterceptors.add(new DialogBackgroundDrawableInterceptor());
 
         mColorInterceptors.add(new MatColorInterceptor(c));
 	}

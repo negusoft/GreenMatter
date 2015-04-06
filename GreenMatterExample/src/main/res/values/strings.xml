@@ -72,8 +72,9 @@
     <string name="dialog_alert_title">Alert Dialog</string>
     <string name="dialog_fragment_title">Dialog Fragment</string>
     <string name="dialog_message">Dummie dialog</string>
-    <string name="dialog_button_positive">Positive</string>
-    <string name="dialog_button_negative">Negative</string>
+    <string name="dialog_button_positive">Yes</string>
+    <string name="dialog_button_negative">No</string>
+    <string name="dialog_button_neutral">Neutral</string>
 
     <string name="select_colors_title">Select Colors</string>
     <string name="select_colors_override_on">Override colors</string>

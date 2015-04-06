@@ -104,4 +104,26 @@
         <item name="android:background">@drawable/gm__circle_indicator</item>
     </style>
 
+    <!-- Styles for customizing the dialogs -->
+    <style name="DialogWindowTitle"/>
+    <style name="DialogWindowTitle.Alert">
+        <item name="android:maxLines">1</item>
+        <item name="android:scrollHorizontally">true</item>
+        <item name="android:textAppearance">@style/TextAppearance.GreenMatter.AlertTitle</item>
+    </style>
+    <style name="TextAppearance.GreenMatter.AlertTitle" parent="@android:style/TextAppearance.Holo.Large">
+        <item name="android:textSize">20dp</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+    <style name="GreenMatter.ButtonBar.AlertDialog" parent="@android:style/Holo.ButtonBar.AlertDialog">
+        <item name="android:paddingBottom">8dp</item>
+    </style>
+    <style name="Widget.GreenMatter.Button.Alert">
+        <item name="android:background">?android:selectableItemBackground</item>
+        <item name="android:textColor">?attr/colorAccent</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:minWidth">64dp</item>
+        <item name="android:maxLines">2</item>
+    </style>
+
 </resources>

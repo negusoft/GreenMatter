@@ -18,18 +18,9 @@ package com.negusoft.greenmatter;
 
 import android.content.Context;
 import android.content.res.Resources;
-import android.support.annotation.NonNull;
-import android.util.AttributeSet;
-import android.view.View;
 import android.view.Window;
 
-import com.negusoft.greenmatter.dialog.DividerPainter;
-import com.negusoft.greenmatter.interceptor.view.ViewInterceptor;
-import com.negusoft.greenmatter.interceptor.view.ViewInterceptorHelper;
-
-import java.util.Dictionary;
-import java.util.Hashtable;
-import java.util.Map;
+import com.negusoft.greenmatter.dialog.DialogUtils;
 
 /**
  * Helper class to lazily initialize MatResources from your activities.
@@ -71,7 +62,6 @@ public class MatHelper {
     }
 
 	private MatResources mMatResources;
-	private DividerPainter mDividerPainter;
 
     private final MatResources.PaletteOverrider mPaletteOverrider;
 
@@ -101,11 +91,9 @@ public class MatHelper {
 		return mMatResources;
 	}
 	
-	/** Paint the dialog's divider if required to correctly customize it. */
-	public void prepareDialog(Context c, Window window) {
-		if (mDividerPainter == null)
-			mDividerPainter = initPainter(c);
-		mDividerPainter.paint(window);
+	/** Prepare the dialog to give it a Material style. */
+	public void prepareDialog(Context context, Window window) {
+        DialogUtils.prepareDialog(context, window);
 	}
 
     /**
@@ -116,10 +104,6 @@ public class MatHelper {
         mInitListener = listener;
     }
 
-    private DividerPainter initPainter(Context c) {
-        return new DividerPainter(mMatResources.getPalette().getColorPrimary());
-    }
-	
 	private MatResources createInstance(Context c, Resources resources) {
         return new MatResources(c, resources, mPaletteOverrider);
 	}

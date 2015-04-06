@@ -25,6 +25,7 @@ import android.widget.DatePicker;
 import com.negusoft.greenmatter.MatPalette;
 import com.negusoft.greenmatter.MatResources;
 import com.negusoft.greenmatter.activity.MatActivity;
+import com.negusoft.greenmatter.dialog.MatAlertDialog;
 import com.negusoft.greenmatter.example.R;
 import com.negusoft.greenmatter.example.fragment.ButtonFragment;
 import com.negusoft.greenmatter.example.fragment.ChoicesFragment;
@@ -175,7 +176,7 @@ public class TabbedActivity extends MatActivity implements ActionBar.TabListener
 	}
 
     private void showAlertDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        MatAlertDialog.Builder builder = new MatAlertDialog.Builder(this);
         builder.setTitle(R.string.dialog_alert_title)
                 .setMessage(R.string.dialog_message)
                 .setPositiveButton(R.string.dialog_button_positive,
@@ -190,7 +191,12 @@ public class TabbedActivity extends MatActivity implements ActionBar.TabListener
                                 // negative action
                             }
                         }
-                );
+                ).setNeutralButton(R.string.dialog_button_neutral,
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                // neutral action
+                            }
+                });
 
         builder.show();
     }
