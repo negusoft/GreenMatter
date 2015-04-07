@@ -38,6 +38,8 @@ public class MatColorInterceptor implements MatResources.ColorInterceptor {
             return palette.getColorControlNormal(0x7F);
         if (resId == R.color.gm__background_reference)
             return palette.getColorControlHighlight();
+        if (resId == R.color.gm__picker_divider_reference)
+            return palette.getColorControlActivated(0xCC);
         return 0;
     }
 

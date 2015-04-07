@@ -25,6 +25,7 @@ import com.negusoft.greenmatter.MatResources;
 import com.negusoft.greenmatter.activity.MatActivity;
 import com.negusoft.greenmatter.widget.MatButton;
 import com.negusoft.greenmatter.widget.MatImageButton;
+import com.negusoft.greenmatter.widget.MatNumberPicker;
 import com.negusoft.greenmatter.widget.MatRatingBar;
 import com.negusoft.greenmatter.widget.MatSeekBar;
 
@@ -45,6 +46,7 @@ public class ViewInterceptorHelper {
         addInterceptor(mImageButtonProvider);
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
             addInterceptor(mSeekBarProvider);
+            addInterceptor(mNumberPickerProvider);
         }
     }
 
@@ -106,6 +108,18 @@ public class ViewInterceptorHelper {
         @Override
         public View createView(String name, @NonNull Context context, @NonNull AttributeSet attrs) {
             return new MatSeekBar(context, attrs);
+        }
+    };
+
+    /** A view interceptor to swap the pickers by their custom counterparts. */
+    private final ViewInterceptor mNumberPickerProvider = new ViewInterceptor() {
+        @Override
+        public String[] getViewNames() {
+            return new String[] { "NumberPicker" };
+        }
+        @Override
+        public View createView(String name, @NonNull Context context, @NonNull AttributeSet attrs) {
+            return new MatNumberPicker(context, attrs);
         }
     };
 

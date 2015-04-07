@@ -26,6 +26,8 @@ import com.negusoft.greenmatter.MatPalette;
 import com.negusoft.greenmatter.MatResources;
 import com.negusoft.greenmatter.activity.MatActivity;
 import com.negusoft.greenmatter.dialog.MatAlertDialog;
+import com.negusoft.greenmatter.dialog.MatDatePickerDialog;
+import com.negusoft.greenmatter.dialog.MatTimePickerDialog;
 import com.negusoft.greenmatter.example.R;
 import com.negusoft.greenmatter.example.fragment.ButtonFragment;
 import com.negusoft.greenmatter.example.fragment.ChoicesFragment;
@@ -212,7 +214,7 @@ public class TabbedActivity extends MatActivity implements ActionBar.TabListener
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) { }
         };
-        new DatePickerDialog(this, listener, year, month, day).show();
+        new MatDatePickerDialog(this, listener, year, month, day).show();
     }
 
     private void showTimePickerDialog() {
@@ -225,7 +227,7 @@ public class TabbedActivity extends MatActivity implements ActionBar.TabListener
             @Override
             public void onTimeSet(android.widget.TimePicker timePicker, int i, int i1) { }
         };
-        new TimePickerDialog(this, listener, hour, minute,
+        new MatTimePickerDialog(this, listener, hour, minute,
                 DateFormat.is24HourFormat(this)).show();
     }
 	
