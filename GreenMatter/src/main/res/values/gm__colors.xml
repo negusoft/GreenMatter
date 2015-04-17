@@ -33,6 +33,8 @@
 
     <color name="gm__background_reference">#ffbdbdbd</color>
     <color name="gm__fastscroll_track_reference">#7fbdbdbd</color>
+
+    <color name="gm__calendar_selected_week_reference">#330066ff</color>
     <color name="gm__picker_divider_reference">#ccbdbdbd</color>
 
 </resources>

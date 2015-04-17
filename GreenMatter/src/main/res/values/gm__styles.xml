@@ -104,6 +104,12 @@
         <item name="android:background">@drawable/gm__circle_indicator</item>
     </style>
 
+    <!-- CalendarView style -->
+    <style name="Widget.GreenMatter.CalendarView" parent="android:Widget.Holo.CalendarView">
+        <item name="android:selectedWeekBackgroundColor">@color/gm__calendar_selected_week</item>
+        <item name="android:selectedDateVerticalBar">@drawable/gm__calendar_day_line</item>
+    </style>
+
     <!-- Styles for customizing the dialogs -->
     <style name="DialogWindowTitle"/>
     <style name="DialogWindowTitle.Alert">

@@ -252,7 +252,7 @@ public class TabbedActivity extends MatActivity implements ActionBar.TabListener
 			mFragments.add(new FragmentTabHolder(new ListFragment(), R.string.tab_list));
 			mFragments.add(new FragmentTabHolder(new TextviewFragment(), R.string.tab_text_fields));
             mFragments.add(new FragmentTabHolder(new ProgressFragment(), R.string.tab_progress));
-//            mFragments.add(new FragmentTabHolder(new PickersFragment(), R.string.tab_pickers));
+            mFragments.add(new FragmentTabHolder(new PickersFragment(), R.string.tab_pickers));
 		}
 
 		@Override

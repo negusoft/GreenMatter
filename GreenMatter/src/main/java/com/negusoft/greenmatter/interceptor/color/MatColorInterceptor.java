@@ -40,6 +40,8 @@ public class MatColorInterceptor implements MatResources.ColorInterceptor {
             return palette.getColorControlHighlight();
         if (resId == R.color.gm__picker_divider_reference)
             return palette.getColorControlActivated(0xCC);
+        if (resId == R.color.gm__calendar_selected_week_reference)
+            return palette.getColorControlActivated(0x33);
         return 0;
     }
 

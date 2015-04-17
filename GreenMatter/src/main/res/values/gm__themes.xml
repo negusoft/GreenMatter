@@ -65,6 +65,8 @@
         <item name="android:fastScrollPreviewBackgroundRight">@drawable/gm__fastscroll_label</item>
         <item name="android:fastScrollTrackDrawable">@drawable/gm__fastscroll_track</item>
 
+        <item name="android:calendarViewStyle">@style/Widget.GreenMatter.CalendarView</item>
+
         <item name="actionModeBackground">@drawable/gm__cab_background_top</item>
         <!--<item name="android:actionModeSplitBackground">@android:color/holo_red_dark</item>-->
         <!--<item name="actionModeSplitBackground">@android:color/holo_red_dark</item>-->

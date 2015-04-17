@@ -44,9 +44,9 @@ public class ViewInterceptorHelper {
         mViewInterceptors = new Hashtable<>();
         addInterceptor(mButtonProvider);
         addInterceptor(mImageButtonProvider);
+        addInterceptor(mNumberPickerProvider);
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
             addInterceptor(mSeekBarProvider);
-            addInterceptor(mNumberPickerProvider);
         }
     }
 
