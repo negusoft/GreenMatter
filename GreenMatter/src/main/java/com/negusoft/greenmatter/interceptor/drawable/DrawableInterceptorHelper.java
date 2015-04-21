@@ -18,7 +18,7 @@ public class DrawableInterceptorHelper {
         mInterceptors = new SparseArray<>();
 
         SolidDrawableInterceptor.setupInterceptors(this, context);
-        new TintDrawableDrawableInterceptor().setupInterceptors(this);
+        TintDrawableDrawableInterceptor.setupInterceptors(this);
         new CircleDrawableInterceptor().setupInterceptors(this);
         new RoundRectDrawableInterceptor().setupInterceptors(this);
         new UnderlineDrawableInterceptor().setupInterceptors(this);
@@ -35,11 +35,6 @@ public class DrawableInterceptorHelper {
 
     public Drawable getOverrideDrawable(Resources res, MatPalette palette, int resId) {
         DrawableInterceptor interceptor = mInterceptors.get(resId);
-//        return interceptor != null ? interceptor.getDrawable(res, palette, resId) : null;
-        if (interceptor != null) {
-            return interceptor.getDrawable(res, palette, resId);
-        } else {
-            return null;
-        }
+        return interceptor != null ? interceptor.getDrawable(res, palette, resId) : null;
     }
 }

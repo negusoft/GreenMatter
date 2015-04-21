@@ -253,8 +253,8 @@ public class MatResources extends Resources {
     }
 
     /**
-     * Put a drawable interceptor for a given resource ID. If the ID already exits, the corresponding
-     * interceptor will be replaced
+     * Set a drawable interceptor for a given resource ID. If the ID already exits, the corresponding
+     * interceptor will be replaced.
      */
     public void putDrawableInterceptor(int resId, DrawableInterceptor interceptor) {
         mDrawableInterceptorHelper.putInterceptor(resId, interceptor);

@@ -2,155 +2,169 @@ package com.negusoft.greenmatter.interceptor.drawable;
 
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 
 import com.negusoft.greenmatter.MatPalette;
-import com.negusoft.greenmatter.MatResources;
 import com.negusoft.greenmatter.R;
 import com.negusoft.greenmatter.drawable.CompoundDrawableWrapper;
 import com.negusoft.greenmatter.drawable.TintDrawableWrapper;
 import com.negusoft.greenmatter.util.ColorUtils;
 
 /** Intercepts drawables that need to be wrapped in TintDrawableWrapper. */
-public class TintDrawableDrawableInterceptor implements DrawableInterceptor {
+public class TintDrawableDrawableInterceptor {
 
-    public void setupInterceptors(DrawableInterceptorHelper helper) {
-        helper.putInterceptor(R.drawable.gm__btn_check_reference, this);
-        helper.putInterceptor(R.drawable.gm__btn_radio_reference, this);
-        helper.putInterceptor(R.drawable.gm__btn_default_reference, this);
-        helper.putInterceptor(R.drawable.gm__btn_toggle_reference, this);
-
-        helper.putInterceptor(R.drawable.gm__switch_track_reference, this);
-        helper.putInterceptor(R.drawable.gm__switch_thumb_reference, this);
-
-        helper.putInterceptor(R.drawable.gm__edit_text_activated_reference, this);
-        helper.putInterceptor(R.drawable.gm__edit_text_default_reference, this);
-        helper.putInterceptor(R.drawable.gm__edit_text_disabled_reference, this);
-
-        helper.putInterceptor(R.drawable.gm__textfield_search_activated_reference, this);
-        helper.putInterceptor(R.drawable.gm__textfield_search_default_reference, this);
-
-        helper.putInterceptor(R.drawable.gm__text_cursor_reference, this);
-
-        helper.putInterceptor(R.drawable.gm__text_select_handle_left_reference, this);
-        helper.putInterceptor(R.drawable.gm__text_select_handle_right_reference, this);
-        helper.putInterceptor(R.drawable.gm__text_select_handle_middle_reference, this);
-
-        helper.putInterceptor(R.drawable.gm__tab_indicator_reference, this);
-    }
-
-    @Override
-    public Drawable getDrawable(Resources res, MatPalette palette, int resId) {
+    public static void setupInterceptors(DrawableInterceptorHelper helper) {
         // Check Box
-        if (resId == R.drawable.gm__btn_check_reference) {
-            Drawable primary = getTintedControlDrawable(res, palette, R.drawable.gm__btn_check_main);
-            Drawable secondary = res.getDrawable(R.drawable.gm__circle_indicator);
-            return new CompoundDrawableWrapper(primary, secondary);
-        }
+        putCheckBoxInterceptor(helper);
 
         // Radio Button
-        if (resId == R.drawable.gm__btn_radio_reference) {
-            Drawable primary = getTintedControlDrawable(res, palette, R.drawable.gm__btn_radio_main);
-            Drawable secondary = res.getDrawable(R.drawable.gm__circle_indicator);
-            return new CompoundDrawableWrapper(primary, secondary);
-        }
+        putRadioButtonInterceptor(helper);
 
         // Button
-        if (resId == R.drawable.gm__btn_default_reference) {
-            Drawable frame = getTintedButtonDrawable(res, palette, R.drawable.gm__btn_default_frame);
-            Drawable foreground = res.getDrawable(R.drawable.gm__btn_default_foreground);
-            return new CompoundDrawableWrapper(frame, false, foreground);
-        }
+        putButtonInterceptor(helper);
 
         // Toggle Button
-        if (resId == R.drawable.gm__btn_toggle_reference) {
-            Drawable frame = getTintedButtonDrawable(res, palette, R.drawable.gm__btn_default_frame);
-            Drawable indicator = res.getDrawable(R.drawable.gm__btn_toggle_indicator);
-            Drawable foreground = res.getDrawable(R.drawable.gm__btn_default_foreground);
-            return new CompoundDrawableWrapper(frame, false, indicator, foreground);
-        }
+        putToggleButtonInterceptor(helper);
 
         // Switch
-        if (resId == R.drawable.gm__switch_track_reference)
-            return getTintedSwitchTrackDrawable(res, palette);
-        if (resId == R.drawable.gm__switch_thumb_reference)
-            return getTintedSwitchThumbDrawable(res, palette);
+        putSwitchTrackInterceptor(helper);
+        putSwitchThumbInterceptor(helper);
 
         // Edit Text
-        if (resId == R.drawable.gm__edit_text_activated_reference)
-            return getTintedActivatedDrawable(res, palette, R.drawable.abc_textfield_activated_mtrl_alpha);
-        if (resId == R.drawable.gm__edit_text_default_reference)
-            return getTintedNormalDrawable(res, palette, R.drawable.abc_textfield_default_mtrl_alpha);
-        if (resId == R.drawable.gm__edit_text_disabled_reference)
-            return getTintedNormalDisabledDrawable(res, palette, R.drawable.abc_textfield_default_mtrl_alpha);
+        putActivatedInterceptor(helper, R.drawable.gm__edit_text_activated_reference, R.drawable.abc_textfield_activated_mtrl_alpha);
+        putNormalInterceptor(helper, R.drawable.gm__edit_text_default_reference, R.drawable.abc_textfield_default_mtrl_alpha);
+        putNormalDisabledInterceptor(helper, R.drawable.gm__edit_text_disabled_reference, R.drawable.abc_textfield_default_mtrl_alpha);
 
         // SearchView
-        if (resId == R.drawable.gm__textfield_search_activated_reference)
-            return getTintedActivatedDrawable(res, palette, R.drawable.abc_textfield_search_activated_mtrl_alpha);
-        if (resId == R.drawable.gm__textfield_search_default_reference)
-            return getTintedNormalDrawable(res, palette, R.drawable.abc_textfield_search_default_mtrl_alpha);
+        putActivatedInterceptor(helper, R.drawable.gm__textfield_search_activated_reference, R.drawable.abc_textfield_search_activated_mtrl_alpha);
+        putNormalInterceptor(helper, R.drawable.gm__textfield_search_default_reference, R.drawable.abc_textfield_search_default_mtrl_alpha);
 
         // Text cursor
-        if (resId == R.drawable.gm__text_cursor_reference)
-            return getTintedActivatedDrawable(res, palette, R.drawable.gm__text_cursor_mtrl_alpha);
+        putActivatedInterceptor(helper, R.drawable.gm__text_cursor_reference, R.drawable.gm__text_cursor_mtrl_alpha);
 
         // Text select handle
-        if (resId == R.drawable.gm__text_select_handle_left_reference)
-            return getTintedActivatedDrawable(res, palette, R.drawable.gm__text_select_handle_left_mtrl_alpha);
-        if (resId == R.drawable.gm__text_select_handle_right_reference)
-            return getTintedActivatedDrawable(res, palette, R.drawable.gm__text_select_handle_right_mtrl_alpha);
-        if (resId == R.drawable.gm__text_select_handle_middle_reference)
-            return getTintedActivatedDrawable(res, palette, R.drawable.gm__text_select_handle_middle_mtrl_alpha);
+        putActivatedInterceptor(helper, R.drawable.gm__text_select_handle_left_reference, R.drawable.gm__text_select_handle_left_mtrl_alpha);
+        putActivatedInterceptor(helper, R.drawable.gm__text_select_handle_right_reference, R.drawable.gm__text_select_handle_right_mtrl_alpha);
+        putActivatedInterceptor(helper, R.drawable.gm__text_select_handle_middle_reference, R.drawable.gm__text_select_handle_middle_mtrl_alpha);
 
         // TabBar selected indicator
-        if (resId == R.drawable.gm__tab_indicator_reference)
-            return getTintedActivatedDrawable(res, palette, R.drawable.gm__tab_indicator_main);
-
-        return null;
+        putActivatedInterceptor(helper, R.drawable.gm__tab_indicator_reference, R.drawable.gm__tab_indicator_main);
     }
 
-    private Drawable getTintedControlDrawable(Resources res, MatPalette palette, int id) {
+    private static void putActivatedInterceptor(DrawableInterceptorHelper helper, int interceptedResId, int tintedResId) {
+        DrawableInterceptor interceptor = new ColorStateDrawableInterceptor(tintedResId) {
+            @Override
+            public ColorStateList getTintColor(Resources res, MatPalette palette) {
+                return ColorStateList.valueOf(palette.getColorControlActivated());
+            }
+        };
+        helper.putInterceptor(interceptedResId, interceptor);
+    }
+
+    private static void putNormalInterceptor(DrawableInterceptorHelper helper, int interceptedResId, int tintedResId) {
+        DrawableInterceptor interceptor = new ColorStateDrawableInterceptor(tintedResId) {
+            @Override
+            public ColorStateList getTintColor(Resources res, MatPalette palette) {
+                return ColorStateList.valueOf(palette.getColorControlNormal());
+            }
+        };
+        helper.putInterceptor(interceptedResId, interceptor);
+    }
+
+    private static void putNormalDisabledInterceptor(DrawableInterceptorHelper helper, int interceptedResId, int tintedResId) {
+        DrawableInterceptor interceptor = new ColorStateDrawableInterceptor(tintedResId) {
+            @Override
+            public ColorStateList getTintColor(Resources res, MatPalette palette) {
+                int color = palette.getColorControlNormal();
+                float disabledAlpha = palette.getDisabledAlpha();
+                color = ColorUtils.applyColorAlpha(color, disabledAlpha);
+                return ColorStateList.valueOf(color);
+            }
+        };
+        helper.putInterceptor(interceptedResId, interceptor);
+    }
+
+    private static void putSwitchTrackInterceptor(DrawableInterceptorHelper helper) {
+        DrawableInterceptor interceptor = new ColorStateDrawableInterceptor(R.drawable.abc_switch_track_mtrl_alpha) {
+            @Override
+            public ColorStateList getTintColor(Resources res, MatPalette palette) {
+                return getSwitchTrackColorStateList(res, palette);
+            }
+        };
+        helper.putInterceptor(R.drawable.gm__switch_track_reference, interceptor);
+    }
+
+    private static void putSwitchThumbInterceptor(DrawableInterceptorHelper helper) {
+        DrawableInterceptor interceptor = new ColorStateDrawableInterceptor(R.drawable.gm__switch_thumb_stateful) {
+            @Override
+            public ColorStateList getTintColor(Resources res, MatPalette palette) {
+                return getSwitchThumbColorStateList(palette);
+            }
+        };
+        helper.putInterceptor(R.drawable.gm__switch_thumb_reference, interceptor);
+    }
+
+    private static void putCheckBoxInterceptor(DrawableInterceptorHelper helper) {
+        DrawableInterceptor interceptor = new DrawableInterceptor() {
+            @Override
+            public Drawable getDrawable(Resources res, MatPalette palette, int resId) {
+                Drawable primary = getTintedControlDrawable(res, palette, R.drawable.gm__btn_check_main);
+                Drawable secondary = res.getDrawable(R.drawable.gm__circle_indicator);
+                return new CompoundDrawableWrapper(primary, secondary);
+            }
+        };
+        helper.putInterceptor(R.drawable.gm__btn_check_reference, interceptor);
+    }
+
+    private static void putRadioButtonInterceptor(DrawableInterceptorHelper helper) {
+        DrawableInterceptor interceptor = new DrawableInterceptor() {
+            @Override
+            public Drawable getDrawable(Resources res, MatPalette palette, int resId) {
+                Drawable primary = getTintedControlDrawable(res, palette, R.drawable.gm__btn_radio_main);
+                Drawable secondary = res.getDrawable(R.drawable.gm__circle_indicator);
+                return new CompoundDrawableWrapper(primary, secondary);
+            }
+        };
+        helper.putInterceptor(R.drawable.gm__btn_radio_reference, interceptor);
+    }
+
+    private static void putButtonInterceptor(DrawableInterceptorHelper helper) {
+        DrawableInterceptor interceptor = new DrawableInterceptor() {
+            @Override
+            public Drawable getDrawable(Resources res, MatPalette palette, int resId) {
+                Drawable frame = getTintedButtonDrawable(res, palette, R.drawable.gm__btn_default_frame);
+                Drawable foreground = res.getDrawable(R.drawable.gm__btn_default_foreground);
+                return new CompoundDrawableWrapper(frame, false, foreground);
+            }
+        };
+        helper.putInterceptor(R.drawable.gm__btn_default_reference, interceptor);
+    }
+
+    private static void putToggleButtonInterceptor(DrawableInterceptorHelper helper) {
+        DrawableInterceptor interceptor = new DrawableInterceptor() {
+            @Override
+            public Drawable getDrawable(Resources res, MatPalette palette, int resId) {
+                Drawable frame = getTintedButtonDrawable(res, palette, R.drawable.gm__btn_default_frame);
+                Drawable indicator = res.getDrawable(R.drawable.gm__btn_toggle_indicator);
+                Drawable foreground = res.getDrawable(R.drawable.gm__btn_default_foreground);
+                return new CompoundDrawableWrapper(frame, false, indicator, foreground);
+            }
+        };
+        helper.putInterceptor(R.drawable.gm__btn_toggle_reference, interceptor);
+    }
+
+    private static Drawable getTintedControlDrawable(Resources res, MatPalette palette, int id) {
         Drawable baseDrawable = res.getDrawable(id);
         return new TintDrawableWrapper(baseDrawable, getControlColorStateList(palette));
     }
 
-    private Drawable getTintedButtonDrawable(Resources res, MatPalette palette, int id) {
+    private static Drawable getTintedButtonDrawable(Resources res, MatPalette palette, int id) {
         Drawable baseDrawable = res.getDrawable(id);
         return new TintDrawableWrapper(baseDrawable, getButtonColorStateList(palette));
     }
 
-    private Drawable getTintedSwitchTrackDrawable(Resources res, MatPalette palette) {
-        Drawable baseDrawable = res.getDrawable(R.drawable.abc_switch_track_mtrl_alpha);
-        return new TintDrawableWrapper(baseDrawable, getSwitchTrackColorStateList(res, palette));
-    }
-
-    private Drawable getTintedSwitchThumbDrawable(Resources res, MatPalette palette) {
-        Drawable baseDrawable = res.getDrawable(R.drawable.gm__switch_thumb_stateful);
-        return new TintDrawableWrapper(baseDrawable, getSwitchThumbColorStateList(palette));
-    }
-
-    private Drawable getTintedActivatedDrawable(Resources res, MatPalette palette, int id) {
-        Drawable baseDrawable = res.getDrawable(id);
-        int color = palette.getColorControlActivated();
-        return new TintDrawableWrapper(baseDrawable, ColorStateList.valueOf(color));
-    }
-    private Drawable getTintedNormalDrawable(Resources res, MatPalette palette, int id) {
-        Drawable baseDrawable = res.getDrawable(id);
-        int color = palette.getColorControlNormal();
-        return new TintDrawableWrapper(baseDrawable, ColorStateList.valueOf(color));
-    }
-    private Drawable getTintedNormalDisabledDrawable(Resources res, MatPalette palette, int id) {
-        Drawable baseDrawable = res.getDrawable(id);
-        int color = palette.getColorControlNormal();
-        float disabledAlpha = palette.getDisabledAlpha();
-        color = ColorUtils.applyColorAlpha(color, disabledAlpha);
-        return new TintDrawableWrapper(baseDrawable, ColorStateList.valueOf(color));
-    }
-
     /** Get a color state list for widgets */
-    private ColorStateList getControlColorStateList(MatPalette palette) {
+    private static ColorStateList getControlColorStateList(MatPalette palette) {
         int colorNormal = palette.getColorControlNormal();
         int colorActivated = palette.getColorControlActivated();
         float disabledAlpha = palette.getDisabledAlpha();
@@ -198,7 +212,7 @@ public class TintDrawableDrawableInterceptor implements DrawableInterceptor {
     }
 
     /** Get a color state list for the button shape */
-    private ColorStateList getButtonColorStateList(MatPalette palette) {
+    private static ColorStateList getButtonColorStateList(MatPalette palette) {
         int color = palette.getColorButtonNormal();
         float disabledAlpha = palette.getDisabledAlpha();
 
@@ -221,7 +235,7 @@ public class TintDrawableDrawableInterceptor implements DrawableInterceptor {
      *  colorForeground. Also, the opacity is relative, so the disabled opacity is a third of the
      *  disabledAlpha, and not just an absolute value.
      */
-    private ColorStateList getSwitchTrackColorStateList(Resources res, MatPalette palette) {
+    private static ColorStateList getSwitchTrackColorStateList(Resources res, MatPalette palette) {
         int colorControlNormal = palette.getColorControlNormal();
         int colorControlActivated = palette.getColorControlActivated();
         float disabledAlpha = palette.getDisabledAlpha();
@@ -248,7 +262,7 @@ public class TintDrawableDrawableInterceptor implements DrawableInterceptor {
     }
 
     /** Get a color state list for the Switch thumb */
-    private ColorStateList getSwitchThumbColorStateList(MatPalette palette) {
+    private static ColorStateList getSwitchThumbColorStateList(MatPalette palette) {
         int colorSwitchThumbThumbNormal = palette.getColorSwitchThumbNormal();
         int colorControlActivated = palette.getColorControlActivated();
         float disabledAlpha = palette.getDisabledAlpha();
@@ -270,22 +284,22 @@ public class TintDrawableDrawableInterceptor implements DrawableInterceptor {
         return new ColorStateList(states, colors);
     }
 
-    /** Get a color state list for the EditText when not active */
-    private ColorStateList getEditTextDefaultColorStateList(MatPalette palette) {
-        int color = palette.getColorButtonNormal();
-        float disabledAlpha = palette.getDisabledAlpha();
+    private static abstract class ColorStateDrawableInterceptor implements DrawableInterceptor {
 
-        final int[][] states = new int[2][];
-        final int[] colors = new int[2];
+        private final int mResId;
 
-        // Disabled
-        states[0] = new int[] { -android.R.attr.state_enabled };
-        colors[0] = ColorUtils.applyColorAlpha(color, disabledAlpha);
-        // Default (enabled)
-        states[1] = new int[0];
-        colors[1] = color;
+        ColorStateDrawableInterceptor(int resId) {
+            mResId = resId;
+        }
 
-        return new ColorStateList(states, colors);
+        @Override
+        public Drawable getDrawable(Resources res, MatPalette palette, int resId) {
+            Drawable baseDrawable = res.getDrawable(mResId);
+            ColorStateList color = getTintColor(res, palette);
+            return new TintDrawableWrapper(baseDrawable, color);
+        }
+
+        public abstract ColorStateList getTintColor(Resources res, MatPalette palette);
     }
 
 }
