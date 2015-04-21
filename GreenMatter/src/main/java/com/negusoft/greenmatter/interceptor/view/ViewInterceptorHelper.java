@@ -33,8 +33,7 @@ import java.util.Dictionary;
 import java.util.Hashtable;
 
 /**
- * Holds a dictionary that holds ViewInterceptors. By default, it holds two interceptors: "Button"
- * and "ImageButton".
+ * Holds a dictionary that contains ViewInterceptors. It sets up the default interceptors.
  */
 public class ViewInterceptorHelper {
 

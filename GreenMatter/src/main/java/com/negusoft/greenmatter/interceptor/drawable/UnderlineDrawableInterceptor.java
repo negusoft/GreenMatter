@@ -24,7 +24,13 @@ import com.negusoft.greenmatter.R;
 import com.negusoft.greenmatter.drawable.RoundRectDrawable;
 import com.negusoft.greenmatter.drawable.UnderlineDrawable;
 
-public class UnderlineDrawableInterceptor implements MatResources.DrawableInterceptor {
+public class UnderlineDrawableInterceptor implements DrawableInterceptor {
+
+    public void setupInterceptors(DrawableInterceptorHelper helper) {
+        helper.putInterceptor(R.drawable.gm__btn_toggle_indicator_default_reference, this);
+        helper.putInterceptor(R.drawable.gm__btn_toggle_indicator_checked_reference, this);
+        helper.putInterceptor(R.drawable.gm__cab_background_top_reference, this);
+    }
 
     @Override
     public Drawable getDrawable(Resources res, MatPalette palette, int resId) {

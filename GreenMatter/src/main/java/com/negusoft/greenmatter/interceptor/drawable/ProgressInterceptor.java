@@ -28,7 +28,15 @@ import com.negusoft.greenmatter.drawable.TintDrawableWrapper;
 import com.negusoft.greenmatter.util.ColorUtils;
 
 /** Drawables for the ProgressBar */
-public class ProgressInterceptor implements MatResources.DrawableInterceptor {
+public class ProgressInterceptor implements DrawableInterceptor {
+
+    public void setupInterceptors(DrawableInterceptorHelper helper) {
+        helper.putInterceptor(R.drawable.gm__progress_horizontal_background_reference, this);
+        helper.putInterceptor(R.drawable.gm__progress_horizontal_secondary_reference, this);
+        helper.putInterceptor(R.drawable.gm__progress_horizontal_progress_reference, this);
+        helper.putInterceptor(R.drawable.gm__progress_indeterminate_horizontal_item_reference, this);
+        helper.putInterceptor(R.drawable.gm__progress_circle_item_reference, this);
+    }
 
 	@Override
 	public Drawable getDrawable(Resources res, MatPalette palette, int resId) {

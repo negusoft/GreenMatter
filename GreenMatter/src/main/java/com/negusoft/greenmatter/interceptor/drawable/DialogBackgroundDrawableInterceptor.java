@@ -30,7 +30,7 @@ import com.negusoft.greenmatter.util.NativeResources;
 /**
  * Removes the dialog background by returning a dummy drawable in stead of the default drawables.
  */
-public class DialogBackgroundDrawableInterceptor implements MatResources.DrawableInterceptor {
+public class DialogBackgroundDrawableInterceptor {
 
     private static final String[] RESOURCE_NAMES = new String[] {
             "dialog_full_holo_dark",
@@ -39,23 +39,18 @@ public class DialogBackgroundDrawableInterceptor implements MatResources.Drawabl
             "dialog_bottom_holo_dark"
     };
 
-    private final int[] mResourceIds;
+    public static void setupInterceptors(DrawableInterceptorHelper helper) {
+        DrawableInterceptor dummyInterceptor = new DrawableInterceptor() {
+            @Override
+            public Drawable getDrawable(Resources res, MatPalette palette, int resId) {
+                return new ColorDrawable(0);
+            }
+        };
 
-    private Drawable mDummyDrawable = new ColorDrawable(0);
-
-    public DialogBackgroundDrawableInterceptor() {
         int length = RESOURCE_NAMES.length;
-        mResourceIds = new int[length];
-        for (int i=0; i<length; i++)
-            mResourceIds[i] = NativeResources.getDrawableIdentifier(RESOURCE_NAMES[i]);
-    }
-
-    @Override
-    public Drawable getDrawable(Resources res, MatPalette palette, int resId) {
-        for (int id : mResourceIds) {
-            if (resId == id)
-                return mDummyDrawable;
+        for (int i=0; i<length; i++) {
+            int resId = NativeResources.getDrawableIdentifier(RESOURCE_NAMES[i]);
+            helper.putInterceptor(resId, dummyInterceptor);
         }
-        return null;
     }
 }

@@ -15,6 +15,7 @@
  ******************************************************************************/
 package com.negusoft.greenmatter.interceptor.drawable;
 
+import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
@@ -24,22 +25,27 @@ import com.negusoft.greenmatter.MatResources;
 import com.negusoft.greenmatter.R;
 import com.negusoft.greenmatter.drawable.CircleFillDrawable;
 
-public class CircleDrawableInterceptor implements MatResources.DrawableInterceptor {
+public class CircleDrawableInterceptor {
 
     private static final int PRESSED_ALPHA = 0x88;
     private static final int FOCUSED_ALPHA = 0x55;
-	
-	@Override
-	public Drawable getDrawable(Resources res, MatPalette palette, int resId) {
-		if (resId == R.drawable.gm__circle_pressed_reference) {
-			int backColor = palette.getColorControlHighlight(PRESSED_ALPHA);
-			return new CircleFillDrawable(res, backColor, 0f, Color.TRANSPARENT);
-		}
-		if (resId == R.drawable.gm__circle_focused_reference) {
-            int backColor = palette.getColorControlHighlight(FOCUSED_ALPHA);
-            return new CircleFillDrawable(res, backColor, 0f, Color.TRANSPARENT);
-		}
-		return null;
-	}
+
+    public static void setupInterceptors(DrawableInterceptorHelper helper) {
+        helper.putInterceptor(R.drawable.gm__circle_pressed_reference, new DrawableInterceptor() {
+            @Override
+            public Drawable getDrawable(Resources res, MatPalette palette, int resId) {
+                int backColor = palette.getColorControlHighlight(PRESSED_ALPHA);
+                return new CircleFillDrawable(res, backColor, 0f, Color.TRANSPARENT);
+            }
+        });
+
+        helper.putInterceptor(R.drawable.gm__circle_focused_reference, new DrawableInterceptor() {
+            @Override
+            public Drawable getDrawable(Resources res, MatPalette palette, int resId) {
+                int backColor = palette.getColorControlHighlight(FOCUSED_ALPHA);
+                return new CircleFillDrawable(res, backColor, 0f, Color.TRANSPARENT);
+            }
+        });
+    }
 
 }

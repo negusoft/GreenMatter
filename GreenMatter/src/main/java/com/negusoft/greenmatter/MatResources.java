@@ -27,12 +27,15 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.util.AttributeSet;
+import android.util.SparseArray;
 import android.util.TypedValue;
 import android.view.View;
 
 import com.negusoft.greenmatter.interceptor.drawable.CircleDrawableInterceptor;
 import com.negusoft.greenmatter.interceptor.color.MatColorInterceptor;
 import com.negusoft.greenmatter.interceptor.drawable.DialogBackgroundDrawableInterceptor;
+import com.negusoft.greenmatter.interceptor.drawable.DrawableInterceptor;
+import com.negusoft.greenmatter.interceptor.drawable.DrawableInterceptorHelper;
 import com.negusoft.greenmatter.interceptor.drawable.ScrollbarInterceptor;
 import com.negusoft.greenmatter.interceptor.drawable.ScrubberHorizontalInterceptor;
 import com.negusoft.greenmatter.interceptor.drawable.ProgressInterceptor;
@@ -50,6 +53,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Dictionary;
 import java.util.List;
 
 /**
@@ -65,11 +69,6 @@ import java.util.List;
  * drawable with a tinted version by applying a ColorFilter.
  */
 public class MatResources extends Resources {
-
-	public interface DrawableInterceptor {
-		/** @return The drawable to be replaced or null to continue the normal flow. */
-		public Drawable getDrawable(Resources res, MatPalette palette, int resId);
-	}
 
     public interface ColorInterceptor {
         /** @return The color to be replaced or 0 to continue the normal flow. */
@@ -87,7 +86,8 @@ public class MatResources extends Resources {
 	private final Context mContext;
     private PaletteOverrider mOverrider;
 
-    private final List<DrawableInterceptor> mDrawableInterceptors = new ArrayList<DrawableInterceptor>();
+//    private final SparseArray<DrawableInterceptor> mDrawableInterceptors = new SparseArray<DrawableInterceptor>();
+//    private final List<DrawableInterceptor> mDrawableInterceptors = new ArrayList<DrawableInterceptor>();
     private final List<ColorInterceptor> mColorInterceptors = new ArrayList<ColorInterceptor>();
 
     private List<Integer> mCustomTintDrawableIds;
@@ -98,17 +98,20 @@ public class MatResources extends Resources {
 	private MatPalette mPalette;
 
     private final ViewInterceptorHelper mViewInterceptorHelper = new ViewInterceptorHelper();
+    private final DrawableInterceptorHelper mDrawableInterceptorHelper;
 
 	public MatResources(Context c, Resources resources) {
 		super(resources.getAssets(), resources.getDisplayMetrics(), resources.getConfiguration());
 		mContext = c;
         mOverrider = null;
+        mDrawableInterceptorHelper = new DrawableInterceptorHelper(c);
 	}
 
 	public MatResources(Context c, Resources resources, PaletteOverrider palletteOverrider) {
 		super(resources.getAssets(), resources.getDisplayMetrics(), resources.getConfiguration());
 		mContext = c;
         mOverrider = palletteOverrider;
+        mDrawableInterceptorHelper = new DrawableInterceptorHelper(c);
 	}
 
 	/**
@@ -160,17 +163,6 @@ public class MatResources extends Resources {
 	}
 
 	private void addDrawableInterceptors(Context c) {
-        mDrawableInterceptors.add(new SolidDrawableInterceptor(c));
-        mDrawableInterceptors.add(new TintDrawableDrawableInterceptor());
-        mDrawableInterceptors.add(new CircleDrawableInterceptor());
-        mDrawableInterceptors.add(new OverScrollDrawableInterceptor());
-        mDrawableInterceptors.add(new RoundRectDrawableInterceptor());
-        mDrawableInterceptors.add(new UnderlineDrawableInterceptor());
-        mDrawableInterceptors.add(new ProgressInterceptor());
-        mDrawableInterceptors.add(new ScrubberHorizontalInterceptor());
-        mDrawableInterceptors.add(new ScrollbarInterceptor());
-        mDrawableInterceptors.add(new DialogBackgroundDrawableInterceptor());
-
         mColorInterceptors.add(new MatColorInterceptor(c));
 	}
 
@@ -230,13 +222,12 @@ public class MatResources extends Resources {
             return null;
 
         // Give a chance to the interceptors to replace the drawable
-        Drawable result;
-        for(DrawableInterceptor interceptor : mDrawableInterceptors) {
-            result = interceptor.getDrawable(this, mPalette, resId);
-            if (result != null)
-                return result;
-        }
-        return null;
+        return mDrawableInterceptorHelper.getOverrideDrawable(this, mPalette, resId);
+    }
+
+    /** Return the drawable without letting the interceptors intervene. **/
+    public Drawable getOriginalDrawable(int resId) {
+        return super.getDrawable(resId);
     }
 	
 	@Override
@@ -262,11 +253,11 @@ public class MatResources extends Resources {
     }
 
     /**
-     * Add a drawable interceptor. They are evaluated in the order they are added, and before the
-     * default interceptors.
+     * Put a drawable interceptor for a given resource ID. If the ID already exits, the corresponding
+     * interceptor will be replaced
      */
-    public void addDrawableInterceptor(DrawableInterceptor interceptor) {
-        mDrawableInterceptors.add(0, interceptor);
+    public void putDrawableInterceptor(int resId, DrawableInterceptor interceptor) {
+        mDrawableInterceptorHelper.putInterceptor(resId, interceptor);
     }
 
     /**
@@ -338,53 +329,6 @@ public class MatResources extends Resources {
 		} catch (IOException e) { /* ignore */}
 		
 		return new ByteArrayInputStream(bitmapData);
-	}
-	
-	/**
-	 * Inner class holding the logic for applying a ColorFilter to the OverScroll 
-	 * drawables. It is implemented a an inner class because it needs to access 
-	 * the parents implementation of getDrawable().
-	 */
-	private class OverScrollDrawableInterceptor implements DrawableInterceptor {
-
-		private static final String RESOURCE_NAME_EDGE = "overscroll_edge";
-		private static final String RESOURCE_NAME_GLOW = "overscroll_glow";
-
-		private final int mOverscrollEdgeId;
-		private final int mOverscrollGlowId;
-
-        private Drawable mOverscrollEdgeDrawable;
-        private Drawable mOverscrollGlowDrawable;
-		
-		public OverScrollDrawableInterceptor() {
-            mOverscrollEdgeId = NativeResources.getDrawableIdentifier(RESOURCE_NAME_EDGE);
-            mOverscrollGlowId = NativeResources.getDrawableIdentifier(RESOURCE_NAME_GLOW);
-		}
-
-		@Override
-		public Drawable getDrawable(Resources res, MatPalette palette, int resId) {
-			if (resId == mOverscrollEdgeId)
-				return getEdgeDrawable();
-			if (resId == mOverscrollGlowId)
-				return getGlowDrawable();
-			return null;
-		}
-		
-		private Drawable getEdgeDrawable() {
-            if (mOverscrollEdgeDrawable == null) {
-                mOverscrollEdgeDrawable = MatResources.super.getDrawable(R.drawable.gm__overscroll_edge);
-                mOverscrollEdgeDrawable.setColorFilter(mPalette.getColorAccent(), PorterDuff.Mode.MULTIPLY);
-            }
-			return mOverscrollEdgeDrawable;
-		}
-		
-		private Drawable getGlowDrawable() {
-            if (mOverscrollGlowDrawable == null) {
-                mOverscrollGlowDrawable = MatResources.super.getDrawable(R.drawable.gm__overscroll_glow);
-                mOverscrollGlowDrawable.setColorFilter(mPalette.getColorAccent(), PorterDuff.Mode.MULTIPLY);
-            }
-			return mOverscrollGlowDrawable;
-		}
 	}
 
 }

@@ -14,7 +14,32 @@ import com.negusoft.greenmatter.drawable.TintDrawableWrapper;
 import com.negusoft.greenmatter.util.ColorUtils;
 
 /** Intercepts drawables that need to be wrapped in TintDrawableWrapper. */
-public class TintDrawableDrawableInterceptor implements MatResources.DrawableInterceptor {
+public class TintDrawableDrawableInterceptor implements DrawableInterceptor {
+
+    public void setupInterceptors(DrawableInterceptorHelper helper) {
+        helper.putInterceptor(R.drawable.gm__btn_check_reference, this);
+        helper.putInterceptor(R.drawable.gm__btn_radio_reference, this);
+        helper.putInterceptor(R.drawable.gm__btn_default_reference, this);
+        helper.putInterceptor(R.drawable.gm__btn_toggle_reference, this);
+
+        helper.putInterceptor(R.drawable.gm__switch_track_reference, this);
+        helper.putInterceptor(R.drawable.gm__switch_thumb_reference, this);
+
+        helper.putInterceptor(R.drawable.gm__edit_text_activated_reference, this);
+        helper.putInterceptor(R.drawable.gm__edit_text_default_reference, this);
+        helper.putInterceptor(R.drawable.gm__edit_text_disabled_reference, this);
+
+        helper.putInterceptor(R.drawable.gm__textfield_search_activated_reference, this);
+        helper.putInterceptor(R.drawable.gm__textfield_search_default_reference, this);
+
+        helper.putInterceptor(R.drawable.gm__text_cursor_reference, this);
+
+        helper.putInterceptor(R.drawable.gm__text_select_handle_left_reference, this);
+        helper.putInterceptor(R.drawable.gm__text_select_handle_right_reference, this);
+        helper.putInterceptor(R.drawable.gm__text_select_handle_middle_reference, this);
+
+        helper.putInterceptor(R.drawable.gm__tab_indicator_reference, this);
+    }
 
     @Override
     public Drawable getDrawable(Resources res, MatPalette palette, int resId) {

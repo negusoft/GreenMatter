@@ -25,8 +25,12 @@ import com.negusoft.greenmatter.R;
 import com.negusoft.greenmatter.drawable.CircleFillDrawable;
 import com.negusoft.greenmatter.drawable.ScrollbarThumbDrawable;
 
-public class ScrollbarInterceptor implements MatResources.DrawableInterceptor {
-	
+public class ScrollbarInterceptor implements DrawableInterceptor {
+
+    public void setupInterceptors(DrawableInterceptorHelper helper) {
+        helper.putInterceptor(R.drawable.gm__scrollbar_thumb_item_reference, this);
+    }
+
 	@Override
 	public Drawable getDrawable(Resources res, MatPalette palette, int resId) {
 		if (resId == R.drawable.gm__scrollbar_thumb_item_reference) {

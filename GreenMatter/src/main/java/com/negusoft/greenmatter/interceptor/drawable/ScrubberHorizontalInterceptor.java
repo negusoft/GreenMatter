@@ -26,8 +26,19 @@ import com.negusoft.greenmatter.drawable.HorizontalLineDrawable;
 import com.negusoft.greenmatter.drawable.ScrubberHorizontalDrawable;
 import com.negusoft.greenmatter.drawable.ScrubberThumbDrawable;
 
-public class ScrubberHorizontalInterceptor implements MatResources.DrawableInterceptor {
-	
+public class ScrubberHorizontalInterceptor implements DrawableInterceptor {
+
+    public void setupInterceptors(DrawableInterceptorHelper helper) {
+        helper.putInterceptor(R.drawable.gm__scrubber_background_default_reference, this);
+        helper.putInterceptor(R.drawable.gm__scrubber_background_disabled_reference, this);
+        helper.putInterceptor(R.drawable.gm__scrubber_secondary_reference, this);
+        helper.putInterceptor(R.drawable.gm__scrubber_progress_reference, this);
+        helper.putInterceptor(R.drawable.gm__scrubber_thumb_item_reference, this);
+        helper.putInterceptor(R.drawable.gm__scrubber_thumb_default_reference, this);
+        helper.putInterceptor(R.drawable.gm__scrubber_thumb_pressed_reference, this);
+        helper.putInterceptor(R.drawable.gm__scrubber_thumb_disabled_reference, this);
+    }
+
 	@Override
 	public Drawable getDrawable(Resources res, MatPalette palette, int resId) {
         if (resId == R.drawable.gm__scrubber_background_default_reference) {

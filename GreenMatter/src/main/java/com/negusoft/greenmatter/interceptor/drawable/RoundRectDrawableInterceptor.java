@@ -23,12 +23,16 @@ import com.negusoft.greenmatter.MatResources;
 import com.negusoft.greenmatter.R;
 import com.negusoft.greenmatter.drawable.RoundRectDrawable;
 
-public class RoundRectDrawableInterceptor implements MatResources.DrawableInterceptor {
+public class RoundRectDrawableInterceptor implements DrawableInterceptor {
 
     private static final int PRESSED_ALPHA = 0x88;
     private static final int FOCUSED_ALPHA = 0x55;
 
     private static final float CORNER_RADIUS_DP = 4f;
+
+    public void setupInterceptors(DrawableInterceptorHelper helper) {
+        helper.putInterceptor(R.drawable.gm__btn_default_foreground_pressed_reference, this);
+    }
 
     @Override
     public Drawable getDrawable(Resources res, MatPalette palette, int resId) {
