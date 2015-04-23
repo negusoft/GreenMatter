@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.MenuItemCompat;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.ActionMode;
 import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
@@ -81,8 +81,8 @@ public class ListFragment extends Fragment implements OnItemClickListener {
 			if (mListView.getCheckedItemCount() == 0)
                 mActionMode.finish();
 		} else {
-            if (getActivity() instanceof ActionBarActivity) {
-                ((ActionBarActivity) getActivity()).getSupportActionBar().startActionMode(mActionModeCallback);
+            if (getActivity() instanceof AppCompatActivity) {
+                ((AppCompatActivity) getActivity()).getSupportActionBar().startActionMode(mActionModeCallback);
             }
         }
 	}
@@ -115,6 +115,7 @@ public class ListFragment extends Fragment implements OnItemClickListener {
     ActionMode.Callback mActionModeCallback = new ActionMode.Callback() {
         @Override
         public boolean onCreateActionMode(ActionMode actionMode, Menu menu) {
+			mActionMode = actionMode;
             MenuInflater inflater = actionMode.getMenuInflater();
             inflater.inflate(R.menu.spinner, menu);
             return true;

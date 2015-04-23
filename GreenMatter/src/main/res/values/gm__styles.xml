@@ -131,5 +131,8 @@
         <item name="android:minWidth">64dp</item>
         <item name="android:maxLines">2</item>
     </style>
+    <style name="Widget.GreenMatter.Button.ButtonBar.AlertDialog" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
+        <item name="android:background">?android:selectableItemBackground</item>
+    </style>
 
 </resources>

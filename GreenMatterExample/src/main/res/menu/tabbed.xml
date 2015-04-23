@@ -9,6 +9,11 @@
         app:showAsAction="never"
         android:title="@string/action_alert_dialog"/>
     <item
+        android:id="@+id/alert_dialog_support"
+        android:orderInCategory="100"
+        app:showAsAction="never"
+        android:title="@string/action_alert_dialog"/>
+    <item
         android:id="@+id/dialog_fragment"
         android:orderInCategory="100"
         app:showAsAction="never"

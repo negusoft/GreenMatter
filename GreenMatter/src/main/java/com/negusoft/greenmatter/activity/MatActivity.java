@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.support.annotation.NonNull;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -15,7 +16,7 @@ import com.negusoft.greenmatter.interceptor.view.ViewInterceptorHelper;
 /**
  * Extends the ActionBarActivity class and adds the GreenMatter configuration.
  */
-public abstract class MatActivity extends ActionBarActivity {
+public abstract class MatActivity extends AppCompatActivity {
 
     private final MatHelper mMatHelper = new MatHelper(new MyPaletteOverrider(), new MyInitListener());
 

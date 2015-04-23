@@ -17,6 +17,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBar.Tab;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatDialog;
 import android.text.format.DateFormat;
 import android.view.Menu;
 import android.view.View;
@@ -137,7 +138,10 @@ public class TabbedActivity extends MatActivity implements ActionBar.TabListener
             return true;
 		case R.id.alert_dialog:
 			showAlertDialog();
-            return true;
+			return true;
+		case R.id.alert_dialog_support:
+			showAlertDialogSupport();
+			return true;
         case R.id.dialog_fragment:
 //            new SimpleDialogFragment().show(getFragmentManager(), "FragmentDialog");
             return true;
@@ -177,31 +181,57 @@ public class TabbedActivity extends MatActivity implements ActionBar.TabListener
 			FragmentTransaction fragmentTransaction) {
 	}
 
-    private void showAlertDialog() {
-        MatAlertDialog.Builder builder = new MatAlertDialog.Builder(this);
-        builder.setTitle(R.string.dialog_alert_title)
-                .setMessage(R.string.dialog_message)
-                .setPositiveButton(R.string.dialog_button_positive,
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                // positive action
-                            }
-                        })
-                .setNegativeButton(R.string.dialog_button_negative,
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                // negative action
-                            }
-                        }
-                ).setNeutralButton(R.string.dialog_button_neutral,
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                // neutral action
-                            }
-                });
+	private void showAlertDialog() {
+		MatAlertDialog.Builder builder = new MatAlertDialog.Builder(this);
+		builder.setTitle(R.string.dialog_alert_title)
+				.setMessage(R.string.dialog_message)
+				.setPositiveButton(R.string.dialog_button_positive,
+						new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog, int id) {
+								// positive action
+							}
+						})
+				.setNegativeButton(R.string.dialog_button_negative,
+						new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog, int id) {
+								// negative action
+							}
+						}
+				).setNeutralButton(R.string.dialog_button_neutral,
+				new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int id) {
+						// neutral action
+					}
+				});
 
-        builder.show();
-    }
+		builder.show();
+	}
+
+	private void showAlertDialogSupport() {
+		android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(this);
+		builder.setTitle(R.string.dialog_alert_title)
+				.setMessage(R.string.dialog_message)
+				.setPositiveButton(R.string.dialog_button_positive,
+						new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog, int id) {
+								// positive action
+							}
+						})
+				.setNegativeButton(R.string.dialog_button_negative,
+						new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog, int id) {
+								// negative action
+							}
+						}
+				).setNeutralButton(R.string.dialog_button_neutral,
+				new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int id) {
+						// neutral action
+					}
+				});
+
+		builder.show();
+	}
 
     private void showDatePickerDialog() {
         final Calendar calendar = Calendar.getInstance();

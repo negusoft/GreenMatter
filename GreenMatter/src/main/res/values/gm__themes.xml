@@ -39,6 +39,7 @@
         <item name="android:buttonStyle">@style/Widget.GreenMatter.Button</item>
         <item name="android:buttonStyleSmall">@style/Widget.GreenMatter.Button.Small</item>
         <item name="android:buttonStyleToggle">@style/Widget.GreenMatter.Button.Toggle</item>
+        <item name="android:buttonBarButtonStyle">@style/Widget.GreenMatter.Button.ButtonBar.AlertDialog</item>
         <!--<item name="android:mediaRouteButtonStyle">@android:style/Widget.Holo.MediaRouteButton</item> -->
         <item name="android:imageButtonStyle">@style/Widget.GreenMatter.ImageButton</item>
 
@@ -112,6 +113,7 @@
         <item name="android:buttonStyle">@style/Widget.GreenMatter.Button</item>
         <item name="android:buttonStyleSmall">@style/Widget.GreenMatter.Button.Small</item>
         <item name="android:buttonStyleToggle">@style/Widget.GreenMatter.Button.Toggle</item>
+        <item name="android:buttonBarButtonStyle">@style/Widget.GreenMatter.Button.ButtonBar.AlertDialog</item>
         <!--<item name="android:mediaRouteButtonStyle">@android:style/Widget.Holo.MediaRouteButton</item> -->
         <item name="android:imageButtonStyle">@style/Widget.GreenMatter.ImageButton</item>
 
@@ -210,6 +212,9 @@
 
         <item name="android:dialogTheme">@style/Theme.GreenMatter.Dialog</item>
         <item name="android:alertDialogTheme">@style/Theme.GreenMatter.Dialog.Alert</item>
+
+        <item name="dialogTheme">@style/Theme.GreenMatter.Dialog</item>
+        <item name="alertDialogTheme">@style/Theme.GreenMatter.Dialog.Alert</item>
     </style>
 
     <style name="Base.Theme.GreenMatter.Dialog" parent="Theme.AppCompat.Dialog">
@@ -239,6 +244,9 @@
 
         <item name="android:dialogTheme">@style/Theme.GreenMatter.Dialog</item>
         <item name="android:alertDialogTheme">@style/Theme.GreenMatter.Dialog.Alert</item>
+
+        <item name="dialogTheme">@style/Theme.GreenMatter.Dialog</item>
+        <item name="alertDialogTheme">@style/Theme.GreenMatter.Dialog.Alert</item>
     </style>
 
 </resources>
