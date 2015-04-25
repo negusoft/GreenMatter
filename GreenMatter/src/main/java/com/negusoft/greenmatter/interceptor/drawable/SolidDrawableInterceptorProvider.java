@@ -25,7 +25,7 @@ import com.negusoft.greenmatter.MatPalette;
 import com.negusoft.greenmatter.MatResources;
 import com.negusoft.greenmatter.R;
 
-public class SolidDrawableInterceptor {
+public class SolidDrawableInterceptorProvider {
 
 	private static final int PRESSED_ALPHA = 0x88;
 	private static final int FOCUSED_ALPHA = 0x55;

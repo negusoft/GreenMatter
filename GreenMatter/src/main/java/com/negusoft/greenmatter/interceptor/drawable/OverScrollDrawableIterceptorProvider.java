@@ -26,7 +26,7 @@ import com.negusoft.greenmatter.R;
 import com.negusoft.greenmatter.drawable.UnderlineDrawable;
 import com.negusoft.greenmatter.util.NativeResources;
 
-public class OverScrollDrawableIterceptor {
+public class OverScrollDrawableIterceptorProvider {
 
     private static final String RESOURCE_NAME_EDGE = "overscroll_edge";
     private static final String RESOURCE_NAME_GLOW = "overscroll_glow";

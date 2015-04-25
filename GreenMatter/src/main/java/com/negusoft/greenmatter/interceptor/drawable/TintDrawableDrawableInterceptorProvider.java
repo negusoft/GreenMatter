@@ -11,7 +11,7 @@ import com.negusoft.greenmatter.drawable.TintDrawableWrapper;
 import com.negusoft.greenmatter.util.ColorUtils;
 
 /** Intercepts drawables that need to be wrapped in TintDrawableWrapper. */
-public class TintDrawableDrawableInterceptor {
+public class TintDrawableDrawableInterceptorProvider {
 
     public static void setupInterceptors(DrawableInterceptorHelper helper) {
         // Check Box

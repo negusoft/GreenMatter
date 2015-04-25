@@ -23,20 +23,21 @@ import com.negusoft.greenmatter.MatPalette;
 import com.negusoft.greenmatter.MatResources;
 import com.negusoft.greenmatter.R;
 import com.negusoft.greenmatter.drawable.CircleFillDrawable;
-import com.negusoft.greenmatter.drawable.ScrollbarThumbDrawable;
+import com.negusoft.greenmatter.drawable.RoundRectDrawable;
 
-public class ScrollbarInterceptor implements DrawableInterceptor {
+public class RoundRectDrawableInterceptorProvider {
 
-    public void setupInterceptors(DrawableInterceptorHelper helper) {
-        helper.putInterceptor(R.drawable.gm__scrollbar_thumb_item_reference, this);
+    private static final int PRESSED_ALPHA = 0x88;
+
+    private static final float CORNER_RADIUS_DP = 4f;
+
+    public static void setupInterceptors(DrawableInterceptorHelper helper) {
+        helper.putInterceptor(R.drawable.gm__btn_default_foreground_pressed_reference, new DrawableInterceptor() {
+            @Override
+            public Drawable getDrawable(Resources res, MatPalette palette, int resId) {
+                return new RoundRectDrawable(res.getDisplayMetrics(), palette.getColorControlHighlight(PRESSED_ALPHA), CORNER_RADIUS_DP);
+            }
+        });
     }
-
-	@Override
-	public Drawable getDrawable(Resources res, MatPalette palette, int resId) {
-		if (resId == R.drawable.gm__scrollbar_thumb_item_reference) {
-            return new ScrollbarThumbDrawable(res.getDisplayMetrics(), palette.getColorControlNormal());
-		}
-		return null;
-	}
 
 }

@@ -15,7 +15,6 @@
  ******************************************************************************/
 package com.negusoft.greenmatter.interceptor.drawable;
 
-import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
@@ -24,26 +23,31 @@ import com.negusoft.greenmatter.MatPalette;
 import com.negusoft.greenmatter.MatResources;
 import com.negusoft.greenmatter.R;
 import com.negusoft.greenmatter.drawable.CircleFillDrawable;
+import com.negusoft.greenmatter.drawable.RoundRectDrawable;
+import com.negusoft.greenmatter.drawable.UnderlineDrawable;
 
-public class CircleDrawableInterceptor {
-
-    private static final int PRESSED_ALPHA = 0x88;
-    private static final int FOCUSED_ALPHA = 0x55;
+public class UnderlineDrawableInterceptorProvider {
 
     public static void setupInterceptors(DrawableInterceptorHelper helper) {
-        helper.putInterceptor(R.drawable.gm__circle_pressed_reference, new DrawableInterceptor() {
+        // Toggle indicator
+        helper.putInterceptor(R.drawable.gm__btn_toggle_indicator_default_reference, new DrawableInterceptor() {
             @Override
             public Drawable getDrawable(Resources res, MatPalette palette, int resId) {
-                int backColor = palette.getColorControlHighlight(PRESSED_ALPHA);
-                return new CircleFillDrawable(res, backColor, 0f, Color.TRANSPARENT);
+                return new UnderlineDrawable(res, palette.getColorControlNormal(), 2f);
+            }
+        });
+        helper.putInterceptor(R.drawable.gm__btn_toggle_indicator_checked_reference, new DrawableInterceptor() {
+            @Override
+            public Drawable getDrawable(Resources res, MatPalette palette, int resId) {
+                return new UnderlineDrawable(res, palette.getColorControlActivated(), 2f);
             }
         });
 
-        helper.putInterceptor(R.drawable.gm__circle_focused_reference, new DrawableInterceptor() {
+        // ActionMode background
+        helper.putInterceptor(R.drawable.gm__cab_background_top_reference, new DrawableInterceptor() {
             @Override
             public Drawable getDrawable(Resources res, MatPalette palette, int resId) {
-                int backColor = palette.getColorControlHighlight(FOCUSED_ALPHA);
-                return new CircleFillDrawable(res, backColor, 0f, Color.TRANSPARENT);
+                return new UnderlineDrawable(res, palette.getColorControlActivated(), 2.5f);
             }
         });
     }

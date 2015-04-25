@@ -21,39 +21,26 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.CompressFormat;
 import android.graphics.BitmapFactory;
-import android.graphics.PorterDuff;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.util.AttributeSet;
-import android.util.SparseArray;
 import android.util.TypedValue;
 import android.view.View;
 
-import com.negusoft.greenmatter.interceptor.drawable.CircleDrawableInterceptor;
 import com.negusoft.greenmatter.interceptor.color.MatColorInterceptor;
-import com.negusoft.greenmatter.interceptor.drawable.DialogBackgroundDrawableInterceptor;
 import com.negusoft.greenmatter.interceptor.drawable.DrawableInterceptor;
 import com.negusoft.greenmatter.interceptor.drawable.DrawableInterceptorHelper;
-import com.negusoft.greenmatter.interceptor.drawable.ScrollbarInterceptor;
-import com.negusoft.greenmatter.interceptor.drawable.ScrubberHorizontalInterceptor;
-import com.negusoft.greenmatter.interceptor.drawable.ProgressInterceptor;
-import com.negusoft.greenmatter.interceptor.drawable.RoundRectDrawableInterceptor;
-import com.negusoft.greenmatter.interceptor.drawable.SolidDrawableInterceptor;
-import com.negusoft.greenmatter.interceptor.drawable.TintDrawableDrawableInterceptor;
-import com.negusoft.greenmatter.interceptor.drawable.UnderlineDrawableInterceptor;
 import com.negusoft.greenmatter.interceptor.view.ViewInterceptor;
 import com.negusoft.greenmatter.interceptor.view.ViewInterceptorHelper;
 import com.negusoft.greenmatter.util.BitmapUtils;
-import com.negusoft.greenmatter.util.NativeResources;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Dictionary;
 import java.util.List;
 
 /**

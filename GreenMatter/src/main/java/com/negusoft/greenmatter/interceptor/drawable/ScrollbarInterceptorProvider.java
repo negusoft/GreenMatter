@@ -17,40 +17,23 @@ package com.negusoft.greenmatter.interceptor.drawable;
 
 import android.content.res.Resources;
 import android.graphics.Color;
-import android.graphics.PorterDuff;
-import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 
 import com.negusoft.greenmatter.MatPalette;
 import com.negusoft.greenmatter.MatResources;
 import com.negusoft.greenmatter.R;
 import com.negusoft.greenmatter.drawable.CircleFillDrawable;
-import com.negusoft.greenmatter.util.NativeResources;
+import com.negusoft.greenmatter.drawable.ScrollbarThumbDrawable;
 
-/**
- * Removes the dialog background by returning a dummy drawable in stead of the default drawables.
- */
-public class DialogBackgroundDrawableInterceptor {
-
-    private static final String[] RESOURCE_NAMES = new String[] {
-            "dialog_full_holo_dark",
-            "dialog_top_holo_dark",
-            "dialog_middle_holo_dark",
-            "dialog_bottom_holo_dark"
-    };
+public class ScrollbarInterceptorProvider {
 
     public static void setupInterceptors(DrawableInterceptorHelper helper) {
-        DrawableInterceptor dummyInterceptor = new DrawableInterceptor() {
-            @Override
-            public Drawable getDrawable(Resources res, MatPalette palette, int resId) {
-                return new ColorDrawable(0);
-            }
-        };
-
-        int length = RESOURCE_NAMES.length;
-        for (int i=0; i<length; i++) {
-            int resId = NativeResources.getDrawableIdentifier(RESOURCE_NAMES[i]);
-            helper.putInterceptor(resId, dummyInterceptor);
-        }
+        helper.putInterceptor(R.drawable.gm__scrollbar_thumb_item_reference, new DrawableInterceptor() {
+			@Override
+			public Drawable getDrawable(Resources res, MatPalette palette, int resId) {
+				return new ScrollbarThumbDrawable(res.getDisplayMetrics(), palette.getColorControlNormal());
+			}
+		});
     }
+
 }

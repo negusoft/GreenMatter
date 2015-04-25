@@ -17,16 +17,16 @@ public class DrawableInterceptorHelper {
     public DrawableInterceptorHelper(Context context) {
         mInterceptors = new SparseArray<>();
 
-        SolidDrawableInterceptor.setupInterceptors(this, context);
-        TintDrawableDrawableInterceptor.setupInterceptors(this);
-        new CircleDrawableInterceptor().setupInterceptors(this);
-        new RoundRectDrawableInterceptor().setupInterceptors(this);
-        new UnderlineDrawableInterceptor().setupInterceptors(this);
-        new ProgressInterceptor().setupInterceptors(this);
-        new ScrubberHorizontalInterceptor().setupInterceptors(this);
-        new ScrollbarInterceptor().setupInterceptors(this);
-        DialogBackgroundDrawableInterceptor.setupInterceptors(this);
-        OverScrollDrawableIterceptor.setupInterceptors(this);
+        SolidDrawableInterceptorProvider.setupInterceptors(this, context);
+        TintDrawableDrawableInterceptorProvider.setupInterceptors(this);
+        CircleDrawableInterceptorProvider.setupInterceptors(this);
+        RoundRectDrawableInterceptorProvider.setupInterceptors(this);
+        UnderlineDrawableInterceptorProvider.setupInterceptors(this);
+        ProgressInterceptorProvider.setupInterceptors(this);
+        ScrubberHorizontalInterceptorProvider.setupInterceptors(this);
+        ScrollbarInterceptorProvider.setupInterceptors(this);
+        DialogBackgroundDrawableInterceptorProvider.setupInterceptors(this);
+        OverScrollDrawableIterceptorProvider.setupInterceptors(this);
     }
 
     public void putInterceptor(int resId, DrawableInterceptor interceptor) {
