@@ -85,7 +85,7 @@ public class TabbedActivity extends MatActivity implements ActionBar.TabListener
     public void onInitMatResources(MatResources resources) {
         super.onInitMatResources(resources);
         resources.addColorInterceptor(new ColorInterceptor());
-        resources.addViewInterceptor(new RatingBarViewInterceptor());
+        resources.putViewInterceptor(RatingBarViewInterceptor.VIEW_NAME, new RatingBarViewInterceptor());
     }
 
     @Override

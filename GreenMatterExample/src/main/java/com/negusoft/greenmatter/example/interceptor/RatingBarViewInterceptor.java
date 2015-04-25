@@ -12,10 +12,7 @@ import com.negusoft.greenmatter.widget.MatRatingBar;
 /** Used along with MatResources to modify colors at runtime */
 public class RatingBarViewInterceptor implements ViewInterceptor {
 
-    @Override
-    public String[] getViewNames() {
-        return new String[] { "RatingBar" };
-    }
+    public static final String VIEW_NAME = "RatingBar";
 
     @Override
     public View createView(String name, @NonNull Context context, @NonNull AttributeSet attrs) {

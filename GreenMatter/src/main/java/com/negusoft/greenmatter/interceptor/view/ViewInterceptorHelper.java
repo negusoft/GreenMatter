@@ -41,28 +41,20 @@ public class ViewInterceptorHelper {
 
     public ViewInterceptorHelper() {
         mViewInterceptors = new Hashtable<>();
-        addInterceptor(mButtonProvider);
-        addInterceptor(mImageButtonProvider);
-        addInterceptor(mNumberPickerProvider);
+        putButtonProvider();
+        putImageButtonProvider();
+        putNumberPickerProvider();
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-            addInterceptor(mSeekBarProvider);
+            putSeekBarProvider();
         }
     }
 
-    public void addInterceptor(ViewInterceptor interceptor) {
-        for (String name : interceptor.getViewNames()) {
-            mViewInterceptors.put(name, interceptor);
-        }
+    public void putInterceptor(String viewName, ViewInterceptor interceptor) {
+        mViewInterceptors.put(viewName, interceptor);
     }
 
-    public void removeInterceptor(ViewInterceptor interceptor) {
-        for (String name : interceptor.getViewNames()) {
-            mViewInterceptors.remove(name);
-        }
-    }
-
-    public void removeInterceptor(String name) {
-        mViewInterceptors.remove(name);
+    public void removeInterceptor(String viewName) {
+        mViewInterceptors.remove(viewName);
     }
 
     /**
@@ -74,52 +66,44 @@ public class ViewInterceptorHelper {
         return interceptor != null ? interceptor.createView(name, context, attrs) : null;
     }
 
-    /** A view interceptor to swap Button by MatButton. */
-    private final ViewInterceptor mButtonProvider = new ViewInterceptor() {
-        @Override
-        public String[] getViewNames() {
-            return new String[] { "Button" };
-        }
-        @Override
-        public View createView(String name, @NonNull Context context, @NonNull AttributeSet attrs) {
-            return new MatButton(context, attrs);
-        }
+    /** Add a view interceptor to swap Button by MatButton. */
+    private void putButtonProvider() {
+        putInterceptor("Button", new ViewInterceptor() {
+            @Override
+            public View createView(String name, @NonNull Context context, @NonNull AttributeSet attrs) {
+                return new MatButton(context, attrs);
+            }
+        });
     };
 
-    /** A view interceptor to swap ImageButton by MatImageButton. */
-    private final ViewInterceptor mImageButtonProvider = new ViewInterceptor() {
-        @Override
-        public String[] getViewNames() {
-            return new String[] { "ImageButton" };
-        }
-        @Override
-        public View createView(String name, @NonNull Context context, @NonNull AttributeSet attrs) {
-            return new MatImageButton(context, attrs);
-        }
+    /** Add a view interceptor to swap ImageButton by MatImageButton. */
+    private void putImageButtonProvider() {
+        putInterceptor("ImageButton", new ViewInterceptor() {
+            @Override
+            public View createView(String name, @NonNull Context context, @NonNull AttributeSet attrs) {
+                return new MatImageButton(context, attrs);
+            }
+        });
     };
 
-    /** A view interceptor to swap SeekBar by MatSeekBar. */
-    private final ViewInterceptor mSeekBarProvider = new ViewInterceptor() {
-        @Override
-        public String[] getViewNames() {
-            return new String[] { "SeekBar" };
-        }
-        @Override
-        public View createView(String name, @NonNull Context context, @NonNull AttributeSet attrs) {
-            return new MatSeekBar(context, attrs);
-        }
+    /** Add a view interceptor to swap SeekBar by MatSeekBar. */
+    private void putSeekBarProvider() {
+        putInterceptor("SeekBar", new ViewInterceptor() {
+            @Override
+            public View createView(String name, @NonNull Context context, @NonNull AttributeSet attrs) {
+                return new MatSeekBar(context, attrs);
+            }
+        });
     };
 
-    /** A view interceptor to swap the pickers by their custom counterparts. */
-    private final ViewInterceptor mNumberPickerProvider = new ViewInterceptor() {
-        @Override
-        public String[] getViewNames() {
-            return new String[] { "NumberPicker" };
-        }
-        @Override
-        public View createView(String name, @NonNull Context context, @NonNull AttributeSet attrs) {
-            return new MatNumberPicker(context, attrs);
-        }
+    /** Add a view interceptor to swap the pickers by their custom counterparts. */
+    private void putNumberPickerProvider() {
+        putInterceptor("NumberPicker", new ViewInterceptor() {
+            @Override
+            public View createView(String name, @NonNull Context context, @NonNull AttributeSet attrs) {
+                return new MatNumberPicker(context, attrs);
+            }
+        });
     };
 
 }

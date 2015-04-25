@@ -255,19 +255,14 @@ public class MatResources extends Resources {
         mColorInterceptors.add(0, interceptor);
     }
 
-    /** Add the given ViewInterceptor. */
-    public void addViewInterceptor(ViewInterceptor interceptor) {
-        mViewInterceptorHelper.addInterceptor(interceptor);
+    /** Add a ViewInterceptor for the given view name. */
+    public void putViewInterceptor(String viewName, ViewInterceptor interceptor) {
+        mViewInterceptorHelper.putInterceptor(viewName, interceptor);
     }
 
-    /** Remove the given ViewInterceptor. */
-    public void removeViewInterceptor(ViewInterceptor interceptor) {
-        mViewInterceptorHelper.removeInterceptor(interceptor);
-    }
-
-    /** Remove the ViewInterceptor for the given name. */
-    public void removeViewInterceptor(String name) {
-        mViewInterceptorHelper.removeInterceptor(name);
+    /** Remove the ViewInterceptor corresponding to the given view name. */
+    public void removeViewInterceptor(String viewName) {
+        mViewInterceptorHelper.removeInterceptor(viewName);
     }
 
     /** Add a drawable resource to which to apply the "tint" technique. */

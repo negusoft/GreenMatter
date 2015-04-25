@@ -10,9 +10,6 @@ import android.view.View;
  */
 public interface ViewInterceptor {
 
-    /** Return the list of view names on which createView() will be called. */
-    public String[] getViewNames();
-
     /** Return the view to replace when inflating with the the layout. */
     public View createView(String name, @NonNull Context context, @NonNull AttributeSet attrs);
 
