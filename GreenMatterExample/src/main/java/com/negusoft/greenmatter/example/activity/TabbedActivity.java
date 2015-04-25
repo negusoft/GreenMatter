@@ -1,13 +1,10 @@
 package com.negusoft.greenmatter.example.activity;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -16,8 +13,6 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBar.Tab;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.AppCompatDialog;
 import android.text.format.DateFormat;
 import android.view.Menu;
 import android.view.View;
@@ -36,7 +31,7 @@ import com.negusoft.greenmatter.example.fragment.ListFragment;
 import com.negusoft.greenmatter.example.fragment.PickersFragment;
 import com.negusoft.greenmatter.example.fragment.ProgressFragment;
 import com.negusoft.greenmatter.example.fragment.TextviewFragment;
-import com.negusoft.greenmatter.example.interceptor.ColorInterceptor;
+import com.negusoft.greenmatter.example.interceptor.CheckableBackgroundColorInterceptor;
 import com.negusoft.greenmatter.example.interceptor.RatingBarViewInterceptor;
 import com.negusoft.greenmatter.example.util.ColorOverrider;
 
@@ -84,7 +79,7 @@ public class TabbedActivity extends MatActivity implements ActionBar.TabListener
     @Override
     public void onInitMatResources(MatResources resources) {
         super.onInitMatResources(resources);
-        resources.addColorInterceptor(new ColorInterceptor());
+        resources.putColorInterceptor(CheckableBackgroundColorInterceptor.RESOURCE_ID, new CheckableBackgroundColorInterceptor());
         resources.putViewInterceptor(RatingBarViewInterceptor.VIEW_NAME, new RatingBarViewInterceptor());
     }
 

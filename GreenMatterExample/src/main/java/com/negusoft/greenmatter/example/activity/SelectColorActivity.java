@@ -1,48 +1,20 @@
 package com.negusoft.greenmatter.example.activity;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.DatePickerDialog;
-import android.app.TimePickerDialog;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBar.Tab;
 import android.support.v7.widget.SwitchCompat;
 import android.support.v7.widget.Toolbar;
-import android.text.format.DateFormat;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.CompoundButton;
-import android.widget.DatePicker;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.negusoft.greenmatter.MatPalette;
-import com.negusoft.greenmatter.MatResources;
 import com.negusoft.greenmatter.activity.MatActivity;
 import com.negusoft.greenmatter.example.R;
-import com.negusoft.greenmatter.example.fragment.ButtonFragment;
-import com.negusoft.greenmatter.example.fragment.ChoicesFragment;
-import com.negusoft.greenmatter.example.fragment.ListFragment;
-import com.negusoft.greenmatter.example.fragment.PickersFragment;
-import com.negusoft.greenmatter.example.fragment.ProgressFragment;
-import com.negusoft.greenmatter.example.fragment.TextviewFragment;
-import com.negusoft.greenmatter.example.interceptor.ColorInterceptor;
-import com.negusoft.greenmatter.example.interceptor.RatingBarViewInterceptor;
 import com.negusoft.greenmatter.example.util.ColorOverrider;
-
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
 
 public class SelectColorActivity extends MatActivity {
 

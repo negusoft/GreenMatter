@@ -29,7 +29,8 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
 
-import com.negusoft.greenmatter.interceptor.color.MatColorInterceptor;
+import com.negusoft.greenmatter.interceptor.color.ColorInterceptor;
+import com.negusoft.greenmatter.interceptor.color.ColorInterceptorHelper;
 import com.negusoft.greenmatter.interceptor.drawable.DrawableInterceptor;
 import com.negusoft.greenmatter.interceptor.drawable.DrawableInterceptorHelper;
 import com.negusoft.greenmatter.interceptor.view.ViewInterceptor;
@@ -57,11 +58,6 @@ import java.util.List;
  */
 public class MatResources extends Resources {
 
-    public interface ColorInterceptor {
-        /** @return The color to be replaced or 0 to continue the normal flow. */
-        public int getColor(Resources res, MatPalette palette, int resId);
-    }
-
     public interface PaletteOverrider {
         /** @return The color to be replaced or 0 to continue the normal flow. */
         public MatPalette getPalette(MatPalette palette);
@@ -73,10 +69,6 @@ public class MatResources extends Resources {
 	private final Context mContext;
     private PaletteOverrider mOverrider;
 
-//    private final SparseArray<DrawableInterceptor> mDrawableInterceptors = new SparseArray<DrawableInterceptor>();
-//    private final List<DrawableInterceptor> mDrawableInterceptors = new ArrayList<DrawableInterceptor>();
-    private final List<ColorInterceptor> mColorInterceptors = new ArrayList<ColorInterceptor>();
-
     private List<Integer> mCustomTintDrawableIds;
     private int[] mTintDrawableIds;
 
@@ -84,14 +76,16 @@ public class MatResources extends Resources {
     private boolean mInitializingFlag = false;
 	private MatPalette mPalette;
 
-    private final ViewInterceptorHelper mViewInterceptorHelper = new ViewInterceptorHelper();
     private final DrawableInterceptorHelper mDrawableInterceptorHelper;
+    private final ColorInterceptorHelper mColorInterceptorHelper;
+    private final ViewInterceptorHelper mViewInterceptorHelper = new ViewInterceptorHelper();
 
 	public MatResources(Context c, Resources resources) {
 		super(resources.getAssets(), resources.getDisplayMetrics(), resources.getConfiguration());
 		mContext = c;
         mOverrider = null;
         mDrawableInterceptorHelper = new DrawableInterceptorHelper(c);
+        mColorInterceptorHelper = new ColorInterceptorHelper(c);
 	}
 
 	public MatResources(Context c, Resources resources, PaletteOverrider palletteOverrider) {
@@ -99,6 +93,7 @@ public class MatResources extends Resources {
 		mContext = c;
         mOverrider = palletteOverrider;
         mDrawableInterceptorHelper = new DrawableInterceptorHelper(c);
+        mColorInterceptorHelper = new ColorInterceptorHelper(c);
 	}
 
 	/**
@@ -123,7 +118,6 @@ public class MatResources extends Resources {
         mInitializingFlag = true;
 		mPalette = initPalette(c, overrider);
         mTintDrawableIds = appendDrawableIds(TINT_DRAWABLE_IDS, mCustomTintDrawableIds);
-		addDrawableInterceptors(c);
         mInitializingFlag = false;
 		mInitialized = true;
 
@@ -149,24 +143,14 @@ public class MatResources extends Resources {
         return (overrider != null) ? overrider.getPalette(result) : result;
 	}
 
-	private void addDrawableInterceptors(Context c) {
-        mColorInterceptors.add(new MatColorInterceptor(c));
-	}
-
     @Override
     public int getColor(int resId) throws NotFoundException {
         if (checkInitialized())
             return super.getColor(resId);
 
         // Give a chance to the interceptors to replace the drawable
-        int result;
-        for(ColorInterceptor interceptor : mColorInterceptors) {
-            result = interceptor.getColor(this, mPalette, resId);
-            if (result != 0)
-                return result;
-        }
-
-        return super.getColor(resId);
+        int overrideColor = mColorInterceptorHelper.getOverrideColor(this, mPalette, resId);
+        return overrideColor != 0 ? overrideColor : super.getColor(resId);
     }
 
     @Override
@@ -247,12 +231,22 @@ public class MatResources extends Resources {
         mDrawableInterceptorHelper.putInterceptor(resId, interceptor);
     }
 
+    /** Remove the drawable interceptor that corresponds to the given ID. */
+    public void removeDrawableInterceptor(int resId) {
+        mDrawableInterceptorHelper.removeInterceptor(resId);
+    }
+
     /**
-     * Add a color interceptor. They are evaluated in the order they are added, and before the
-     * default interceptors.
+     * Add a color interceptor for a given resource ID. If the ID already exits, the corresponding
+     * interceptor will be replaced.
      */
-    public void addColorInterceptor(ColorInterceptor interceptor) {
-        mColorInterceptors.add(0, interceptor);
+    public void putColorInterceptor(int resId, ColorInterceptor interceptor) {
+        mColorInterceptorHelper.putInterceptor(resId, interceptor);
+    }
+
+    /** Remove the color interceptor that corresponds to the given ID. */
+    public void removeColorInterceptor(int resId) {
+        mColorInterceptorHelper.removeInterceptor(resId);
     }
 
     /** Add a ViewInterceptor for the given view name. */
@@ -260,7 +254,7 @@ public class MatResources extends Resources {
         mViewInterceptorHelper.putInterceptor(viewName, interceptor);
     }
 
-    /** Remove the ViewInterceptor corresponding to the given view name. */
+    /** Remove the ViewInterceptor that corresponds to the given view name. */
     public void removeViewInterceptor(String viewName) {
         mViewInterceptorHelper.removeInterceptor(viewName);
     }

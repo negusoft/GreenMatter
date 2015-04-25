@@ -33,6 +33,10 @@ public class DrawableInterceptorHelper {
         mInterceptors.put(resId, interceptor);
     }
 
+    public void removeInterceptor(int resId) {
+        mInterceptors.remove(resId);
+    }
+
     public Drawable getOverrideDrawable(Resources res, MatPalette palette, int resId) {
         DrawableInterceptor interceptor = mInterceptors.get(resId);
         return interceptor != null ? interceptor.getDrawable(res, palette, resId) : null;
