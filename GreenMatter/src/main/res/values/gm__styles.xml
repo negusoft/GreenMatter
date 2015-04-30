@@ -133,6 +133,10 @@
     </style>
     <style name="Widget.GreenMatter.Button.ButtonBar.AlertDialog" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
         <item name="android:background">?android:selectableItemBackground</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:paddingRight">12dp</item>
+        <item name="android:paddingTop">6dp</item>
+        <item name="android:paddingBottom">6dp</item>
     </style>
 
 </resources>

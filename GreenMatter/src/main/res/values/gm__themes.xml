@@ -117,6 +117,8 @@
         <!--<item name="android:mediaRouteButtonStyle">@android:style/Widget.Holo.MediaRouteButton</item> -->
         <item name="android:imageButtonStyle">@style/Widget.GreenMatter.ImageButton</item>
 
+        <item name="buttonBarButtonStyle">@style/Widget.GreenMatter.Button.ButtonBar.AlertDialog</item>
+
         <item name="actionBarTabStyle">@style/Widget.GreenMatter.ActionBar.TabView</item>
 
         <item name="android:progressBarStyle">@style/Widget.GreenMatter.ProgressBar</item>

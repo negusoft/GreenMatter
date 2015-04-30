@@ -17,13 +17,23 @@ package com.negusoft.greenmatter.dialog;
 
 import android.app.ActionBar;
 import android.content.Context;
+import android.content.res.ColorStateList;
+import android.content.res.TypedArray;
+import android.graphics.Color;
+import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
+import com.negusoft.greenmatter.R;
 import com.negusoft.greenmatter.util.NativeResources;
+
+import org.w3c.dom.Text;
 
 /**
  * Utility class to help give the dialogs a Material style.
@@ -36,6 +46,7 @@ public class DialogUtils {
     public static void prepareDialog(Context context, Window window) {
         removeDivider(window);
         arrangeButtons(context, window);
+        arrangeContentSpacing(context, window);
     }
 
     /** Change the button order and alignment. */
@@ -52,6 +63,10 @@ public class DialogUtils {
         if (panel == null)
             return;
 
+        // Align the buttons by setting the horizontal padding
+        int paddingHorizontal = context.getResources().getDimensionPixelSize(R.dimen.gm__dialog_buttons_padding_horizontal);
+        panel.setPadding(paddingHorizontal, panel.getPaddingTop(), paddingHorizontal, panel.getPaddingBottom());
+
         // Align all buttons to the end
         panel.setHorizontalGravity(Gravity.END);
         int childCount = panel.getChildCount();
@@ -59,11 +74,10 @@ public class DialogUtils {
             removeLayoutWeight(panel.getChildAt(i));
 
         // Align the neutral button to the start
-        if (childCount >= 3) {
-            // Put it in first position
-            View neutral = panel.getChildAt(1);
-            panel.removeView(neutral);
-            panel.addView(neutral, 0);
+        View buttonNeutral = window.findViewById(NativeResources.getIdentifier("button3"));
+        if (buttonNeutral != null) {
+            panel.removeView(buttonNeutral);
+            panel.addView(buttonNeutral, 0);
 
             // Add a spacer view to fill the width
             View space = new View(context);
@@ -71,6 +85,49 @@ public class DialogUtils {
                     0, 0, 1f
             );
             panel.addView(space, 1, params);
+        }
+    }
+
+    /** Remove the divider under the title */
+    public static void arrangeContentSpacing(Context context, Window window) {
+        int minHeight = context.getResources().getDimensionPixelSize(R.dimen.gm__dialog_content_min_height);
+
+        // Content panel
+        View content = window.findViewById(NativeResources.getIdentifier("contentPanel"));
+        if (content != null) {
+            content.setMinimumHeight(minHeight);
+        }
+
+        // Custom panel
+        View custom = window.findViewById(NativeResources.getIdentifier("customPanel"));
+        if (custom != null) {
+            custom.setMinimumHeight(minHeight);
+        }
+
+        // Title panel
+        View title = window.findViewById(NativeResources.getIdentifier("title_template"));
+        if (title != null) {
+            int topPadding = content.getResources().getDimensionPixelSize(R.dimen.abc_dialog_padding_top_material);
+            title.setPadding(title.getPaddingLeft(), topPadding, title.getPaddingRight(), title.getPaddingLeft());
+            title.setMinimumHeight(0);
+        }
+
+        // Message TextView
+        View message = window.findViewById(NativeResources.getIdentifier("message"));
+        if (message != null && message instanceof TextView) {
+            // Text color
+            TypedArray attrs = context.getTheme().obtainStyledAttributes(new int[]{android.R.attr.textColorPrimary});
+            ColorStateList textColor = attrs.getColorStateList(0);
+            ((TextView)message).setTextColor(textColor);
+            attrs.recycle();
+
+            // Text size
+            int textSize = content.getResources().getDimensionPixelSize(R.dimen.abc_text_size_subhead_material);
+            ((TextView)message).setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
+
+            // Padding top
+            int paddingTop = content.getResources().getDimensionPixelSize(R.dimen.abc_dialog_padding_top_material);
+            ((TextView)message).setPadding(message.getPaddingLeft(), paddingTop, message.getPaddingRight(), message.getPaddingBottom());
         }
     }
 
@@ -99,5 +156,6 @@ public class DialogUtils {
 
         LinearLayout.LayoutParams params = (LinearLayout.LayoutParams)view.getLayoutParams();
         params.weight = 0;
+        params.width = LinearLayout.LayoutParams.WRAP_CONTENT;
     }
 }

@@ -16,6 +16,7 @@
     
     <string name="action_dummie">Dummie item</string>
     <string name="action_alert_dialog">Alert Dialog</string>
+    <string name="action_alert_dialog_support">Support Alert Dialog</string>
     <string name="action_dialog_fragment">Dialog Fragment</string>
     <string name="action_date_picker_dialog">Date Picker</string>
     <string name="action_time_picker_dialog">Time Picker</string>
@@ -71,7 +72,8 @@
 
     <string name="dialog_alert_title">Alert Dialog</string>
     <string name="dialog_fragment_title">Dialog Fragment</string>
-    <string name="dialog_message">Dummie dialog</string>
+    <string name="dialog_message">GreenMatter alert dialog.</string>
+    <string name="dialog_message_support">Support library alert dialog.</string>
     <string name="dialog_button_positive">Yes</string>
     <string name="dialog_button_negative">No</string>
     <string name="dialog_button_neutral">Neutral</string>

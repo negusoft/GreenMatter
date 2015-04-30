@@ -205,7 +205,7 @@ public class TabbedActivity extends MatActivity implements ActionBar.TabListener
 	private void showAlertDialogSupport() {
 		android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(this);
 		builder.setTitle(R.string.dialog_alert_title)
-				.setMessage(R.string.dialog_message)
+				.setMessage(R.string.dialog_message_support)
 				.setPositiveButton(R.string.dialog_button_positive,
 						new DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface dialog, int id) {

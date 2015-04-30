@@ -18,5 +18,7 @@
 
     <dimen name="gm__btn_default_margin">4dp</dimen>
     <dimen name="gm__scrollbar_handle_margin">3dp</dimen>
+    <dimen name="gm__dialog_buttons_padding_horizontal">5dp</dimen>
+    <dimen name="gm__dialog_content_min_height">48dp</dimen>
 
 </resources>
