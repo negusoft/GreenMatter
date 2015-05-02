@@ -17,7 +17,6 @@
         android:id="@+id/dialog_fragment"
         android:orderInCategory="100"
         app:showAsAction="never"
-        android:enabled="false"
         android:title="@string/action_dialog_fragment"/>
     <item
         android:id="@+id/date_picker_dialog"

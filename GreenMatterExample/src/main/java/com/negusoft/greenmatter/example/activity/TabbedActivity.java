@@ -30,6 +30,7 @@ import com.negusoft.greenmatter.example.fragment.ChoicesFragment;
 import com.negusoft.greenmatter.example.fragment.ListFragment;
 import com.negusoft.greenmatter.example.fragment.PickersFragment;
 import com.negusoft.greenmatter.example.fragment.ProgressFragment;
+import com.negusoft.greenmatter.example.fragment.SimpleDialogFragment;
 import com.negusoft.greenmatter.example.fragment.TextviewFragment;
 import com.negusoft.greenmatter.example.interceptor.CheckableBackgroundColorInterceptor;
 import com.negusoft.greenmatter.example.interceptor.RatingBarViewInterceptor;
@@ -138,7 +139,7 @@ public class TabbedActivity extends MatActivity implements ActionBar.TabListener
 			showAlertDialogSupport();
 			return true;
         case R.id.dialog_fragment:
-//            new SimpleDialogFragment().show(getFragmentManager(), "FragmentDialog");
+            new SimpleDialogFragment().show(getFragmentManager(), "FragmentDialog");
             return true;
         case R.id.date_picker_dialog:
             showDatePickerDialog();

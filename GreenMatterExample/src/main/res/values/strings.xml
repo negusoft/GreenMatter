@@ -74,6 +74,7 @@
     <string name="dialog_fragment_title">Dialog Fragment</string>
     <string name="dialog_message">GreenMatter alert dialog.</string>
     <string name="dialog_message_support">Support library alert dialog.</string>
+    <string name="dialog_message_fragment">Alert dialog using FragmentDialog.</string>
     <string name="dialog_button_positive">Yes</string>
     <string name="dialog_button_negative">No</string>
     <string name="dialog_button_neutral">Neutral</string>
