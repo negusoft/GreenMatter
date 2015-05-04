@@ -13,6 +13,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBar.Tab;
+import android.support.v7.widget.Toolbar;
 import android.text.format.DateFormat;
 import android.view.Menu;
 import android.view.View;
@@ -49,6 +50,10 @@ public class TabbedActivity extends MatActivity implements ActionBar.TabListener
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(getLayoutId());
+
+		Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
+		if (toolbar != null)
+			setSupportActionBar(toolbar);
 
 		final ActionBar actionBar = getSupportActionBar();
 		if (actionBar != null) {
