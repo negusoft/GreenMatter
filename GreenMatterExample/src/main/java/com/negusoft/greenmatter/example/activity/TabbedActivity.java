@@ -55,6 +55,9 @@ public class TabbedActivity extends MatActivity implements ActionBar.TabListener
 		if (toolbar != null)
 			setSupportActionBar(toolbar);
 
+		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+		getSupportActionBar().setDisplayShowHomeEnabled(true);
+
 		final ActionBar actionBar = getSupportActionBar();
 		if (actionBar != null) {
 			FragmentManager fragmentManager = getSupportFragmentManager();
@@ -69,7 +72,6 @@ public class TabbedActivity extends MatActivity implements ActionBar.TabListener
             @Override
             public void onClick(View v) {
                 startActivityForResult(new Intent(TabbedActivity.this, SelectColorActivity.class), 5);
-//                startActivity();
             }
         });
 	}
