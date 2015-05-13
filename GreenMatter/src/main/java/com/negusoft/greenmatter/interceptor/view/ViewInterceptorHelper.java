@@ -24,6 +24,7 @@ import android.view.View;
 import com.negusoft.greenmatter.MatResources;
 import com.negusoft.greenmatter.activity.MatActivity;
 import com.negusoft.greenmatter.widget.MatButton;
+import com.negusoft.greenmatter.widget.MatCheckedTextView;
 import com.negusoft.greenmatter.widget.MatImageButton;
 import com.negusoft.greenmatter.widget.MatNumberPicker;
 import com.negusoft.greenmatter.widget.MatRatingBar;
@@ -46,6 +47,7 @@ public class ViewInterceptorHelper {
         putNumberPickerProvider();
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
             putSeekBarProvider();
+            putCheckedTextViewProvider();
         }
     }
 
@@ -102,6 +104,16 @@ public class ViewInterceptorHelper {
             @Override
             public View createView(String name, @NonNull Context context, @NonNull AttributeSet attrs) {
                 return new MatNumberPicker(context, attrs);
+            }
+        });
+    };
+
+    /** Add a view interceptor to modify CheckedTextView. */
+    private void putCheckedTextViewProvider() {
+        putInterceptor("CheckedTextView", new ViewInterceptor() {
+            @Override
+            public View createView(String name, @NonNull Context context, @NonNull AttributeSet attrs) {
+                return new MatCheckedTextView(context, attrs);
             }
         });
     };

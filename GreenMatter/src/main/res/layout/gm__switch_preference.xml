@@ -14,12 +14,8 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<resources>
-
-    <dimen name="gm__btn_default_margin">4dp</dimen>
-    <dimen name="gm__scrollbar_handle_margin">3dp</dimen>
-    <dimen name="gm__dialog_buttons_padding_horizontal">5dp</dimen>
-    <dimen name="gm__dialog_content_min_height">48dp</dimen>
-    <dimen name="gm__dialog_bottom_padding">8dp</dimen>
-
-</resources>
+<android.support.v7.widget.SwitchCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/switchWidget"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:focusable="false" />

@@ -14,12 +14,15 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<resources>
-
-    <dimen name="gm__btn_default_margin">4dp</dimen>
-    <dimen name="gm__scrollbar_handle_margin">3dp</dimen>
-    <dimen name="gm__dialog_buttons_padding_horizontal">5dp</dimen>
-    <dimen name="gm__dialog_content_min_height">48dp</dimen>
-    <dimen name="gm__dialog_bottom_padding">8dp</dimen>
-
-</resources>
+<CheckedTextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/text1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="?attr/listPreferredItemHeightSmall"
+    android:textAppearance="?android:attr/textAppearanceMedium"
+    android:textColor="?attr/textColorAlertDialogListItem"
+    android:gravity="center_vertical"
+    android:paddingLeft="8dip"
+    android:paddingRight="8dip"
+    android:checkMark="?android:attr/listChoiceIndicatorSingle"
+    android:ellipsize="marquee" />

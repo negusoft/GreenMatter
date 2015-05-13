@@ -14,12 +14,7 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<resources>
-
-    <dimen name="gm__btn_default_margin">4dp</dimen>
-    <dimen name="gm__scrollbar_handle_margin">3dp</dimen>
-    <dimen name="gm__dialog_buttons_padding_horizontal">5dp</dimen>
-    <dimen name="gm__dialog_content_min_height">48dp</dimen>
-    <dimen name="gm__dialog_bottom_padding">8dp</dimen>
-
-</resources>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_checked="true" android:drawable="@drawable/abc_btn_radio_to_on_mtrl_015" />
+    <item android:drawable="@drawable/abc_btn_radio_to_on_mtrl_000" />
+</selector>

@@ -2,7 +2,11 @@ package com.negusoft.greenmatter.interceptor.drawable;
 
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
+import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.DrawableContainer;
+import android.graphics.drawable.StateListDrawable;
+import android.widget.CheckedTextView;
 
 import com.negusoft.greenmatter.MatPalette;
 import com.negusoft.greenmatter.R;
@@ -10,15 +14,19 @@ import com.negusoft.greenmatter.drawable.CompoundDrawableWrapper;
 import com.negusoft.greenmatter.drawable.TintDrawableWrapper;
 import com.negusoft.greenmatter.util.ColorUtils;
 
+import java.lang.reflect.Field;
+
 /** Intercepts drawables that need to be wrapped in TintDrawableWrapper. */
 public class TintDrawableDrawableInterceptorProvider {
 
     public static void setupInterceptors(DrawableInterceptorHelper helper) {
         // Check Box
         putCheckBoxInterceptor(helper);
+        putCheckBoxSimpleInterceptor(helper);
 
         // Radio Button
         putRadioButtonInterceptor(helper);
+        putRadioButtonSimpleInterceptor(helper);
 
         // Button
         putButtonInterceptor(helper);
@@ -116,6 +124,16 @@ public class TintDrawableDrawableInterceptorProvider {
         helper.putInterceptor(R.drawable.gm__btn_check_reference, interceptor);
     }
 
+    private static void putCheckBoxSimpleInterceptor(DrawableInterceptorHelper helper) {
+        DrawableInterceptor interceptor = new DrawableInterceptor() {
+            @Override
+            public Drawable getDrawable(Resources res, MatPalette palette, int resId) {
+                return getTintedSimpleControlDrawable(res, palette, R.drawable.gm__btn_check_simple_main);
+            }
+        };
+        helper.putInterceptor(R.drawable.gm__btn_check_simple_reference, interceptor);
+    }
+
     private static void putRadioButtonInterceptor(DrawableInterceptorHelper helper) {
         DrawableInterceptor interceptor = new DrawableInterceptor() {
             @Override
@@ -126,6 +144,16 @@ public class TintDrawableDrawableInterceptorProvider {
             }
         };
         helper.putInterceptor(R.drawable.gm__btn_radio_reference, interceptor);
+    }
+
+    private static void putRadioButtonSimpleInterceptor(DrawableInterceptorHelper helper) {
+        DrawableInterceptor interceptor = new DrawableInterceptor() {
+            @Override
+            public Drawable getDrawable(Resources res, MatPalette palette, int resId) {
+                return getTintedSimpleControlDrawable(res, palette, R.drawable.gm__btn_radio_simple_main);
+            }
+        };
+        helper.putInterceptor(R.drawable.gm__btn_radio_simple_reference, interceptor);
     }
 
     private static void putButtonInterceptor(DrawableInterceptorHelper helper) {
@@ -154,8 +182,13 @@ public class TintDrawableDrawableInterceptorProvider {
     }
 
     private static Drawable getTintedControlDrawable(Resources res, MatPalette palette, int id) {
-        Drawable baseDrawable = res.getDrawable(id);
-        return new TintDrawableWrapper(baseDrawable, getControlColorStateList(palette));
+        Drawable baseDrawable = res.getDrawable(id).mutate();
+        return new TintDrawableWrapper(baseDrawable, getControlColorStateList(palette)).mutate();
+    }
+
+    private static Drawable getTintedSimpleControlDrawable(Resources res, MatPalette palette, int id) {
+        Drawable baseDrawable = res.getDrawable(id).mutate();
+        return new TintDrawableWrapper(baseDrawable, getControlSimpleColorStateList(palette)).mutate();
     }
 
     private static Drawable getTintedButtonDrawable(Resources res, MatPalette palette, int id) {
@@ -200,6 +233,27 @@ public class TintDrawableDrawableInterceptorProvider {
         i++;
 
         states[i] = new int[] { android.R.attr.state_selected };
+        colors[i] = colorActivated;
+        i++;
+
+        // Default enabled state
+        states[i] = new int[0];
+        colors[i] = colorNormal;
+        i++;
+
+        return new ColorStateList(states, colors);
+    }
+
+    /** Get a color state list for simple widgets */
+    private static ColorStateList getControlSimpleColorStateList(MatPalette palette) {
+        int colorNormal = palette.getColorControlNormal();
+        int colorActivated = palette.getColorControlActivated();
+
+        final int[][] states = new int[2][];
+        final int[] colors = new int[2];
+        int i = 0;
+
+        states[i] = new int[] { android.R.attr.state_checked };
         colors[i] = colorActivated;
         i++;
 

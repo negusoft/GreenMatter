@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <com.negusoft.greenmatter.preference.CheckBoxPreference
+        android:defaultValue="true"
+        android:key="example_checkbox"
+        android:title="@string/pref_title_checkbox"
+        android:summaryOn="@string/pref_description_on_checkbox"
+        android:summaryOff="@string/pref_description_off_checkbox"/>
+
+    <PreferenceCategory android:title="@string/pref_category_dialog">
+
+        <com.negusoft.greenmatter.preference.EditTextPreference
+            android:capitalize="words"
+            android:defaultValue="@string/pref_default_edittext"
+            android:inputType="textCapWords"
+            android:key="example_text"
+            android:maxLines="1"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/pref_title_edittext" />
+
+        <com.negusoft.greenmatter.preference.ListPreference
+            android:defaultValue="-1"
+            android:entries="@array/pref_example_list_titles"
+            android:entryValues="@array/pref_example_list_values"
+            android:key="example_list"
+            android:negativeButtonText="@null"
+            android:positiveButtonText="@null"
+            android:title="@string/pref_title_list" />
+
+        <com.negusoft.greenmatter.preference.MultiSelectListPreference
+            android:key="example_multi_list"
+            android:title="@string/pref_title_multi_list"
+            android:entries="@array/pref_example_list_titles"
+            android:entryValues="@array/pref_example_list_values"
+            android:defaultValue="@array/empty_array" />
+
+        <com.negusoft.greenmatter.example.preference.CustomDialogPreference
+            android:key="example_custom_dialog"
+            android:title="@string/pref_title_custom_dialog" />
+
+    </PreferenceCategory>
+
+
+    <PreferenceCategory android:title="@string/pref_category_misc">
+
+        <com.negusoft.greenmatter.preference.SwitchPreference
+            android:key="example_switch"
+            android:title="@string/pref_title_switch"
+            android:summaryOn="@string/pref_summary_on_switch"
+            android:summaryOff="@string/pref_summary_off_switch"
+            android:switchTextOn="@string/pref_text_on_switch"
+            android:switchTextOff="@string/pref_text_off_switch" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

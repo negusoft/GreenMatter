@@ -20,6 +20,7 @@ import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.Color;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -28,6 +29,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.negusoft.greenmatter.R;
@@ -44,9 +46,13 @@ public class DialogUtils {
     private static final String IDENTIFIER_NAME_BUTTON_PANEL = "buttonPanel";
 
     public static void prepareDialog(Context context, Window window) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+            return;
+
         removeDivider(window);
         arrangeButtons(context, window);
         arrangeContentSpacing(context, window);
+        prepareList(context, window);
     }
 
     /** Change the button order and alignment. */
@@ -101,13 +107,16 @@ public class DialogUtils {
         // Custom panel
         View custom = window.findViewById(NativeResources.getIdentifier("customPanel"));
         if (custom != null) {
+            int topPadding = context.getResources().getDimensionPixelSize(R.dimen.abc_dialog_padding_top_material);
+            int horizontalPadding = context.getResources().getDimensionPixelSize(R.dimen.gm__dialog_bottom_padding);
+            custom.setPadding(horizontalPadding, topPadding, horizontalPadding, custom.getPaddingLeft());
             custom.setMinimumHeight(minHeight);
         }
 
         // Title panel
         View title = window.findViewById(NativeResources.getIdentifier("title_template"));
         if (title != null) {
-            int topPadding = content.getResources().getDimensionPixelSize(R.dimen.abc_dialog_padding_top_material);
+            int topPadding = context.getResources().getDimensionPixelSize(R.dimen.abc_dialog_padding_top_material);
             title.setPadding(title.getPaddingLeft(), topPadding, title.getPaddingRight(), title.getPaddingLeft());
             title.setMinimumHeight(0);
         }
@@ -122,12 +131,26 @@ public class DialogUtils {
             attrs.recycle();
 
             // Text size
-            int textSize = content.getResources().getDimensionPixelSize(R.dimen.abc_text_size_subhead_material);
+            int textSize = context.getResources().getDimensionPixelSize(R.dimen.abc_text_size_subhead_material);
             ((TextView)message).setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
 
             // Padding top
-            int paddingTop = content.getResources().getDimensionPixelSize(R.dimen.abc_dialog_padding_top_material);
+            int paddingTop = context.getResources().getDimensionPixelSize(R.dimen.abc_dialog_padding_top_material);
             ((TextView)message).setPadding(message.getPaddingLeft(), paddingTop, message.getPaddingRight(), message.getPaddingBottom());
+        }
+    }
+
+    /** Remove the ListView divider */
+    public static void prepareList(Context context, Window window) {
+        // Custom panel
+        View content = window.findViewById(NativeResources.getIdentifier("contentPanel"));
+        if (content != null && content instanceof ViewGroup) {
+            ViewGroup viewGroup = (ViewGroup)content;
+            if (viewGroup.getChildCount() > 0) {
+                View firstView = viewGroup.getChildAt(0);
+                if (firstView instanceof ListView)
+                    ((ListView)firstView).setDividerHeight(0);
+            }
         }
     }
 

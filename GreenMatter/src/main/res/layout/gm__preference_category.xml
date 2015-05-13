@@ -14,12 +14,13 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<resources>
-
-    <dimen name="gm__btn_default_margin">4dp</dimen>
-    <dimen name="gm__scrollbar_handle_margin">3dp</dimen>
-    <dimen name="gm__dialog_buttons_padding_horizontal">5dp</dimen>
-    <dimen name="gm__dialog_content_min_height">48dp</dimen>
-    <dimen name="gm__dialog_bottom_padding">8dp</dimen>
-
-</resources>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+android:id/title"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dip"
+    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+    android:textColor="?attr/colorAccent"
+    android:paddingLeft="8dp"
+    android:paddingRight="?android:attr/scrollbarSize"
+    android:paddingTop="16dip" />

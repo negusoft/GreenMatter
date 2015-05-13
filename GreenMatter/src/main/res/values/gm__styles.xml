@@ -116,6 +116,16 @@
         <item name="android:selectedDateVerticalBar">@drawable/gm__calendar_day_line</item>
     </style>
 
+    <!-- Preferences styles -->
+    <style name="Preference"/>
+    <style name="Preference.GreenMatter"/>
+    <style name="Preference.GreenMatter.Category">
+        <item name="android:layout">@layout/gm__preference_category</item>
+        <!-- The title should not dim if the category is disabled, instead only the preference children should dim. -->
+        <item name="android:shouldDisableView">false</item>
+        <item name="android:selectable">false</item>
+    </style>
+
     <!-- Styles for customizing the dialogs -->
     <style name="DialogWindowTitle"/>
     <style name="DialogWindowTitle.Alert">

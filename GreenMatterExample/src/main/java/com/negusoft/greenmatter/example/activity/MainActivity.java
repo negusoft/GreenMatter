@@ -193,9 +193,9 @@ public class MainActivity extends MatActivity {
     }
 
     private Intent getPreferencesActivityIntent() {
-//        switch (mThemeSpinner.getSelectedItemPosition()) {
-//            case 0: // Default (Dark)
-//                return new Intent(this, PreferencesActivity.class);
+        switch (mThemeSpinner.getSelectedItemPosition()) {
+            case 0: // Default (Dark)
+                return new Intent(this, PreferencesActivity.class);
 //            case 1: // ColoredActionBar
 //                return new Intent(this, PreferencesActivityColoredAB.class);
 //            case 2: // ColoredActionBar (Inverse)
@@ -208,7 +208,7 @@ public class MainActivity extends MatActivity {
 //                return new Intent(this, PreferencesActivityLightColoredAB.class);
 //            case 6: // Light.ColoredActionBar (Inverse)
 //                return new Intent(this, PreferencesActivityLightColoredABInverse.class);
-//        }
+        }
         throw new RuntimeException("Invalid theme selected");
     }
 

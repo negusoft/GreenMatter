@@ -29,7 +29,9 @@
     <item name="gm__btn_toggle_indicator_default_reference" type="drawable">#0000</item>
     <item name="gm__btn_toggle_indicator_checked_reference" type="drawable">#0000</item>
     <item name="gm__btn_check_reference" type="drawable">#0000</item>
+    <item name="gm__btn_check_simple_reference" type="drawable">#0000</item>
     <item name="gm__btn_radio_reference" type="drawable">#0000</item>
+    <item name="gm__btn_radio_simple_reference" type="drawable">#0000</item>
     <item name="gm__edit_text_activated_reference" type="drawable">#0000</item>
     <item name="gm__edit_text_default_reference" type="drawable">#0000</item>
     <item name="gm__edit_text_disabled_reference" type="drawable">#0000</item>
