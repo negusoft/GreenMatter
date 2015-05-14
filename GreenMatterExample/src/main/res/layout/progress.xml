@@ -9,18 +9,13 @@
         android:orientation="vertical"
         android:paddingBottom="@dimen/activity_vertical_margin"
         android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin" >
+        android:paddingRight="@dimen/activity_horizontal_margin" >
 
         <!-- Circular -->
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/progress_circular" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/horizontal_divider_thickness"/>
+            android:text="@string/progress_circular"
+            style="@style/SectionTextViewStyle" />
+        <View style="@style/SectionDividerStyle" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -45,13 +40,9 @@
 
         <!-- Horizontal (indeterminate) -->
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/progress_horizontal_indeterminate" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/horizontal_divider_thickness" />
+            android:text="@string/progress_horizontal_indeterminate"
+            style="@style/SectionTextViewStyle" />
+        <View style="@style/SectionDividerStyle" />
 
         <ProgressBar
             style="?android:progressBarStyleHorizontal"
@@ -73,14 +64,9 @@
 
         <!-- Horizontal (normal) -->
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:text="@string/progress_horizontal_normal" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/horizontal_divider_thickness" />
+            android:text="@string/progress_horizontal_normal"
+            style="@style/SectionTextViewStyle" />
+        <View style="@style/SectionDividerStyle" />
 
         <ProgressBar
             style="?android:progressBarStyleHorizontal"
@@ -105,14 +91,9 @@
 
         <!-- SeekBars -->
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:text="@string/progress_seekbars" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/horizontal_divider_thickness" />
+            android:text="@string/progress_seekbars"
+            style="@style/SectionTextViewStyle" />
+        <View style="@style/SectionDividerStyle" />
 
         <SeekBar
             android:layout_width="match_parent"
@@ -140,13 +121,9 @@
 
         <!-- RatingBar -->
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/progress_ratingbars" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/horizontal_divider_thickness" />
+            android:text="@string/progress_ratingbars"
+            style="@style/SectionTextViewStyle" />
+        <View style="@style/SectionDividerStyle" />
 
         <RatingBar
             android:layout_width="wrap_content"

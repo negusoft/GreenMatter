@@ -14,14 +14,9 @@
 
         <!-- Number picker -->
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/number_picker_title" />
-        
-        <View 
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/horizontal_divider_thickness"
-            />
+            android:text="@string/number_picker_title"
+            style="@style/SectionTextViewStyle" />
+        <View style="@style/SectionDividerStyle" />
 
         <NumberPicker
             android:id="@+id/numberPicker"
@@ -30,14 +25,9 @@
 
         <!-- Date picker -->
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/date_picker_title" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/horizontal_divider_thickness"
-            />
+            android:text="@string/date_picker_title"
+            style="@style/SectionTextViewStyle" />
+        <View style="@style/SectionDividerStyle" />
 
         <DatePicker
             android:id="@+id/datePicker"
@@ -46,14 +36,9 @@
 
         <!-- Time picker -->
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/time_picker_title" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/horizontal_divider_thickness"
-            />
+            android:text="@string/time_picker_title"
+            style="@style/SectionTextViewStyle" />
+        <View style="@style/SectionDividerStyle" />
 
         <TimePicker
             android:layout_width="wrap_content"

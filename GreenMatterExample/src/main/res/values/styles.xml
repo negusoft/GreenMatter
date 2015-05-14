@@ -1,0 +1,18 @@
+<resources>
+
+    <style name="SectionTextViewStyle">
+        <item name="android:textAppearance">?android:textAppearanceSmall</item>
+        <item name="android:textColor">?android:textColorPrimary</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">24dp</item>
+    </style>
+
+    <style name="SectionDividerStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/horizontal_divider_thickness</item>
+        <item name="android:background">@drawable/gm__solid_primary</item>
+        <item name="android:layout_marginBottom">8dp</item>
+    </style>
+
+</resources>

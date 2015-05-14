@@ -34,18 +34,14 @@
                 android:orientation="vertical"
                 android:paddingLeft="@dimen/activity_horizontal_margin"
                 android:paddingRight="@dimen/activity_horizontal_margin"
-                android:paddingTop="24dp"
+                android:paddingTop="@dimen/activity_vertical_margin"
                 android:paddingBottom="@dimen/activity_vertical_margin" >
 
                 <!-- Activity type -->
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/main_category_activity_type" />
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/horizontal_divider_thickness"
-                    android:background="@drawable/gm__solid_accent"/>
+                    android:text="@string/main_category_activity_type"
+                    style="@style/SectionTextViewStyle" />
+                <View style="@style/SectionDividerStyle"/>
 
                 <Spinner
                     android:id="@+id/activitySpinner"
@@ -54,14 +50,9 @@
 
                 <!-- Style -->
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/activity_vertical_margin"
-                    android:text="@string/main_category_style" />
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/horizontal_divider_thickness"
-                    android:background="@drawable/gm__solid_accent"/>
+                    android:text="@string/main_category_style"
+                    style="@style/SectionTextViewStyle"/>
+                <View style="@style/SectionDividerStyle"/>
 
                 <Spinner
                     android:id="@+id/themeSpinner"

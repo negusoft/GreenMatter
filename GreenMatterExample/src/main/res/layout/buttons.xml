@@ -9,18 +9,13 @@
 	    android:orientation="vertical"
 	    android:paddingLeft="@dimen/activity_horizontal_margin"
 	    android:paddingRight="@dimen/activity_horizontal_margin"
-	    android:paddingTop="@dimen/activity_vertical_margin"
 	    android:paddingBottom="@dimen/activity_vertical_margin" >
 	    
         <!-- Button (Default) -->
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/button_category_default" />
-        <View 
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/horizontal_divider_thickness"
-            />
+            android:text="@string/button_category_default"
+            style="@style/SectionTextViewStyle" />
+        <View style="@style/SectionDividerStyle" />
 
 		<LinearLayout
 		    android:layout_width="wrap_content"
@@ -49,15 +44,9 @@
 
         <!-- Colored button -->
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:text="@string/button_category_colored" />
-        
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/horizontal_divider_thickness"
-            />
+            android:text="@string/button_category_colored"
+            style="@style/SectionTextViewStyle" />
+        <View style="@style/SectionDividerStyle" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -136,15 +125,9 @@
 
 		<!-- Borderless button -->
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:text="@string/button_category_borderless" />
-        
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/horizontal_divider_thickness"
-            />
+            android:text="@string/button_category_borderless"
+            style="@style/SectionTextViewStyle" />
+        <View style="@style/SectionDividerStyle" />
         
 		<LinearLayout
 		    android:layout_width="wrap_content"
@@ -176,15 +159,9 @@
 	
 		<!-- Image buttons -->
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:text="@string/button_category_imagebutton" />
-        
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/horizontal_divider_thickness"
-            />
+            android:text="@string/button_category_imagebutton"
+            style="@style/SectionTextViewStyle" />
+        <View style="@style/SectionDividerStyle" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -243,15 +220,9 @@
 	
 		<!-- Toggle Button -->
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:text="@string/button_category_toggle" />
-        
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/horizontal_divider_thickness"
-            />
+            android:text="@string/button_category_toggle"
+            style="@style/SectionTextViewStyle" />
+        <View style="@style/SectionDividerStyle" />
         
 		<LinearLayout
 		    android:layout_width="match_parent"
@@ -275,15 +246,9 @@
 	
 		<!-- Switch -->
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:text="@string/button_category_switch" />
-        
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/horizontal_divider_thickness"
-            />
+            android:text="@string/button_category_switch"
+            style="@style/SectionTextViewStyle" />
+        <View style="@style/SectionDividerStyle" />
         
 		<LinearLayout
 		    android:layout_width="wrap_content"
