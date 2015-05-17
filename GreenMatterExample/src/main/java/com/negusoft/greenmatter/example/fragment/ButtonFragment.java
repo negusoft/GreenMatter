@@ -1,6 +1,5 @@
 package com.negusoft.greenmatter.example.fragment;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.ContextMenu;
@@ -10,12 +9,9 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageButton;
 import android.widget.ListPopupWindow;
-import android.widget.QuickContactBadge;
 
 import com.negusoft.greenmatter.example.R;
-import com.negusoft.greenmatter.widget.MatImageButton;
 
 public class ButtonFragment extends Fragment {
 	
@@ -46,7 +42,7 @@ public class ButtonFragment extends Fragment {
 		super.onCreateContextMenu(menu, v, menuInfo);
 		if (v.getId() == R.id.coloredButton) {
 			MenuInflater inflater = getActivity().getMenuInflater();
-			inflater.inflate(R.menu.spinner, menu);
+			inflater.inflate(R.menu.dummy, menu);
 		}
 	}
 	

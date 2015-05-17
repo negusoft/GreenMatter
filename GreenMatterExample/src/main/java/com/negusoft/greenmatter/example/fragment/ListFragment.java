@@ -117,7 +117,7 @@ public class ListFragment extends Fragment implements OnItemClickListener {
         public boolean onCreateActionMode(ActionMode actionMode, Menu menu) {
 			mActionMode = actionMode;
             MenuInflater inflater = actionMode.getMenuInflater();
-            inflater.inflate(R.menu.spinner, menu);
+            inflater.inflate(R.menu.dummy, menu);
             return true;
         }
 

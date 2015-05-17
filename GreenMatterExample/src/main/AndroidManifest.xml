@@ -16,6 +16,7 @@
 
         <activity android:name=".activity.TabbedActivity" />
         <activity android:name=".activity.TabbedStripActivity" android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activity.SpinnerActivity" android:theme="@style/AppTheme.Dialog" />
         <activity android:name=".activity.PreferencesActivity" />
 
         <!--<activity android:name=".activity.TabbedActivity">-->

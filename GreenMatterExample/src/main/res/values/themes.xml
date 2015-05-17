@@ -2,9 +2,9 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.GreenMatter">
-        <item name="matColorPrimary">#ff516635</item>
-        <item name="matColorPrimaryDark">#ff3f4f2b</item>
-        <item name="matColorAccent">#ff4ac358</item>
+        <item name="matColorPrimary">@color/primary</item>
+        <item name="matColorPrimaryDark">@color/primaryDark</item>
+        <item name="matColorAccent">@color/accent</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -12,6 +12,12 @@
         <item name="windowActionBar">false</item>
         <item name="android:windowNoTitle">true</item>
         <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.Dialog" parent="Theme.GreenMatter.Dialog">
+        <item name="matColorPrimary">@color/primary</item>
+        <item name="matColorPrimaryDark">@color/primaryDark</item>
+        <item name="matColorAccent">@color/accent</item>
     </style>
 
 </resources>
