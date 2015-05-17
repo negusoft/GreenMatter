@@ -9,7 +9,7 @@ def siteUrl = 'https://github.com/negusoft/GreenMatter'
 def gitUrl = 'https://github.com/negusoft/GreenMatter.git'
 def issuesUrl = 'https://github.com/negusoft/GreenMatter/issues'
 
-version = '0.5-alpha'
+version = '0.7-alpha'
 group = 'com.negusoft.greenmatter'
 
 android {

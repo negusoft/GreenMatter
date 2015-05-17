@@ -24,14 +24,13 @@ public class MainActivity extends MatActivity {
             "Showcase (tabs)", "Showcase (tab strip)", "Preferences", "Dialog" };
 
     private static final String[] THEMES_DEFAULT = new String[] {
-            "Default (Dark)", "ColoredActionBar", "ColoredActionBar (Inverse)",
-            "Light", "Light DarkActionBar", "Light ColoredActionBar", "Light ColoredActionBar (Inverse)"
+            "Default (Dark)", "Light"
     };
     private static final String[] THEMES_DIALOG = new String[] {
             "Default (Dark)", "Light"
     };
     private static final String[][] THEMES = new String[][] {
-            THEMES_DEFAULT, THEMES_DEFAULT, THEMES_DEFAULT, THEMES_DEFAULT, THEMES_DIALOG
+            THEMES_DEFAULT, THEMES_DEFAULT, THEMES_DEFAULT, THEMES_DIALOG
     };
 
     private Spinner mActivitySpinner;
@@ -65,6 +64,7 @@ public class MainActivity extends MatActivity {
 
         mThemeSpinner = (Spinner)findViewById(R.id.themeSpinner);
         mThemeSpinner.setAdapter(new ThemeAdapter(THEMES[0]));
+        mThemeSpinner.setEnabled(false);
 
         findViewById(R.id.startButton).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -134,18 +134,6 @@ public class MainActivity extends MatActivity {
         switch (mThemeSpinner.getSelectedItemPosition()) {
             case 0: // Default (Dark)
                 return new Intent(this, TabbedActivity.class);
-//            case 1: // ColoredActionBar
-//                return new Intent(this, TabbedActivityColoredAB.class);
-//            case 2: // ColoredActionBar (Inverse)
-//                return new Intent(this, TabbedActivityColoredABInverse.class);
-//            case 3: // Light
-//                return new Intent(this, TabbedActivityLight.class);
-//            case 4: // Light.DarkActionBar
-//                return new Intent(this, TabbedActivityLightDarkAB.class);
-//            case 5: // Light ColoredActionBar
-//                return new Intent(this, TabbedActivityLightColoredAB.class);
-//            case 6: // Light.ColoredActionBar (Inverse)
-//                return new Intent(this, TabbedActivityLightColoredABInverse.class);
         }
         throw new RuntimeException("Invalid theme selected");
     }
@@ -154,18 +142,6 @@ public class MainActivity extends MatActivity {
         switch (mThemeSpinner.getSelectedItemPosition()) {
             case 0: // Default (Dark)
                 return new Intent(this, TabbedStripActivity.class);
-//            case 1: // ColoredActionBar
-//                return new Intent(this, TabbedStripActivityColoredAB.class);
-//            case 2: // ColoredActionBar (Inverse)
-//                return new Intent(this, TabbedStripActivityColoredABInverse.class);
-//            case 3: // Light
-//                return new Intent(this, TabbedStripActivityLight.class);
-//            case 4: // Light.DarkActionBar
-//                return new Intent(this, TabbedStripActivityLightDarkAB.class);
-//            case 5: // Light ColoredActionBar
-//                return new Intent(this, TabbedStripActivityLightColoredAB.class);
-//            case 6: // Light.ColoredActionBar (Inverse)
-//                return new Intent(this, TabbedStripActivityLightColoredABInverse.class);
         }
         throw new RuntimeException("Invalid theme selected");
     }
@@ -174,18 +150,6 @@ public class MainActivity extends MatActivity {
         switch (mThemeSpinner.getSelectedItemPosition()) {
             case 0: // Default (Dark)
                 return new Intent(this, PreferencesActivity.class);
-//            case 1: // ColoredActionBar
-//                return new Intent(this, PreferencesActivityColoredAB.class);
-//            case 2: // ColoredActionBar (Inverse)
-//                return new Intent(this, PreferencesActivityColoredABInverse.class);
-//            case 3: // Light
-//                return new Intent(this, PreferencesActivityLight.class);
-//            case 4: // Light.DarkActionBar
-//                return new Intent(this, PreferencesActivityLightDarkAB.class);
-//            case 5: // Light ColoredActionBar
-//                return new Intent(this, PreferencesActivityLightColoredAB.class);
-//            case 6: // Light.ColoredActionBar (Inverse)
-//                return new Intent(this, PreferencesActivityLightColoredABInverse.class);
         }
         throw new RuntimeException("Invalid theme selected");
     }
@@ -194,8 +158,6 @@ public class MainActivity extends MatActivity {
         switch (mThemeSpinner.getSelectedItemPosition()) {
             case 0: // Default (Dark)
                 return new Intent(this, SpinnerActivity.class);
-//            case 1: // Light
-//                return new Intent(this, SpinnerActivity.class);
         }
         throw new RuntimeException("Invalid theme selected");
     }
