@@ -22,6 +22,32 @@
         <item name="backgroundSplit">@drawable/gm__solid_primary</item>
     </style>
 
+    <!-- Text Appearance styles -->
+    <style name="TextAppearance.GreenMatter" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+    <style name="TextAppearance.GreenMatter.Inverse" parent="TextAppearance.AppCompat.Inverse">
+        <item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
+    </style>
+    <style name="TextAppearance.GreenMatter.Large" parent="TextAppearance.AppCompat.Large">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+    <style name="TextAppearance.GreenMatter.Large.Inverse" parent="TextAppearance.AppCompat.Large.Inverse">
+        <item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
+    </style>
+    <style name="TextAppearance.GreenMatter.Medium" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+    <style name="TextAppearance.GreenMatter.Medium.Inverse" parent="TextAppearance.AppCompat.Medium.Inverse">
+        <item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
+    </style>
+    <style name="TextAppearance.GreenMatter.Small" parent="TextAppearance.AppCompat.Small">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+    <style name="TextAppearance.GreenMatter.Small.Inverse" parent="TextAppearance.AppCompat.Small.Inverse">
+        <item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
+    </style>
+
     <!-- ListPopupWindow styles -->
     <style name="Widget.GreenMatter.ListPopupWindow" parent="android:Widget.Holo.ListPopupWindow">
         <item name="android:dropDownSelector">?android:attr/listChoiceBackgroundIndicator</item>

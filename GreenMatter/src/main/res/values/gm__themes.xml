@@ -30,6 +30,16 @@
         <item name="android:editTextBackground">@drawable/gm__edit_text</item>
         <item name="searchViewStyle">@style/Widget.GreenMatter.SearchView</item>
 
+        <!-- Text styles -->
+        <item name="android:textAppearance">@style/TextAppearance.GreenMatter</item>
+        <item name="android:textAppearanceInverse">@style/TextAppearance.GreenMatter.Inverse</item>
+        <item name="android:textAppearanceLarge">@style/TextAppearance.GreenMatter.Large</item>
+        <item name="android:textAppearanceLargeInverse">@style/TextAppearance.GreenMatter.Large.Inverse</item>
+        <item name="android:textAppearanceMedium">@style/TextAppearance.GreenMatter.Medium</item>
+        <item name="android:textAppearanceMediumInverse">@style/TextAppearance.GreenMatter.Medium.Inverse</item>
+        <item name="android:textAppearanceSmall">@style/TextAppearance.GreenMatter.Small</item>
+        <item name="android:textAppearanceSmallInverse">@style/TextAppearance.GreenMatter.Small.Inverse</item>
+
         <!-- Text selection handle attributes -->
         <item name="android:textSelectHandleLeft">@drawable/gm__text_select_handle_left</item>
         <item name="android:textSelectHandleRight">@drawable/gm__text_select_handle_right</item>
@@ -107,6 +117,16 @@
 
         <item name="android:editTextBackground">@drawable/gm__edit_text</item>
         <item name="searchViewStyle">@style/Widget.GreenMatter.SearchView</item>
+
+        <!-- Text styles -->
+        <item name="android:textAppearance">@style/TextAppearance.GreenMatter</item>
+        <item name="android:textAppearanceInverse">@style/TextAppearance.GreenMatter.Inverse</item>
+        <item name="android:textAppearanceLarge">@style/TextAppearance.GreenMatter.Large</item>
+        <item name="android:textAppearanceLargeInverse">@style/TextAppearance.GreenMatter.Large.Inverse</item>
+        <item name="android:textAppearanceMedium">@style/TextAppearance.GreenMatter.Medium</item>
+        <item name="android:textAppearanceMediumInverse">@style/TextAppearance.GreenMatter.Medium.Inverse</item>
+        <item name="android:textAppearanceSmall">@style/TextAppearance.GreenMatter.Small</item>
+        <item name="android:textAppearanceSmallInverse">@style/TextAppearance.GreenMatter.Small.Inverse</item>
 
         <!-- Text selection handle attributes -->
         <item name="android:textSelectHandleLeft">@drawable/gm__text_select_handle_left</item>
