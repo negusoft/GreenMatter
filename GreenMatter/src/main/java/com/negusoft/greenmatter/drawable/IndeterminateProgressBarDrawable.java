@@ -76,7 +76,7 @@ public class IndeterminateProgressBarDrawable extends Drawable {
         float progress = offsetMillis / ANIMATION_DURATION_MILLIS;
         float canvasWidth = canvas.getWidth();
 
-        float lineWidth = canvas.getHeight() * LINE_WIDTH_RATIO;
+        float lineWidth = r.height() * LINE_WIDTH_RATIO;
         mBackgroundPaint.setStrokeWidth(lineWidth);
         mLinePaint.setStrokeWidth(lineWidth);
 
