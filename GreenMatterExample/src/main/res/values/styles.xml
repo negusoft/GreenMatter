@@ -1,7 +1,6 @@
 <resources>
 
     <style name="SectionTextViewStyle">
-        <item name="android:textAppearance">?android:textAppearanceSmall</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginTop">24dp</item>

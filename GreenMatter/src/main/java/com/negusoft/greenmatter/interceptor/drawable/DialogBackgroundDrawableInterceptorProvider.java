@@ -36,7 +36,11 @@ public class DialogBackgroundDrawableInterceptorProvider {
             "dialog_full_holo_dark",
             "dialog_top_holo_dark",
             "dialog_middle_holo_dark",
-            "dialog_bottom_holo_dark"
+            "dialog_bottom_holo_dark",
+            "dialog_full_holo_light",
+            "dialog_top_holo_light",
+            "dialog_middle_holo_light",
+            "dialog_bottom_holo_light"
     };
 
     public static void setupInterceptors(DrawableInterceptorHelper helper) {

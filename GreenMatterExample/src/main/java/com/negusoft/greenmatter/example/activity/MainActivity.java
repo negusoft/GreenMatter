@@ -14,6 +14,10 @@ import android.widget.Spinner;
 import com.negusoft.greenmatter.MatPalette;
 import com.negusoft.greenmatter.activity.MatActivity;
 import com.negusoft.greenmatter.example.R;
+import com.negusoft.greenmatter.example.activity.variants.PreferencesActivityLight;
+import com.negusoft.greenmatter.example.activity.variants.SpinnerActivityLight;
+import com.negusoft.greenmatter.example.activity.variants.TabbedActivityLight;
+import com.negusoft.greenmatter.example.activity.variants.TabbedStripActivityLight;
 import com.negusoft.greenmatter.example.util.ColorOverrider;
 
 public class MainActivity extends MatActivity {
@@ -64,7 +68,6 @@ public class MainActivity extends MatActivity {
 
         mThemeSpinner = (Spinner)findViewById(R.id.themeSpinner);
         mThemeSpinner.setAdapter(new ThemeAdapter(THEMES[0]));
-        mThemeSpinner.setEnabled(false);
 
         findViewById(R.id.startButton).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,7 +111,7 @@ public class MainActivity extends MatActivity {
 
     @Override
     public MatPalette overridePalette(MatPalette palette) {
-        return ColorOverrider.getInstance(palette).applyOverride(palette);
+        return ColorOverrider.getInstance(this).applyOverride(palette);
     }
 
     private void startCustomActivity() {
@@ -134,6 +137,8 @@ public class MainActivity extends MatActivity {
         switch (mThemeSpinner.getSelectedItemPosition()) {
             case 0: // Default (Dark)
                 return new Intent(this, TabbedActivity.class);
+            case 1: // Light
+                return new Intent(this, TabbedActivityLight.class);
         }
         throw new RuntimeException("Invalid theme selected");
     }
@@ -142,6 +147,8 @@ public class MainActivity extends MatActivity {
         switch (mThemeSpinner.getSelectedItemPosition()) {
             case 0: // Default (Dark)
                 return new Intent(this, TabbedStripActivity.class);
+            case 1: // Light
+                return new Intent(this, TabbedStripActivityLight.class);
         }
         throw new RuntimeException("Invalid theme selected");
     }
@@ -150,6 +157,8 @@ public class MainActivity extends MatActivity {
         switch (mThemeSpinner.getSelectedItemPosition()) {
             case 0: // Default (Dark)
                 return new Intent(this, PreferencesActivity.class);
+            case 1: // Light
+                return new Intent(this, PreferencesActivityLight.class);
         }
         throw new RuntimeException("Invalid theme selected");
     }
@@ -158,6 +167,8 @@ public class MainActivity extends MatActivity {
         switch (mThemeSpinner.getSelectedItemPosition()) {
             case 0: // Default (Dark)
                 return new Intent(this, SpinnerActivity.class);
+            case 1: // Light
+                return new Intent(this, SpinnerActivityLight.class);
         }
         throw new RuntimeException("Invalid theme selected");
     }

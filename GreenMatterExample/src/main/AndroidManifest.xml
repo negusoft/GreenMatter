@@ -7,7 +7,7 @@
         android:icon="@drawable/ic_launcher"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".activity.MainActivity" android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".activity.MainActivity" android:theme="@style/AppTheme.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -15,20 +15,20 @@
         </activity>
 
         <activity android:name=".activity.TabbedActivity" />
-        <activity android:name=".activity.TabbedStripActivity" android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activity.SpinnerActivity" android:theme="@style/AppTheme.Dialog" />
-        <activity android:name=".activity.PreferencesActivity" />
+        <activity android:name=".activity.variants.TabbedActivityLight" android:theme="@style/AppTheme.Light" />
 
-        <!--<activity android:name=".activity.TabbedActivity">-->
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
-        <!--</activity>-->
+        <activity android:name=".activity.TabbedStripActivity" android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activity.variants.TabbedStripActivityLight" android:theme="@style/AppTheme.Light.NoActionBar" />
+
+        <activity android:name=".activity.PreferencesActivity" />
+        <activity android:name=".activity.variants.PreferencesActivityLight" android:theme="@style/AppTheme.Light" />
+
+        <activity android:name=".activity.SpinnerActivity" android:theme="@style/AppTheme.Dialog" />
+        <activity android:name=".activity.variants.SpinnerActivityLight" android:theme="@style/AppTheme.Light.Dialog" />
         
         <activity
-            android:theme="@style/AppTheme.NoActionBar"
             android:name=".activity.SelectColorActivity"
+            android:theme="@style/AppTheme.Light.NoActionBar"
             android:label="@string/select_colors_title"/>
 
     </application>

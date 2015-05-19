@@ -93,7 +93,7 @@ public class TabbedActivity extends MatActivity implements ActionBar.TabListener
 
     @Override
     public MatPalette overridePalette(MatPalette palette) {
-        return ColorOverrider.getInstance(palette).applyOverride(palette);
+        return ColorOverrider.getInstance(this).applyOverride(palette);
 //        palette.setColorAccent(Color.YELLOW);
 //        palette.setColorPrimary(0xff880000);
 //        palette.setColorPrimaryDark(0xff440000);

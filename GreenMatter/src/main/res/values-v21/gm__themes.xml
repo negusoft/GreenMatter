@@ -2,33 +2,52 @@
 <resources>
 
     <style name="Theme.GreenMatter" parent="Base.Theme.GreenMatter">
-
         <!-- DatePicker style -->
         <item name="android:datePickerStyle">@style/Widget.GreenMatter.DatePicker</item>
 
         <!-- Map the Compat attributes to the system counterparts -->
         <item name="selectableItemBackground">?android:attr/selectableItemBackground</item>
         <item name="selectableItemBackgroundBorderless">?android:attr/selectableItemBackgroundBorderless</item>
+    </style>
+    <style name="Theme.GreenMatter.Light" parent="Base.Theme.GreenMatter.Light">
+        <!-- DatePicker style -->
+        <item name="android:datePickerStyle">@style/Widget.GreenMatter.DatePicker</item>
 
+        <!-- Map the Compat attributes to the system counterparts -->
+        <item name="selectableItemBackground">?android:attr/selectableItemBackground</item>
+        <item name="selectableItemBackgroundBorderless">?android:attr/selectableItemBackgroundBorderless</item>
     </style>
 
     <style name="Theme.GreenMatter.Dialog" parent="Base.Theme.GreenMatter.Dialog">
-
         <!-- DatePicker style -->
         <item name="android:datePickerStyle">@style/Widget.GreenMatter.DatePicker</item>
 
         <!-- Map the Compat attributes to the system counterparts -->
         <item name="selectableItemBackground">?android:attr/selectableItemBackground</item>
         <item name="selectableItemBackgroundBorderless">?android:attr/selectableItemBackgroundBorderless</item>
+    </style>
+    <style name="Theme.GreenMatter.Light.Dialog" parent="Base.Theme.GreenMatter.Light.Dialog">
+        <!-- DatePicker style -->
+        <item name="android:datePickerStyle">@style/Widget.GreenMatter.Light.DatePicker</item>
 
+        <!-- Map the Compat attributes to the system counterparts -->
+        <item name="selectableItemBackground">?android:attr/selectableItemBackground</item>
+        <item name="selectableItemBackgroundBorderless">?android:attr/selectableItemBackgroundBorderless</item>
     </style>
 
     <style name="Theme.GreenMatter.Dialog.Alert">
         <item name="android:windowMinWidthMajor">@android:dimen/dialog_min_width_major</item>
         <item name="android:windowMinWidthMinor">@android:dimen/dialog_min_width_minor</item>
     </style>
+    <style name="Theme.GreenMatter.Light.Dialog.Alert">
+        <item name="android:windowMinWidthMajor">@android:dimen/dialog_min_width_major</item>
+        <item name="android:windowMinWidthMinor">@android:dimen/dialog_min_width_minor</item>
+    </style>
 
     <style name="Widget.GreenMatter.DatePicker" parent="android:Widget.Material.DatePicker">
+        <item name="android:headerBackground">@drawable/gm__solid_accent</item>
+    </style>
+    <style name="Widget.GreenMatter.Light.DatePicker" parent="android:Widget.Material.Light.DatePicker">
         <item name="android:headerBackground">@drawable/gm__solid_accent</item>
     </style>
 

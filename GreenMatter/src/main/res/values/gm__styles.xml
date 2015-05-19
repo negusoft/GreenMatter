@@ -16,7 +16,13 @@
 -->
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <!-- ActionBar style -->
     <style name="Widget.GreenMatter.ActionBar.Solid" parent="Widget.AppCompat.ActionBar.Solid">
+        <item name="background">@drawable/gm__solid_primary</item>
+        <item name="backgroundStacked">@drawable/gm__solid_primary</item>
+        <item name="backgroundSplit">@drawable/gm__solid_primary</item>
+    </style>
+    <style name="Widget.GreenMatter.ActionBar.Light.Solid" parent="Widget.AppCompat.Light.ActionBar.Solid">
         <item name="background">@drawable/gm__solid_primary</item>
         <item name="backgroundStacked">@drawable/gm__solid_primary</item>
         <item name="backgroundSplit">@drawable/gm__solid_primary</item>
@@ -126,8 +132,11 @@
         <item name="submitBackground">@drawable/gm__textfield_search</item>
     </style>
 
-    <!-- Actionbar Tab style -->
+    <!-- Actionbar Tab styles -->
     <style name="Widget.GreenMatter.ActionBar.TabView" parent="Widget.AppCompat.ActionBar.TabView">
+        <item name="android:background">@drawable/gm__tab_indicator</item>
+    </style>
+    <style name="Widget.GreenMatter.Light.ActionBar.TabView" parent="Widget.AppCompat.Light.ActionBar.TabView">
         <item name="android:background">@drawable/gm__tab_indicator</item>
     </style>
 

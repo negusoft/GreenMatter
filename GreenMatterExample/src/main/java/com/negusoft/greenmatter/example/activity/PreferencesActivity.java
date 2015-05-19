@@ -44,7 +44,7 @@ public class PreferencesActivity extends MatActivity {
 
     @Override
     public MatPalette overridePalette(MatPalette palette) {
-        return ColorOverrider.getInstance(palette).applyOverride(palette);
+        return ColorOverrider.getInstance(this).applyOverride(palette);
     }
 
     public static class GeneralPreferenceFragment extends PreferenceFragment {

@@ -54,6 +54,40 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:text="@string/select_colors_accent"
+            android:layout_weight="1"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:gravity="center_vertical"/>
+
+        <View
+            android:id="@+id/accent_preview"
+            android:background="@drawable/gm__solid_accent"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:gravity="center_vertical" />
+
+    </LinearLayout>
+
+    <SeekBar
+        android:id="@+id/accent_seekbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:max="360"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="24dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:text="@string/select_colors_primary"
             android:layout_weight="1"
             android:textAppearance="?android:attr/textAppearanceMedium"
@@ -77,39 +111,19 @@
         android:layout_marginRight="16dp"
         android:max="360"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="24dp"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/select_colors_accent"
-            android:layout_weight="1"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:gravity="center_vertical"/>
-
-        <View
-            android:id="@+id/accent_preview"
-            android:background="@drawable/gm__solid_accent"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:gravity="center_vertical" />
-
-    </LinearLayout>
-
-    <SeekBar
-        android:id="@+id/accent_seekbar"
-        android:layout_width="match_parent"
+    <ToggleButton
+        android:id="@+id/lightToggle"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:max="360"/>
+        android:layout_gravity="end"
+        android:background="@null"
+        android:drawableRight="?android:listChoiceIndicatorMultiple"
+        android:textOn="Light"
+        android:textOff="Dark"
+        android:capitalize="none"/>
 
 </LinearLayout>
 

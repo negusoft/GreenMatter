@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2015 NEGU Soft
+  
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+  
+    http://www.apache.org/licenses/LICENSE-2.0
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Base themes, they contain attributes that are required for all android versions. -->
+
+    <style name="Base.Theme.GreenMatter" parent="Theme.AppCompat">
+        <item name="colorPrimary">@color/gm__primary</item>
+        <item name="colorPrimaryDark">@color/gm__primary_dark</item>
+        <item name="colorAccent">@color/gm__accent</item>
+        <item name="colorControlNormal">@color/gm__control_normal</item>
+        <item name="colorControlActivated">@color/gm__control_activated</item>
+        <item name="colorControlHighlight">@color/gm__control_highlighted</item>
+        <item name="colorSwitchThumbNormal">@color/gm__switch_thumb_normal</item>
+
+        <item name="android:disabledAlpha">0.30</item>
+
+        <item name="matColorPrimary">@color/gm__default_primary</item>
+        <item name="matColorPrimaryDark">@color/gm__default_primary_dark</item>
+        <item name="matColorAccent">@color/gm__default_accent</item>
+
+        <item name="matColorControlNormal">?android:attr/textColorSecondary</item>
+        <item name="matColorControlActivated">?attr/matColorAccent</item>
+        <item name="matColorControlHighlight">@color/ripple_material_dark</item>
+        <item name="matColorButtonNormal">@color/button_material_dark</item>
+        <item name="matColorSwitchThumbNormal">@color/switch_thumb_normal_material_dark</item>
+        <item name="matColorEdgeEffect">@color/gm__default_accent</item>
+
+        <item name="actionBarStyle">@style/Widget.GreenMatter.ActionBar.Solid</item>
+        <item name="switchStyle">@style/Widget.GreenMatter.CompoundButton.Switch</item>
+
+        <item name="android:dialogTheme">@style/Theme.GreenMatter.Dialog</item>
+        <item name="android:alertDialogTheme">@style/Theme.GreenMatter.Dialog.Alert</item>
+
+        <item name="dialogTheme">@style/Theme.GreenMatter.Dialog</item>
+        <item name="alertDialogTheme">@style/Theme.GreenMatter.Dialog.Alert</item>
+    </style>
+
+    <style name="Base.Theme.GreenMatter.Light" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/gm__primary</item>
+        <item name="colorPrimaryDark">@color/gm__primary_dark</item>
+        <item name="colorAccent">@color/gm__accent</item>
+        <item name="colorControlNormal">@color/gm__control_normal</item>
+        <item name="colorControlActivated">@color/gm__control_activated</item>
+        <item name="colorControlHighlight">@color/gm__control_highlighted</item>
+        <item name="colorSwitchThumbNormal">@color/gm__switch_thumb_normal</item>
+
+        <item name="android:disabledAlpha">0.30</item>
+
+        <item name="matColorPrimary">@color/gm__default_primary</item>
+        <item name="matColorPrimaryDark">@color/gm__default_primary_dark</item>
+        <item name="matColorAccent">@color/gm__default_accent</item>
+
+        <item name="matColorControlNormal">?android:attr/textColorSecondary</item>
+        <item name="matColorControlActivated">?attr/matColorAccent</item>
+        <item name="matColorControlHighlight">@color/ripple_material_light</item>
+        <item name="matColorButtonNormal">@color/button_material_light</item>
+        <item name="matColorSwitchThumbNormal">@color/switch_thumb_normal_material_light</item>
+        <item name="matColorEdgeEffect">@color/gm__default_accent</item>
+
+        <item name="actionBarStyle">@style/Widget.GreenMatter.ActionBar.Light.Solid</item>
+        <item name="switchStyle">@style/Widget.GreenMatter.CompoundButton.Switch</item>
+
+        <item name="android:dialogTheme">@style/Theme.GreenMatter.Light.Dialog</item>
+        <item name="android:alertDialogTheme">@style/Theme.GreenMatter.Light.Dialog.Alert</item>
+
+        <item name="dialogTheme">@style/Theme.GreenMatter.Light.Dialog</item>
+        <item name="alertDialogTheme">@style/Theme.GreenMatter.Light.Dialog.Alert</item>
+    </style>
+
+    <style name="Base.Theme.GreenMatter.Dialog" parent="Theme.AppCompat.Dialog">
+        <item name="colorPrimary">@color/gm__primary</item>
+        <item name="colorPrimaryDark">@color/gm__primary_dark</item>
+        <item name="colorAccent">@color/gm__accent</item>
+        <item name="colorControlNormal">@color/gm__control_normal</item>
+        <item name="colorControlActivated">@color/gm__control_activated</item>
+        <item name="colorControlHighlight">@color/gm__control_highlighted</item>
+        <item name="colorSwitchThumbNormal">@color/gm__switch_thumb_normal</item>
+
+        <item name="android:disabledAlpha">0.30</item>
+
+        <item name="matColorPrimary">@color/gm__default_primary</item>
+        <item name="matColorPrimaryDark">@color/gm__default_primary_dark</item>
+        <item name="matColorAccent">@color/gm__default_accent</item>
+
+        <item name="matColorControlNormal">?android:attr/textColorSecondary</item>
+        <item name="matColorControlActivated">?attr/matColorAccent</item>
+        <item name="matColorControlHighlight">@color/ripple_material_dark</item>
+        <item name="matColorButtonNormal">@color/button_material_dark</item>
+        <item name="matColorSwitchThumbNormal">@color/switch_thumb_normal_material_dark</item>
+        <item name="matColorEdgeEffect">@color/gm__default_accent</item>
+
+        <item name="actionBarStyle">@style/Widget.GreenMatter.ActionBar.Solid</item>
+        <item name="switchStyle">@style/Widget.GreenMatter.CompoundButton.Switch</item>
+
+        <item name="android:dialogTheme">@style/Theme.GreenMatter.Dialog</item>
+        <item name="android:alertDialogTheme">@style/Theme.GreenMatter.Dialog.Alert</item>
+
+        <item name="dialogTheme">@style/Theme.GreenMatter.Dialog</item>
+        <item name="alertDialogTheme">@style/Theme.GreenMatter.Dialog.Alert</item>
+    </style>
+
+    <style name="Base.Theme.GreenMatter.Light.Dialog" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorPrimary">@color/gm__primary</item>
+        <item name="colorPrimaryDark">@color/gm__primary_dark</item>
+        <item name="colorAccent">@color/gm__accent</item>
+        <item name="colorControlNormal">@color/gm__control_normal</item>
+        <item name="colorControlActivated">@color/gm__control_activated</item>
+        <item name="colorControlHighlight">@color/gm__control_highlighted</item>
+        <item name="colorSwitchThumbNormal">@color/gm__switch_thumb_normal</item>
+
+        <item name="android:disabledAlpha">0.30</item>
+
+        <item name="matColorPrimary">@color/gm__default_primary</item>
+        <item name="matColorPrimaryDark">@color/gm__default_primary_dark</item>
+        <item name="matColorAccent">@color/gm__default_accent</item>
+
+        <item name="matColorControlNormal">?android:attr/textColorSecondary</item>
+        <item name="matColorControlActivated">?attr/matColorAccent</item>
+        <item name="matColorControlHighlight">@color/ripple_material_light</item>
+        <item name="matColorButtonNormal">@color/button_material_light</item>
+        <item name="matColorSwitchThumbNormal">@color/switch_thumb_normal_material_light</item>
+        <item name="matColorEdgeEffect">@color/gm__default_accent</item>
+
+        <item name="actionBarStyle">@style/Widget.GreenMatter.ActionBar.Light.Solid</item>
+        <item name="switchStyle">@style/Widget.GreenMatter.CompoundButton.Switch</item>
+
+        <item name="android:dialogTheme">@style/Theme.GreenMatter.Light.Dialog</item>
+        <item name="android:alertDialogTheme">@style/Theme.GreenMatter.Light.Dialog.Alert</item>
+
+        <item name="dialogTheme">@style/Theme.GreenMatter.Dialog</item>
+        <item name="alertDialogTheme">@style/Theme.GreenMatter.Light.Dialog.Alert</item>
+    </style>
+
+</resources>

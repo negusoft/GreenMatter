@@ -50,7 +50,6 @@
         <item name="android:buttonStyleSmall">@style/Widget.GreenMatter.Button.Small</item>
         <item name="android:buttonStyleToggle">@style/Widget.GreenMatter.Button.Toggle</item>
         <item name="android:buttonBarButtonStyle">@style/Widget.GreenMatter.Button.ButtonBar.AlertDialog</item>
-        <!--<item name="android:mediaRouteButtonStyle">@android:style/Widget.Holo.MediaRouteButton</item> -->
         <item name="android:imageButtonStyle">@style/Widget.GreenMatter.ImageButton</item>
 
         <item name="actionBarTabStyle">@style/Widget.GreenMatter.ActionBar.TabView</item>
@@ -64,11 +63,8 @@
         <item name="android:progressBarStyleHorizontal">@style/Widget.GreenMatter.ProgressBar.Horizontal</item>
         <item name="android:seekBarStyle">@style/Widget.GreenMatter.SeekBar</item>
 
-        <!--<item name="android:dropDownSpinnerStyle">@style/Widget.Holo.Spinner</item>-->
         <item name="android:listPopupWindowStyle">@style/Widget.GreenMatter.ListPopupWindow</item>
         <item name="android:popupMenuStyle">@style/Widget.GreenMatter.ListPopupWindow</item>
-
-        <!--<item name="android:listSeparatorTextViewStyle">@style/Widget.AppCompat.TextView.SpinnerItem</item>-->
 
         <item name="android:scrollbarThumbHorizontal">@drawable/gm__scrollbar_thumb</item>
         <item name="android:scrollbarThumbVertical">@drawable/gm__scrollbar_thumb</item>
@@ -83,14 +79,94 @@
         <item name="android:calendarViewStyle">@style/Widget.GreenMatter.CalendarView</item>
 
         <item name="actionModeBackground">@drawable/gm__cab_background_top</item>
-        <!--<item name="android:actionModeSplitBackground">@android:color/holo_red_dark</item>-->
-        <!--<item name="actionModeSplitBackground">@android:color/holo_red_dark</item>-->
 
         <item name="toolbarNavigationButtonStyle">@style/Widget.GreenMatter.Toolbar.Button.Navigation</item>
 
         <!-- ActionBar specific theme -->
         <item name="actionBarTheme">@style/Theme.GreenMatter.ActionBar</item>
         <item name="android:actionBarWidgetTheme">@style/Theme.GreenMatter.ActionBar</item>
+
+        <!-- Duplicate attributes for ActionBarCompat -->
+        <item name="actionBarItemBackground">@drawable/gm__circle_indicator</item>
+        <item name="editTextBackground">@drawable/gm__edit_text</item>
+        <item name="actionBarWidgetTheme">@style/Theme.GreenMatter</item>
+
+        <item name="android:dropDownListViewStyle">@style/Widget.GreenMatter.DropDownListView</item>
+        <item name="dropDownListViewStyle">@style/Widget.GreenMatter.DropDownListView</item>
+
+        <item name="selectableItemBackgroundBorderless">?android:attr/selectableItemBackground</item>
+        <item name="selectableItemBackground">?android:attr/selectableItemBackground</item>
+    </style>
+
+    <style name="Theme.GreenMatter.Light" parent="Base.Theme.GreenMatter.Light">
+
+        <item name="android:listChoiceIndicatorMultiple">@drawable/gm__btn_check</item>
+        <item name="android:listChoiceIndicatorSingle">@drawable/gm__btn_radio</item>
+        <item name="android:listChoiceBackgroundIndicator">@drawable/gm__list_selector</item>
+
+        <item name="android:selectableItemBackground">@drawable/gm__selectable_item_background</item>
+        <item name="android:actionBarItemBackground">@drawable/gm__circle_indicator</item>
+
+        <item name="android:textAppearanceButton">@style/TextAppearance.GreenMatter.Button</item>
+
+        <item name="android:editTextBackground">@drawable/gm__edit_text</item>
+        <item name="searchViewStyle">@style/Widget.GreenMatter.SearchView</item>
+
+        <!-- Text styles -->
+        <item name="android:textAppearance">@style/TextAppearance.GreenMatter</item>
+        <item name="android:textAppearanceInverse">@style/TextAppearance.GreenMatter.Inverse</item>
+        <item name="android:textAppearanceLarge">@style/TextAppearance.GreenMatter.Large</item>
+        <item name="android:textAppearanceLargeInverse">@style/TextAppearance.GreenMatter.Large.Inverse</item>
+        <item name="android:textAppearanceMedium">@style/TextAppearance.GreenMatter.Medium</item>
+        <item name="android:textAppearanceMediumInverse">@style/TextAppearance.GreenMatter.Medium.Inverse</item>
+        <item name="android:textAppearanceSmall">@style/TextAppearance.GreenMatter.Small</item>
+        <item name="android:textAppearanceSmallInverse">@style/TextAppearance.GreenMatter.Small.Inverse</item>
+
+        <!-- Text selection handle attributes -->
+        <item name="android:textSelectHandleLeft">@drawable/gm__text_select_handle_left</item>
+        <item name="android:textSelectHandleRight">@drawable/gm__text_select_handle_right</item>
+        <item name="android:textSelectHandle">@drawable/gm__text_select_handle_middle</item>
+        <item name="android:textCursorDrawable">@drawable/gm__text_cursor</item>
+
+        <item name="android:buttonStyle">@style/Widget.GreenMatter.Button</item>
+        <item name="android:buttonStyleSmall">@style/Widget.GreenMatter.Button.Small</item>
+        <item name="android:buttonStyleToggle">@style/Widget.GreenMatter.Button.Toggle</item>
+        <item name="android:buttonBarButtonStyle">@style/Widget.GreenMatter.Button.ButtonBar.AlertDialog</item>
+        <item name="android:imageButtonStyle">@style/Widget.GreenMatter.ImageButton</item>
+
+        <item name="actionBarTabStyle">@style/Widget.GreenMatter.Light.ActionBar.TabView</item>
+
+        <item name="android:progressBarStyle">@style/Widget.GreenMatter.ProgressBar</item>
+        <item name="android:progressBarStyleSmall">@style/Widget.GreenMatter.ProgressBar.Small</item>
+        <item name="android:progressBarStyleLarge">@style/Widget.GreenMatter.ProgressBar.Large</item>
+        <item name="android:progressBarStyleInverse">@style/Widget.GreenMatter.ProgressBar</item>
+        <item name="android:progressBarStyleSmallInverse">@style/Widget.GreenMatter.ProgressBar.Small</item>
+        <item name="android:progressBarStyleLargeInverse">@style/Widget.GreenMatter.ProgressBar.Large</item>
+        <item name="android:progressBarStyleHorizontal">@style/Widget.GreenMatter.ProgressBar.Horizontal</item>
+        <item name="android:seekBarStyle">@style/Widget.GreenMatter.SeekBar</item>
+
+        <item name="android:listPopupWindowStyle">@style/Widget.GreenMatter.ListPopupWindow</item>
+        <item name="android:popupMenuStyle">@style/Widget.GreenMatter.ListPopupWindow</item>
+
+        <item name="android:scrollbarThumbHorizontal">@drawable/gm__scrollbar_thumb</item>
+        <item name="android:scrollbarThumbVertical">@drawable/gm__scrollbar_thumb</item>
+
+        <item name="android:fastScrollThumbDrawable">@drawable/gm__fastscroll_thumb</item>
+        <item name="android:fastScrollPreviewBackgroundLeft">@drawable/gm__fastscroll_label</item>
+        <item name="android:fastScrollPreviewBackgroundRight">@drawable/gm__fastscroll_label</item>
+        <item name="android:fastScrollTrackDrawable">@drawable/gm__fastscroll_track</item>
+
+        <item name="android:preferenceCategoryStyle">@style/Preference.GreenMatter.Category</item>
+
+        <item name="android:calendarViewStyle">@style/Widget.GreenMatter.CalendarView</item>
+
+        <item name="actionModeBackground">@drawable/gm__cab_background_top</item>
+
+        <item name="toolbarNavigationButtonStyle">@style/Widget.GreenMatter.Toolbar.Button.Navigation</item>
+
+        <!-- ActionBar specific theme -->
+        <item name="actionBarTheme">@style/Theme.GreenMatter.Light.ActionBar</item>
+        <item name="android:actionBarWidgetTheme">@style/Theme.GreenMatter.Light.ActionBar</item>
 
         <!-- Duplicate attributes for ActionBarCompat -->
         <item name="actionBarItemBackground">@drawable/gm__circle_indicator</item>
@@ -138,7 +214,6 @@
         <item name="android:buttonStyleSmall">@style/Widget.GreenMatter.Button.Small</item>
         <item name="android:buttonStyleToggle">@style/Widget.GreenMatter.Button.Toggle</item>
         <item name="android:buttonBarButtonStyle">@style/Widget.GreenMatter.Button.ButtonBar.AlertDialog</item>
-        <!--<item name="android:mediaRouteButtonStyle">@android:style/Widget.Holo.MediaRouteButton</item> -->
         <item name="android:imageButtonStyle">@style/Widget.GreenMatter.ImageButton</item>
 
         <item name="buttonBarButtonStyle">@style/Widget.GreenMatter.Button.ButtonBar.AlertDialog</item>
@@ -154,7 +229,6 @@
         <item name="android:progressBarStyleHorizontal">@style/Widget.GreenMatter.ProgressBar.Horizontal</item>
         <item name="android:seekBarStyle">@style/Widget.GreenMatter.SeekBar</item>
 
-        <!--<item name="android:dropDownSpinnerStyle">@style/Widget.Holo.Spinner</item>-->
         <item name="android:listPopupWindowStyle">@style/Widget.GreenMatter.ListPopupWindow</item>
         <item name="android:popupMenuStyle">@style/Widget.GreenMatter.ListPopupWindow</item>
 
@@ -169,14 +243,94 @@
         <item name="android:preferenceCategoryStyle">@style/Preference.GreenMatter.Category</item>
 
         <item name="actionModeBackground">@drawable/gm__cab_background_top</item>
-        <!--<item name="android:actionModeSplitBackground">@android:color/holo_red_dark</item>-->
-        <!--<item name="actionModeSplitBackground">@android:color/holo_red_dark</item>-->
 
         <item name="toolbarNavigationButtonStyle">@style/Widget.GreenMatter.Toolbar.Button.Navigation</item>
 
         <!-- ActionBar specific theme -->
         <item name="actionBarTheme">@style/Theme.GreenMatter.ActionBar</item>
         <item name="android:actionBarWidgetTheme">@style/Theme.GreenMatter.ActionBar</item>
+
+        <!-- Duplicate attributes for ActionBarCompat -->
+        <item name="actionBarItemBackground">@drawable/gm__circle_indicator</item>
+        <item name="editTextBackground">@drawable/gm__edit_text</item>
+        <item name="actionBarWidgetTheme">@style/Theme.GreenMatter</item>
+
+        <item name="android:dropDownListViewStyle">@style/Widget.GreenMatter.DropDownListView</item>
+        <item name="dropDownListViewStyle">@style/Widget.GreenMatter.DropDownListView</item>
+
+        <item name="selectableItemBackgroundBorderless">?android:attr/selectableItemBackground</item>
+        <item name="selectableItemBackground">?android:attr/selectableItemBackground</item>
+    </style>
+
+    <style name="Theme.GreenMatter.Light.Dialog" parent="Base.Theme.GreenMatter.Light.Dialog">
+
+        <item name="android:listChoiceIndicatorMultiple">@drawable/gm__btn_check</item>
+        <item name="android:listChoiceIndicatorSingle">@drawable/gm__btn_radio</item>
+        <item name="android:listChoiceBackgroundIndicator">@drawable/gm__list_selector</item>
+
+        <item name="android:selectableItemBackground">@drawable/gm__selectable_item_background</item>
+        <item name="android:actionBarItemBackground">@drawable/gm__circle_indicator</item>
+
+        <item name="android:textAppearanceButton">@style/TextAppearance.GreenMatter.Button</item>
+
+        <item name="android:editTextBackground">@drawable/gm__edit_text</item>
+        <item name="searchViewStyle">@style/Widget.GreenMatter.SearchView</item>
+
+        <!-- Text styles -->
+        <item name="android:textAppearance">@style/TextAppearance.GreenMatter</item>
+        <item name="android:textAppearanceInverse">@style/TextAppearance.GreenMatter.Inverse</item>
+        <item name="android:textAppearanceLarge">@style/TextAppearance.GreenMatter.Large</item>
+        <item name="android:textAppearanceLargeInverse">@style/TextAppearance.GreenMatter.Large.Inverse</item>
+        <item name="android:textAppearanceMedium">@style/TextAppearance.GreenMatter.Medium</item>
+        <item name="android:textAppearanceMediumInverse">@style/TextAppearance.GreenMatter.Medium.Inverse</item>
+        <item name="android:textAppearanceSmall">@style/TextAppearance.GreenMatter.Small</item>
+        <item name="android:textAppearanceSmallInverse">@style/TextAppearance.GreenMatter.Small.Inverse</item>
+
+        <!-- Text selection handle attributes -->
+        <item name="android:textSelectHandleLeft">@drawable/gm__text_select_handle_left</item>
+        <item name="android:textSelectHandleRight">@drawable/gm__text_select_handle_right</item>
+        <item name="android:textSelectHandle">@drawable/gm__text_select_handle_middle</item>
+        <item name="android:textCursorDrawable">@drawable/gm__text_cursor</item>
+
+        <item name="android:buttonStyle">@style/Widget.GreenMatter.Button</item>
+        <item name="android:buttonStyleSmall">@style/Widget.GreenMatter.Button.Small</item>
+        <item name="android:buttonStyleToggle">@style/Widget.GreenMatter.Button.Toggle</item>
+        <item name="android:buttonBarButtonStyle">@style/Widget.GreenMatter.Button.ButtonBar.AlertDialog</item>
+        <item name="android:imageButtonStyle">@style/Widget.GreenMatter.ImageButton</item>
+
+        <item name="actionBarTabStyle">@style/Widget.GreenMatter.Light.ActionBar.TabView</item>
+
+        <item name="android:progressBarStyle">@style/Widget.GreenMatter.ProgressBar</item>
+        <item name="android:progressBarStyleSmall">@style/Widget.GreenMatter.ProgressBar.Small</item>
+        <item name="android:progressBarStyleLarge">@style/Widget.GreenMatter.ProgressBar.Large</item>
+        <item name="android:progressBarStyleInverse">@style/Widget.GreenMatter.ProgressBar</item>
+        <item name="android:progressBarStyleSmallInverse">@style/Widget.GreenMatter.ProgressBar.Small</item>
+        <item name="android:progressBarStyleLargeInverse">@style/Widget.GreenMatter.ProgressBar.Large</item>
+        <item name="android:progressBarStyleHorizontal">@style/Widget.GreenMatter.ProgressBar.Horizontal</item>
+        <item name="android:seekBarStyle">@style/Widget.GreenMatter.SeekBar</item>
+
+        <item name="android:listPopupWindowStyle">@style/Widget.GreenMatter.ListPopupWindow</item>
+        <item name="android:popupMenuStyle">@style/Widget.GreenMatter.ListPopupWindow</item>
+
+        <item name="android:scrollbarThumbHorizontal">@drawable/gm__scrollbar_thumb</item>
+        <item name="android:scrollbarThumbVertical">@drawable/gm__scrollbar_thumb</item>
+
+        <item name="android:fastScrollThumbDrawable">@drawable/gm__fastscroll_thumb</item>
+        <item name="android:fastScrollPreviewBackgroundLeft">@drawable/gm__fastscroll_label</item>
+        <item name="android:fastScrollPreviewBackgroundRight">@drawable/gm__fastscroll_label</item>
+        <item name="android:fastScrollTrackDrawable">@drawable/gm__fastscroll_track</item>
+
+        <item name="android:preferenceCategoryStyle">@style/Preference.GreenMatter.Category</item>
+
+        <item name="android:calendarViewStyle">@style/Widget.GreenMatter.CalendarView</item>
+
+        <item name="actionModeBackground">@drawable/gm__cab_background_top</item>
+
+        <item name="toolbarNavigationButtonStyle">@style/Widget.GreenMatter.Toolbar.Button.Navigation</item>
+
+        <!-- ActionBar specific theme -->
+        <item name="actionBarTheme">@style/Theme.GreenMatter.Light.ActionBar</item>
+        <item name="android:actionBarWidgetTheme">@style/Theme.GreenMatter.Light.ActionBar</item>
 
         <!-- Duplicate attributes for ActionBarCompat -->
         <item name="actionBarItemBackground">@drawable/gm__circle_indicator</item>
@@ -207,74 +361,29 @@
         <item name="android:borderlessButtonStyle">@style/Widget.GreenMatter.Button.Alert</item>
     </style>
 
+    <style name="Theme.GreenMatter.Light.Dialog.Alert">
+        <item name="android:windowBackground">@drawable/gm__dialog_background_light</item>
+        <item name="android:windowTitleStyle">@style/DialogWindowTitle.Alert</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowMinWidthMajor">@android:dimen/dialog_min_width_major</item>
+        <item name="android:windowMinWidthMinor">@android:dimen/dialog_min_width_minor</item>
+
+        <item name="android:buttonBarStyle">@style/GreenMatter.ButtonBar.AlertDialog</item>
+
+        <item name="android:listDivider">@null</item>
+        <item name="android:dividerVertical">@null</item>
+        <item name="android:dividerHorizontal">@null</item>
+        <item name="android:selectableItemBackground">@drawable/gm__selectable_item_background</item>
+
+        <item name="android:borderlessButtonStyle">@style/Widget.GreenMatter.Button.Alert</item>
+    </style>
+
     <!-- Theme for the ActionBar (round indicator for up icon) -->
     <style name="Theme.GreenMatter.ActionBar">
         <item name="android:selectableItemBackground">@drawable/gm__circle_indicator</item>
     </style>
-
-    <!-- Default themes -->
-    <style name="Base.Theme.GreenMatter" parent="Theme.AppCompat">
-        <item name="colorPrimary">@color/gm__primary</item>
-        <item name="colorPrimaryDark">@color/gm__primary_dark</item>
-        <item name="colorAccent">@color/gm__accent</item>
-        <item name="colorControlNormal">@color/gm__control_normal</item>
-        <item name="colorControlActivated">@color/gm__control_activated</item>
-        <item name="colorControlHighlight">@color/gm__control_highlighted</item>
-        <item name="colorSwitchThumbNormal">@color/gm__switch_thumb_normal</item>
-
-        <item name="android:disabledAlpha">0.30</item>
-
-        <item name="matColorPrimary">@color/gm__default_primary</item>
-        <item name="matColorPrimaryDark">@color/gm__default_primary_dark</item>
-        <item name="matColorAccent">@color/gm__default_accent</item>
-
-        <item name="matColorControlNormal">?android:attr/textColorSecondary</item>
-        <item name="matColorControlActivated">?attr/matColorAccent</item>
-        <item name="matColorControlHighlight">@color/ripple_material_dark</item>
-        <item name="matColorButtonNormal">@color/button_material_dark</item>
-        <item name="matColorSwitchThumbNormal">@color/switch_thumb_normal_material_dark</item>
-        <item name="matColorEdgeEffect">@color/gm__default_accent</item>
-
-        <item name="actionBarStyle">@style/Widget.GreenMatter.ActionBar.Solid</item>
-        <item name="switchStyle">@style/Widget.GreenMatter.CompoundButton.Switch</item>
-
-        <item name="android:dialogTheme">@style/Theme.GreenMatter.Dialog</item>
-        <item name="android:alertDialogTheme">@style/Theme.GreenMatter.Dialog.Alert</item>
-
-        <item name="dialogTheme">@style/Theme.GreenMatter.Dialog</item>
-        <item name="alertDialogTheme">@style/Theme.GreenMatter.Dialog.Alert</item>
-    </style>
-
-    <style name="Base.Theme.GreenMatter.Dialog" parent="Theme.AppCompat.Dialog">
-        <item name="colorPrimary">@color/gm__primary</item>
-        <item name="colorPrimaryDark">@color/gm__primary_dark</item>
-        <item name="colorAccent">@color/gm__accent</item>
-        <item name="colorControlNormal">@color/gm__control_normal</item>
-        <item name="colorControlActivated">@color/gm__control_activated</item>
-        <item name="colorControlHighlight">@color/gm__control_highlighted</item>
-        <item name="colorSwitchThumbNormal">@color/gm__switch_thumb_normal</item>
-
-        <item name="android:disabledAlpha">0.30</item>
-
-        <item name="matColorPrimary">@color/gm__default_primary</item>
-        <item name="matColorPrimaryDark">@color/gm__default_primary_dark</item>
-        <item name="matColorAccent">@color/gm__default_accent</item>
-
-        <item name="matColorControlNormal">?android:attr/textColorSecondary</item>
-        <item name="matColorControlActivated">?attr/matColorAccent</item>
-        <item name="matColorControlHighlight">@color/ripple_material_dark</item>
-        <item name="matColorButtonNormal">@color/button_material_dark</item>
-        <item name="matColorSwitchThumbNormal">@color/switch_thumb_normal_material_dark</item>
-        <item name="matColorEdgeEffect">@color/gm__default_accent</item>
-
-        <item name="actionBarStyle">@style/Widget.GreenMatter.ActionBar.Solid</item>
-        <item name="switchStyle">@style/Widget.GreenMatter.CompoundButton.Switch</item>
-
-        <item name="android:dialogTheme">@style/Theme.GreenMatter.Dialog</item>
-        <item name="android:alertDialogTheme">@style/Theme.GreenMatter.Dialog.Alert</item>
-
-        <item name="dialogTheme">@style/Theme.GreenMatter.Dialog</item>
-        <item name="alertDialogTheme">@style/Theme.GreenMatter.Dialog.Alert</item>
+    <style name="Theme.GreenMatter.Light.ActionBar">
+        <item name="android:selectableItemBackground">@drawable/gm__circle_indicator</item>
     </style>
 
 </resources>
