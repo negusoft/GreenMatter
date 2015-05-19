@@ -15,15 +15,12 @@
  ******************************************************************************/
 package com.negusoft.greenmatter.interceptor.drawable;
 
-import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 
 import com.negusoft.greenmatter.MatPalette;
 import com.negusoft.greenmatter.MatResources;
-import com.negusoft.greenmatter.R;
-import com.negusoft.greenmatter.drawable.UnderlineDrawable;
 import com.negusoft.greenmatter.util.NativeResources;
 
 public class OverScrollDrawableIterceptorProvider {
@@ -34,26 +31,17 @@ public class OverScrollDrawableIterceptorProvider {
     public static void setupInterceptors(DrawableInterceptorHelper helper) {
         int edgeId = NativeResources.getDrawableIdentifier(RESOURCE_NAME_EDGE);
         int glowId = NativeResources.getDrawableIdentifier(RESOURCE_NAME_GLOW);
-        helper.putInterceptor(edgeId, new TintedDrawableIterceptor(edgeId));
-        helper.putInterceptor(glowId, new TintedDrawableIterceptor(glowId));
+        helper.putInterceptor(edgeId, new TintedDrawableIterceptor());
+        helper.putInterceptor(glowId, new TintedDrawableIterceptor());
     }
 
     private static class TintedDrawableIterceptor implements DrawableInterceptor {
 
-        private final int mDrawableId;
-        private Drawable mCachedDrawable;
-
-        TintedDrawableIterceptor(int drawableId) {
-            mDrawableId = drawableId;
-        }
-
         @Override
         public Drawable getDrawable(Resources res, MatPalette palette, int resId) {
-            if (mCachedDrawable == null) {
-                mCachedDrawable = ((MatResources)res).getOriginalDrawable(resId);
-                mCachedDrawable.setColorFilter(palette.getColorAccent(), PorterDuff.Mode.MULTIPLY);
-            }
-            return mCachedDrawable;
+            Drawable drawable =  ((MatResources)res).getOriginalDrawable(resId);
+            drawable.setColorFilter(palette.getColorAccent(), PorterDuff.Mode.SRC_IN);
+            return drawable;
         }
     }
 
