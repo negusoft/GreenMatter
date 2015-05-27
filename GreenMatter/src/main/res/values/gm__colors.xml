@@ -16,9 +16,13 @@
 -->
 <resources>
 
-    <color name="gm__default_primary">#ff212121</color>
-    <color name="gm__default_primary_dark">#ff000000</color>
-    <color name="gm__default_accent">#ff80cbc4</color>
+    <color name="gm__default_primary">@color/primary_material_dark</color>
+    <color name="gm__default_primary_light">@color/primary_material_light</color>
+    <color name="gm__default_primary_dark">@color/primary_dark_material_dark</color>
+    <color name="gm__default_primary_dark_light">@color/primary_dark_material_light</color>
+
+    <color name="gm__default_accent">@color/material_deep_teal_200</color>
+    <color name="gm__default_accent_light">@color/material_deep_teal_500</color>
 
     <color name="gm__background_default_dark">#ff303030</color>
     <color name="gm__background_default_light">#ffeeeeee</color>

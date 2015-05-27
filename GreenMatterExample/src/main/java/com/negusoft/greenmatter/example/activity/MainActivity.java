@@ -15,9 +15,12 @@ import com.negusoft.greenmatter.MatPalette;
 import com.negusoft.greenmatter.activity.MatActivity;
 import com.negusoft.greenmatter.example.R;
 import com.negusoft.greenmatter.example.activity.variants.PreferencesActivityLight;
+import com.negusoft.greenmatter.example.activity.variants.PreferencesActivityLightDarkActionBar;
 import com.negusoft.greenmatter.example.activity.variants.SpinnerActivityLight;
 import com.negusoft.greenmatter.example.activity.variants.TabbedActivityLight;
+import com.negusoft.greenmatter.example.activity.variants.TabbedActivityLightDarkActionBar;
 import com.negusoft.greenmatter.example.activity.variants.TabbedStripActivityLight;
+import com.negusoft.greenmatter.example.activity.variants.TabbedStripActivityLightDarkActionBar;
 import com.negusoft.greenmatter.example.util.ColorOverrider;
 
 public class MainActivity extends MatActivity {
@@ -28,7 +31,7 @@ public class MainActivity extends MatActivity {
             "Showcase (tabs)", "Showcase (tab strip)", "Preferences", "Dialog" };
 
     private static final String[] THEMES_DEFAULT = new String[] {
-            "Default (Dark)", "Light"
+            "Default (Dark)", "Light", "Light - Dark ActionBar"
     };
     private static final String[] THEMES_DIALOG = new String[] {
             "Default (Dark)", "Light"
@@ -139,6 +142,8 @@ public class MainActivity extends MatActivity {
                 return new Intent(this, TabbedActivity.class);
             case 1: // Light
                 return new Intent(this, TabbedActivityLight.class);
+            case 2: // Light - Dark ActionBar
+                return new Intent(this, TabbedActivityLightDarkActionBar.class);
         }
         throw new RuntimeException("Invalid theme selected");
     }
@@ -149,6 +154,8 @@ public class MainActivity extends MatActivity {
                 return new Intent(this, TabbedStripActivity.class);
             case 1: // Light
                 return new Intent(this, TabbedStripActivityLight.class);
+            case 2: // Light - Dark ActionBar
+                return new Intent(this, TabbedStripActivityLightDarkActionBar.class);
         }
         throw new RuntimeException("Invalid theme selected");
     }
@@ -159,6 +166,8 @@ public class MainActivity extends MatActivity {
                 return new Intent(this, PreferencesActivity.class);
             case 1: // Light
                 return new Intent(this, PreferencesActivityLight.class);
+            case 2: // Light - Dark ActionBar
+                return new Intent(this, PreferencesActivityLightDarkActionBar.class);
         }
         throw new RuntimeException("Invalid theme selected");
     }

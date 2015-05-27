@@ -61,9 +61,9 @@
 
         <item name="android:disabledAlpha">0.30</item>
 
-        <item name="matColorPrimary">@color/gm__default_primary</item>
-        <item name="matColorPrimaryDark">@color/gm__default_primary_dark</item>
-        <item name="matColorAccent">@color/gm__default_accent</item>
+        <item name="matColorPrimary">@color/gm__default_primary_light</item>
+        <item name="matColorPrimaryDark">@color/gm__default_primary_dark_light</item>
+        <item name="matColorAccent">@color/gm__default_accent_light</item>
 
         <item name="matColorControlNormal">?android:attr/textColorSecondary</item>
         <item name="matColorControlActivated">?attr/matColorAccent</item>

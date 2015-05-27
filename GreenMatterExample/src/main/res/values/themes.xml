@@ -11,6 +11,11 @@
         <item name="matColorPrimaryDark">@color/primarydark_light</item>
         <item name="matColorAccent">@color/accent</item>
     </style>
+    <style name="AppTheme.Light.DarkActionBar" parent="Theme.GreenMatter.Light.DarkActionBar">
+        <item name="matColorPrimary">@color/primary</item>
+        <item name="matColorPrimaryDark">@color/primarydark</item>
+        <item name="matColorAccent">@color/accent</item>
+    </style>
 
     <style name="AppTheme.NoActionBar">
         <item name="android:windowActionBar">false</item>
@@ -19,6 +24,12 @@
         <item name="windowNoTitle">true</item>
     </style>
     <style name="AppTheme.Light.NoActionBar">
+        <item name="android:windowActionBar">false</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="AppTheme.Light.DarkActionBar.NoActionBar">
         <item name="android:windowActionBar">false</item>
         <item name="windowActionBar">false</item>
         <item name="android:windowNoTitle">true</item>
