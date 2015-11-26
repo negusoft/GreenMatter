@@ -4,6 +4,13 @@
  - Web: http://www.negusoft.com
 
 
+**IMPORTANT!!!!**
+
+**THIS LIB DOESN'T WORK ON ANDROID M AND ITS USE IS DISCOURAGED!**
+
+More precisely, the color overriding at runtime is not working. There is no fix found at the moment. The future of the library is uncertain, although it might be forked to become an enhancement to the material theme backport (without the color overriding feature).
+
+
 Description
 ===========
 
