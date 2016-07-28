@@ -7,7 +7,11 @@
 Description
 ===========
 
-Android library to backport Material design and allow changing colors at run-time. It supports Android 4.0+ (minSdkVersion="14").
+Android library to backport Material design and allow changing colors at run-time. It supports Android ICS 4.0 (API 14) as a minimum up to Android Lollipop 5.+ (API 22).
+
+**PLEASE NOTE: This library does not work on Android Marshmallow 6.0+ (API 23)**
+
+For more information on this please see [this relevant issue](https://github.com/negusoft/GreenMatter/issues/14)
 
 The project is in early development stage but the core functionality is already available. See the 'Getting Started' for more information.
 
