@@ -21,7 +21,7 @@ The project is in early development stage but the core functionality is already 
 
 Features
 ========
-- Theme.GreenMatter theme availabe for Android ICS and newer
+- Theme.GreenMatter theme available for Android ICS and newer
 - Define colors in theme: colorPrimary, colorAccent, colorControlActivated...
 - Programmatically override the colors at runtime
 - Colored buttons by simply specifying the button color
